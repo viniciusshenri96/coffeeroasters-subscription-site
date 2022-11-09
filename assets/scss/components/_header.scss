@@ -1,0 +1,26 @@
+@use "../abstracts/functions" as *;
+@use "../core/typography" as *;
+@use "../abstracts/mixins" as *;
+
+/* INDEX */
+@mixin header {
+  @include container;
+  padding-top: rem(44);
+  padding-bottom: rem(44);
+  display: flex;
+  justify-content: space-between;
+
+  &__list {
+    display: flex;
+    gap: rem(33);
+
+    .header__link {
+      @include font-body-s;
+      transition: 0.4s;
+
+      &:hover {
+        color: #333d4b;
+      }
+    }
+  }
+}

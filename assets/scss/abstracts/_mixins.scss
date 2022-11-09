@@ -1,4 +1,4 @@
-@use "../abstracts/functions" as *;
+@use "functions" as *;
 
 @mixin container {
   max-width: rem(1190);

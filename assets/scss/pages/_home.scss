@@ -1,7 +1,9 @@
-@use "../core/typography";
+@use "../abstracts/functions" as *;
+@use "../components/header" as *;
 @use "../abstracts/mixins" as *;
 
-/* INDEX */
+/* HEADER */
 .header {
   @include container;
+  @include header;
 }
