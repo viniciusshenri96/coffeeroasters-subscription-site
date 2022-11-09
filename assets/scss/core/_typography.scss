@@ -8,12 +8,12 @@
 }
 
 @mixin font-l {
-  font: var(--fw-black) $fz-l / var(--lh-xl) $font-1;
-  color: var(--color-darkGreyBlue);
+  font: var(--fw-black) $fz-l / var(--lh-l) $font-2;
+  color: var(--color-lightCream);
 }
 
 @mixin font-m {
-  font: var(--fw-black) $fz-m / var(--lh-xl) $font-1;
+  font: var(--fw-black) $fz-m / var(--lh-l) $font-1;
   color: var(--color-darkGreyBlue);
 }
 
@@ -29,8 +29,9 @@
 
 // Body
 @mixin font-body-m {
-  font: var(--fw-regular) $fz-body-m / var(--lh-body-m) $font-2;
-  color: var(--color-darkGreyBlue);
+  font: var(--fw-regular) $fz-body-m / var(--lh-body-m) $font-1;
+  color: var(--color-lightCream);
+  opacity: 0.8;
 }
 
 @mixin font-body-s {

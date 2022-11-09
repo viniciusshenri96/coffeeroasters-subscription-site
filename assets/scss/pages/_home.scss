@@ -1,9 +1,43 @@
 @use "../abstracts/functions" as *;
 @use "../components/header" as *;
 @use "../abstracts/mixins" as *;
+@use "../core/typography" as *;
 
 /* HEADER */
 .header {
   @include container;
   @include header;
+}
+
+.hero {
+  @include container;
+  margin-bottom: rem(136);
+
+  &__box {
+    height: rem(600);
+    background: url(/assets/img/home/desktop/image-hero-coffeepress.jpg)
+      no-repeat;
+    padding-top: rem(117);
+    padding-left: rem(85);
+    border-radius: rem(10);
+
+    .hero__content {
+      max-width: rem(493);
+
+      .hero__title {
+        @include font-l;
+        margin-bottom: rem(32);
+      }
+
+      .hero__desc {
+        @include font-body-m;
+        margin-bottom: rem(56);
+      }
+
+      .btn--padding {
+        padding-left: rem(31);
+        padding-right: rem(31);
+      }
+    }
+  }
 }
