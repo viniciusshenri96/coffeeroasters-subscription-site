@@ -1,0 +1,98 @@
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  font: var(--fw-black) 1.125rem/var(--lh-button) "Fraunces", serif;
+  color: var(--color-lightCream);
+  padding: 0.9375rem 5.0625rem 1rem 5.0625rem;
+  background-color: var(--color-darkCyan);
+  border-radius: 0.375rem;
+  transition: 0.3s;
+}
+.btn:link:hover,
+.btn:visited:hover {
+  background-color: #66d2cf;
+}
+
+.btn-disable {
+  background-color: #e2dedb !important;
+}
+
+:root {
+  --color-darkCyan: #0e8784;
+  --color-darkGreyBlue: #333dab;
+  --color-paleOrange: #fdd6ba;
+  --color-lightCream: #fefcf7;
+  --color-grey: #83888f;
+  --lh-xl: 0.48;
+  --lh-l: 1;
+  --lh-m: 1.2;
+  --lh-s: 1.12;
+  --lh-xs: 1.33;
+  --lh-body-m: 1.62;
+  --lh-body-s: 1.25;
+  --lh-button: 1.39;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* better for people who browse with the keyboard and know where they are on the site, so I set a different style, making it more visible, taking it from the default.
+ */
+*:focus,
+*:focus-visible {
+  outline: #646464 dotted 4px;
+  outline-offset: 4px;
+}
+
+ul {
+  list-style: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+*::before,
+*::after {
+    background-attachment: initial !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-animation-delay: -1ms !important;
+    animation-delay: -1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+html {
+  overflow-x: hidden;
+}
+
+body {
+  line-height: 1.5;
+  /* improves text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/*# sourceMappingURL=style.css.map */

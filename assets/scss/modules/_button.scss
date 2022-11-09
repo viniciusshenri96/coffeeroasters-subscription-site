@@ -1,0 +1,20 @@
+@use "../abstracts/functions" as *;
+@use "../core/typography" as *;
+
+.btn:link,
+.btn:visited {
+  display: inline-block;
+  @include font-button;
+  padding: rem(15) rem(81) rem(16) rem(81);
+  background-color: var(--color-darkCyan);
+  border-radius: rem(6);
+  transition: 0.3s;
+
+  &:hover {
+    background-color: #66d2cf;
+  }
+}
+
+.btn-disable {
+  background-color: #e2dedb !important;
+}

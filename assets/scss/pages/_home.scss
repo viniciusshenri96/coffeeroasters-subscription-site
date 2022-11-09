@@ -1,0 +1,7 @@
+@use "../core/typography";
+@use "../abstracts/mixins" as *;
+
+/* INDEX */
+.header {
+  @include container;
+}

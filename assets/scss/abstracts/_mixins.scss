@@ -1,0 +1,7 @@
+@use "../abstracts/functions" as *;
+
+@mixin container {
+  max-width: rem(1190);
+  padding: 0 rem(40);
+  margin: 0 auto;
+}
