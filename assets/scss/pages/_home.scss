@@ -1,5 +1,6 @@
 @use "../abstracts/functions" as *;
 @use "../components/header" as *;
+@use "../components/footer" as *;
 @use "../abstracts/mixins" as *;
 @use "../core/typography" as *;
 
@@ -105,6 +106,7 @@
   }
 }
 
+/* BENEFITS */
 .benefits {
   @include container;
   height: rem(728);
@@ -168,6 +170,7 @@
   }
 }
 
+/* BENEFITS */
 .works {
   @include container;
   margin-bottom: rem(200);
@@ -236,4 +239,9 @@
     padding-right: rem(31);
     margin-left: rem(85);
   }
+}
+
+/* FOOTER */
+.footer {
+  @include footer;
 }

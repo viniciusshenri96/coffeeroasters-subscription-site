@@ -95,7 +95,7 @@ body {
   background-color: #e2dedb !important;
 }
 
-/* INDEX */
+/* INDEX */ /* INDEX */
 /* HEADER */
 .header {
   max-width: 85rem;
@@ -209,6 +209,7 @@ body {
   color: var(--color-darkGreyBlue);
 }
 
+/* BENEFITS */
 .benefits {
   max-width: 85rem;
   padding: 0 2.5rem;
@@ -271,6 +272,7 @@ body {
   opacity: 0.8;
 }
 
+/* BENEFITS */
 .works {
   max-width: 85rem;
   padding: 0 2.5rem;
@@ -359,6 +361,55 @@ body {
   padding-left: 1.9375rem;
   padding-right: 1.9375rem;
   margin-left: 5.3125rem;
+}
+
+/* FOOTER */
+.footer {
+  max-width: 85rem;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  padding-bottom: 5.5rem;
+}
+.footer__box {
+  padding: 2.9375rem 5.3125rem;
+  background-color: var(--color-darkGreyBlue);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.footer__box svg g path:nth-child(1) {
+  fill: #fff;
+}
+.footer__box .footer__redes {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.footer__box .footer__redes .footer__icon:hover, .footer__box .footer__redes .footer__icon:hover path {
+  fill: var(--color-paleOrange);
+  transition: all 0.4s ease-in-out;
+}
+.footer__nav {
+  max-width: 85rem;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footer__nav .footer__list {
+  display: flex;
+  gap: 2.0625rem;
+}
+.footer__nav .footer__list .footer__link {
+  font: var(--fw-bold) 0.75rem/var(--lh-body-s) "Barlow", sans-serif;
+  color: var(--color-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.92px;
+  font-weight: var(--fw-bold);
+  transition: 0.4s;
+}
+.footer__nav .footer__list .footer__link:hover {
+  color: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */
