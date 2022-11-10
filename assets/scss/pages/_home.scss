@@ -52,7 +52,7 @@
   display: grid;
   height: rem(525);
 
-  .collection__title {
+  &__title {
     width: rem(1072);
     height: rem(196);
     @include font-xl;
@@ -100,6 +100,69 @@
       .collection__desc {
         @include font-body-m;
         color: var(--color-darkGreyBlue);
+      }
+    }
+  }
+}
+
+.benefits {
+  @include container;
+  height: rem(728);
+  display: grid;
+  align-items: start;
+  margin-bottom: rem(200);
+
+  &__content {
+    height: rem(577);
+    background-color: #282f38;
+    border-radius: rem(10);
+    padding: 0 rem(85) 0 rem(85);
+    display: grid;
+    row-gap: rem(86);
+
+    .benefits__info {
+      justify-self: center;
+      display: grid;
+      row-gap: rem(32);
+      max-width: rem(527);
+      text-align: center;
+
+      .benefits__title {
+        @include font-m;
+        color: var(--color-lightCream);
+        padding-top: rem(100);
+      }
+
+      .benefits__desc {
+        @include font-body-m;
+        opacity: 0.8;
+      }
+    }
+
+    .benefits__list {
+      display: flex;
+      gap: rem(30);
+      text-align: center;
+
+      .benefits__item {
+        max-width: rem(350);
+        background-color: var(--color-darkCyan);
+        border-radius: rem(8);
+        padding: rem(72) rem(48) rem(48) rem(47);
+
+        svg {
+          margin-bottom: rem(56);
+        }
+
+        .benefits__subtitle {
+          @include font-xs;
+          color: var(--color-lightCream);
+          margin-bottom: rem(24);
+        }
+
+        .benefits__desc {
+          @include font-body-m;
+        }
       }
     }
   }

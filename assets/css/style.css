@@ -165,7 +165,7 @@ body {
   display: grid;
   height: 32.8125rem;
 }
-.collection .collection__title {
+.collection__title {
   width: 67rem;
   height: 12.25rem;
   font: var(--fw-black) 9.375rem/var(--lh-xl) "Fraunces", serif;
@@ -207,6 +207,68 @@ body {
   color: var(--color-lightCream);
   opacity: 0.8;
   color: var(--color-darkGreyBlue);
+}
+
+.benefits {
+  max-width: 85rem;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  height: 45.5rem;
+  display: grid;
+  align-items: start;
+  margin-bottom: 12.5rem;
+}
+.benefits__content {
+  height: 36.0625rem;
+  background-color: #282f38;
+  border-radius: 0.625rem;
+  padding: 0 5.3125rem 0 5.3125rem;
+  display: grid;
+  row-gap: 5.375rem;
+}
+.benefits__content .benefits__info {
+  justify-self: center;
+  display: grid;
+  row-gap: 2rem;
+  max-width: 32.9375rem;
+  text-align: center;
+}
+.benefits__content .benefits__info .benefits__title {
+  font: var(--fw-black) 2.5rem/var(--lh-l) "Fraunces", serif;
+  color: var(--color-darkGreyBlue);
+  color: var(--color-lightCream);
+  padding-top: 6.25rem;
+}
+.benefits__content .benefits__info .benefits__desc {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
+  opacity: 0.8;
+}
+.benefits__content .benefits__list {
+  display: flex;
+  gap: 1.875rem;
+  text-align: center;
+}
+.benefits__content .benefits__list .benefits__item {
+  max-width: 21.875rem;
+  background-color: var(--color-darkCyan);
+  border-radius: 0.5rem;
+  padding: 4.5rem 3rem 3rem 2.9375rem;
+}
+.benefits__content .benefits__list .benefits__item svg {
+  margin-bottom: 3.5rem;
+}
+.benefits__content .benefits__list .benefits__item .benefits__subtitle {
+  font: var(--fw-black) 1.5rem/var(--lh-xs) "Fraunces", serif;
+  color: var(--color-darkGreyBlue);
+  color: var(--color-lightCream);
+  margin-bottom: 1.5rem;
+}
+.benefits__content .benefits__list .benefits__item .benefits__desc {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */
