@@ -5,4 +5,15 @@
   padding: 0 rem(40);
   margin: 0 auto;
 }
-@debug rem(1360);
+
+@mixin circle($left) {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  border-radius: 100px;
+  border: 1px solid var(--color-darkCyan);
+  background-color: var(--color-lightCream);
+  top: 0;
+  left: #{$left + "%"};
+  transform: translate(-50%, -50%);
+}
