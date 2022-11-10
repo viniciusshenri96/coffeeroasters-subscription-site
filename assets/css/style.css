@@ -1,6 +1,6 @@
 :root {
   --color-darkCyan: #0e8784;
-  --color-darkGreyBlue: #333dab;
+  --color-darkGreyBlue: #333d4b;
   --color-paleOrange: #fdd6ba;
   --color-lightCream: #fefcf7;
   --color-grey: #83888f;
@@ -98,10 +98,7 @@ body {
 /* INDEX */
 /* HEADER */
 .header {
-  max-width: 74.375rem;
-  padding: 0 2.5rem;
-  margin: 0 auto;
-  max-width: 74.375rem;
+  max-width: 85rem;
   padding: 0 2.5rem;
   margin: 0 auto;
   padding-top: 2.75rem;
@@ -114,18 +111,20 @@ body {
   gap: 2.0625rem;
 }
 .header__list .header__link {
-  font: var(--fw-regular) 0.75rem/var(--lh-body-m) "Fraunces", serif;
+  font: var(--fw-bold) 0.75rem/var(--lh-body-s) "Barlow", sans-serif;
   color: var(--color-grey);
   text-transform: uppercase;
   letter-spacing: 0.92px;
+  font-weight: var(--fw-bold);
   transition: 0.4s;
 }
 .header__list .header__link:hover {
   color: #333d4b;
 }
 
+/* HERO */
 .hero {
-  max-width: 74.375rem;
+  max-width: 85rem;
   padding: 0 2.5rem;
   margin: 0 auto;
   margin-bottom: 8.5rem;
@@ -150,10 +149,64 @@ body {
   color: var(--color-lightCream);
   opacity: 0.8;
   margin-bottom: 3.5rem;
+  max-width: 45ch;
 }
 .hero__box .hero__content .btn--padding {
   padding-left: 1.9375rem;
   padding-right: 1.9375rem;
+}
+
+/* COLLECTION */
+.collection {
+  max-width: 72.0625rem;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  margin-bottom: 12.5rem;
+  display: grid;
+  height: 32.8125rem;
+}
+.collection .collection__title {
+  width: 67rem;
+  height: 12.25rem;
+  font: var(--fw-black) 9.375rem/var(--lh-xl) "Fraunces", serif;
+  color: var(--color-grey);
+  text-transform: lowercase;
+  background-image: linear-gradient(to top, rgba(254, 252, 247, 0.0001) 0%, #979797 100%);
+  color: #83888f;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  grid-area: 1/-1;
+  justify-self: center;
+  padding-top: 5.375rem;
+}
+.collection__list {
+  grid-area: 1/-1;
+  padding-top: 7.875rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.875rem;
+}
+.collection__list .collection__item {
+  width: 16rem;
+  text-align: center;
+  display: grid;
+}
+.collection__list .collection__item .collection__img {
+  width: 15.9375rem;
+  height: 12.0625rem;
+  margin-bottom: 4.5rem;
+}
+.collection__list .collection__item .collection__subtitle {
+  font: var(--fw-black) 1.5rem/var(--lh-xs) "Fraunces", serif;
+  color: var(--color-darkGreyBlue);
+  margin-bottom: 1.5rem;
+}
+.collection__list .collection__item .collection__desc {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
+  color: var(--color-darkGreyBlue);
 }
 
 /*# sourceMappingURL=style.css.map */

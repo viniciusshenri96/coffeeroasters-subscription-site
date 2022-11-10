@@ -16,6 +16,7 @@
 
     .header__link {
       @include font-body-s;
+      font-weight: var(--fw-bold);
       transition: 0.4s;
 
       &:hover {
