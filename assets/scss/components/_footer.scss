@@ -18,6 +18,9 @@
     align-items: flex-start;
     justify-content: space-between;
 
+    & g path:nth-child(1) {
+      fill: #fff;
+    }
     @include screen-1070 {
       padding-top: rem(54);
       padding-bottom: rem(54);
@@ -26,10 +29,21 @@
     @include screen-1070 {
       flex-direction: column;
       align-items: center;
+
+      .footer__logo {
+        & g path:nth-child(1) {
+          fill: #fff;
+        }
+      }
     }
 
-    svg g path:nth-child(1) {
-      fill: #fff;
+    @include screen-660 {
+      padding: rem(54);
+      .footer__logo {
+        & g path:nth-child(1) {
+          fill: #fff;
+        }
+      }
     }
 
     .footer__redes {
@@ -39,6 +53,10 @@
 
       @include screen-1070 {
         padding-top: rem(65);
+      }
+
+      @include screen-660 {
+        padding-top: rem(49);
       }
 
       .footer__icon {
@@ -62,6 +80,13 @@
 
       @include screen-1070 {
         padding-top: rem(32);
+      }
+
+      @include screen-660 {
+        flex-direction: column;
+        text-align: center;
+        gap: rem(24);
+        padding-top: rem(48);
       }
 
       .footer__link {

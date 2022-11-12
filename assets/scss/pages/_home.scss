@@ -14,6 +14,14 @@
   @include container;
   margin-bottom: rem(136);
 
+  @include screen-880 {
+    margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    margin-bottom: rem(120);
+  }
+
   &__box {
     height: rem(600);
     background: url(/assets/img/home/desktop/image-hero-coffeepress.jpg)
@@ -32,11 +40,23 @@
       padding-left: rem(58);
     }
 
+    @include screen-660 {
+      padding: rem(100) rem(24);
+      background: url(/assets/img/home/mobile/image-hero-coffeepress.jpg)
+        no-repeat;
+      background-size: cover;
+    }
+
     .hero__content {
       max-width: rem(493);
 
       @include screen-880 {
         max-width: rem(398);
+      }
+
+      @include screen-660 {
+        max-width: 100%;
+        text-align: center;
       }
 
       .hero__title {
@@ -45,6 +65,12 @@
 
         @include screen-880 {
           font-size: rem(48);
+        }
+
+        @include screen-660 {
+          font-size: rem(40);
+          line-height: 1;
+          margin-bottom: rem(24);
         }
       }
 
@@ -56,6 +82,11 @@
         @include screen-880 {
           font-size: rem(15);
           line-height: 1.67;
+        }
+
+        @include screen-660 {
+          max-width: 100%;
+          margin-bottom: rem(39);
         }
       }
 
@@ -78,6 +109,11 @@
   @include screen-1070 {
     height: rem(927);
     margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    height: auto;
+    margin-bottom: rem(120);
   }
 
   &__title {
@@ -109,6 +145,18 @@
       font-size: rem(96);
       line-height: 0.75;
     }
+
+    @include screen-765 {
+      font-size: rem(80);
+    }
+
+    @include screen-660 {
+      padding-top: 0;
+      font-size: rem(40);
+      line-height: 1.8;
+      height: rem(72);
+      margin-bottom: rem(13);
+    }
   }
 
   &__list {
@@ -130,6 +178,18 @@
       align-content: center;
     }
 
+    @include screen-660 {
+      padding-top: 0;
+      grid-area: initial;
+      gap: rem(48);
+    }
+
+    @include screen-660 {
+      grid-template-columns: 1fr;
+      width: 100%;
+      height: auto;
+    }
+
     .collection__item {
       width: rem(255);
       text-align: center;
@@ -143,11 +203,24 @@
         grid-template-columns: 1fr 1fr;
       }
 
+      @include screen-660 {
+        grid-template-columns: 1fr;
+        row-gap: rem(24);
+        width: 100%;
+        height: auto;
+        justify-items: center;
+      }
+
       .collection__content {
         @include screen-880 {
           max-width: rem(282);
           height: rem(106);
           padding-top: rem(29);
+        }
+        @include screen-660 {
+          padding-top: 0;
+          text-align: center;
+          height: auto;
         }
       }
 
@@ -156,6 +229,9 @@
 
         @include screen-880 {
           margin-bottom: 0;
+        }
+        @include screen-660 {
+          height: rem(151);
         }
       }
 
@@ -189,6 +265,12 @@
     height: rem(863);
     margin-bottom: rem(144);
   }
+
+  @include screen-660 {
+    height: rem(1526);
+    margin-bottom: rem(120);
+  }
+
   &__content {
     height: rem(577);
     background-color: #282f38;
@@ -203,12 +285,22 @@
       row-gap: rem(70);
     }
 
+    @include screen-660 {
+      height: rem(902);
+      padding: 0 rem(24) 0 rem(24);
+      row-gap: rem(64);
+    }
+
     .benefits__info {
       justify-self: center;
       display: grid;
       row-gap: rem(32);
       max-width: rem(527);
       text-align: center;
+
+      @include screen-660 {
+        row-gap: rem(24);
+      }
 
       .benefits__title {
         @include font-m;
@@ -218,11 +310,21 @@
         @include screen-1070 {
           padding-top: rem(56);
         }
+
+        @include screen-660 {
+          padding-top: rem(64);
+          font-size: rem(28);
+          line-height: 1;
+        }
       }
 
       .benefits__desc {
         @include font-body-m;
         opacity: 0.8;
+
+        @include screen-660 {
+          max-width: 100%;
+        }
       }
     }
 
@@ -251,6 +353,12 @@
           padding: rem(41) rem(48) rem(41) rem(70);
         }
 
+        @include screen-660 {
+          flex-direction: column;
+          text-align: center;
+          padding: rem(72) rem(12) rem(51) rem(12);
+        }
+
         &-content {
           @include screen-1070 {
             max-width: rem(344);
@@ -264,6 +372,9 @@
             margin: 0;
             height: 56px;
           }
+          @include screen-660 {
+            height: rem(72);
+          }
         }
 
         .benefits__subtitle {
@@ -274,6 +385,9 @@
           @include screen-1070 {
             margin-bottom: rem(16);
           }
+          @include screen-660 {
+            margin-bottom: rem(24);
+          }
         }
 
         .benefits__desc {
@@ -282,6 +396,10 @@
           @include screen-1070 {
             font-size: rem(15);
             line-height: 1.67;
+            max-width: 100%;
+          }
+          @include screen-660 {
+            max-width: rem(212);
           }
         }
       }
@@ -296,6 +414,10 @@
 
   @include screen-880 {
     margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    text-align: center;
   }
 
   &__content {
@@ -313,6 +435,10 @@
       @include screen-1070 {
         margin-bottom: rem(59);
       }
+
+      @include screen-660 {
+        margin-bottom: rem(80);
+      }
     }
 
     .works__details {
@@ -325,6 +451,10 @@
 
       @include screen-1070 {
         margin-bottom: rem(58);
+      }
+
+      @include screen-660 {
+        display: none;
       }
 
       @include screen-1070 {
@@ -347,14 +477,11 @@
 
   &__list {
     padding-left: rem(85);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+
+    // grid-template-columns: repeat(3, 1fr);
     gap: rem(95);
     margin-bottom: rem(64);
-
-    @include screen-1070 {
-      // max-width: rem(769);
-    }
 
     @include screen-1070 {
       padding-left: 0;
@@ -362,14 +489,24 @@
       margin-bottom: rem(44);
     }
 
+    @include screen-765 {
+      flex-wrap: wrap;
+    }
+
+    @include screen-660 {
+      flex-direction: column;
+      align-items: center;
+    }
+
     .works__item {
       width: 285px;
 
       @include screen-1070 {
         width: 223px;
+      }
 
-        // flex: 1;
-        // height: rem(371);
+      @include screen-660 {
+        width: 100%;
       }
 
       .works__number {
@@ -380,6 +517,12 @@
 
         @include screen-1070 {
           margin-bottom: rem(42);
+        }
+
+        @include screen-660 {
+          font-size: rem(72);
+          line-height: 1;
+          margin-bottom: rem(24);
         }
       }
 
@@ -392,6 +535,10 @@
           font-size: rem(28);
           line-height: 1.14;
           margin-bottom: rem(38);
+        }
+
+        @include screen-660 {
+          max-width: 100%;
         }
       }
 

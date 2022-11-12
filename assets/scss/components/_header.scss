@@ -5,14 +5,19 @@
 /* INDEX */
 @mixin header {
   @include container;
-  padding-top: rem(44);
-  padding-bottom: rem(44);
   display: flex;
   justify-content: space-between;
+  padding-top: rem(44);
+  padding-bottom: rem(44);
   position: relative;
 
   @include screen-660 {
     padding-top: rem(32);
+
+    &__logo {
+      max-width: rem(163);
+      margin-bottom: rem(40);
+    }
   }
 
   &__nav {
@@ -21,15 +26,20 @@
       display: none;
       border: none;
       background: none;
-      cursor: pointer;
 
       @include screen-660 {
         display: block;
 
         .close {
-          @include screen-660 {
-            display: none;
-          }
+          display: none;
+        }
+
+        .close.active {
+          display: block;
+        }
+
+        .menu.active {
+          display: none;
         }
       }
     }
@@ -39,23 +49,41 @@
     display: flex;
     gap: rem(33);
 
+    // MENU MOBILE
     @include screen-660 {
-      display: none;
+      flex-direction: column;
+      gap: rem(32);
+      text-align: center;
       position: absolute;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 577px;
       background: linear-gradient(
-        180deg,
+        to top,
         rgba(254, 252, 247, 0.504981) 0%,
         #fefcf7 55.94%
       );
       margin-top: rem(90);
-      padding: 40px 82px;
-      flex-direction: column;
-      text-align: center;
-      gap: 32px;
+      padding: rem(40) rem(82);
+      z-index: 10;
+      display: none;
+
+      &.active {
+        height: rem(577);
+        display: flex;
+        animation: showMenu 1s forwards;
+      }
+
+      @keyframes showMenu {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
     }
 
     .header__link {
@@ -64,17 +92,12 @@
       transition: 0.4s;
 
       @include screen-660 {
-        font-size: 24px;
-        line-height: 32px;
-        font-family: "Fraunces";
-        font-weight: 900;
+        @include font-xs;
         color: var(--color-darkGreyBlue);
-        text-transform: capitalize;
-        white-space: nowrap;
       }
 
       &:hover {
-        color: #333d4b;
+        color: var(--color-darkGreyBlue);
       }
     }
   }
