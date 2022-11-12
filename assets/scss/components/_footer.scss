@@ -7,12 +7,26 @@
   @include container;
   padding-bottom: rem(88);
 
+  @include screen-880 {
+    padding-bottom: rem(72);
+  }
+
   &__box {
     padding: rem(47) rem(85);
     background-color: var(--color-darkGreyBlue);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+
+    @include screen-1070 {
+      padding-top: rem(54);
+      padding-bottom: rem(54);
+    }
+
+    @include screen-1070 {
+      flex-direction: column;
+      align-items: center;
+    }
 
     svg g path:nth-child(1) {
       fill: #fff;
@@ -22,6 +36,10 @@
       display: flex;
       align-items: center;
       gap: rem(24);
+
+      @include screen-1070 {
+        padding-top: rem(65);
+      }
 
       .footer__icon {
         &:hover,
@@ -41,6 +59,10 @@
     .footer__list {
       display: flex;
       gap: rem(33);
+
+      @include screen-1070 {
+        padding-top: rem(32);
+      }
 
       .footer__link {
         @include font-body-s;

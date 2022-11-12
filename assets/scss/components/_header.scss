@@ -9,15 +9,69 @@
   padding-bottom: rem(44);
   display: flex;
   justify-content: space-between;
+  position: relative;
+
+  @include screen-660 {
+    padding-top: rem(32);
+  }
+
+  &__nav {
+    // MENU MOBILE
+    .header__menu-ham {
+      display: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+
+      @include screen-660 {
+        display: block;
+
+        .close {
+          @include screen-660 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
 
   &__list {
     display: flex;
     gap: rem(33);
 
+    @include screen-660 {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 577px;
+      background: linear-gradient(
+        180deg,
+        rgba(254, 252, 247, 0.504981) 0%,
+        #fefcf7 55.94%
+      );
+      margin-top: rem(90);
+      padding: 40px 82px;
+      flex-direction: column;
+      text-align: center;
+      gap: 32px;
+    }
+
     .header__link {
       @include font-body-s;
       font-weight: var(--fw-bold);
       transition: 0.4s;
+
+      @include screen-660 {
+        font-size: 24px;
+        line-height: 32px;
+        font-family: "Fraunces";
+        font-weight: 900;
+        color: var(--color-darkGreyBlue);
+        text-transform: capitalize;
+        white-space: nowrap;
+      }
 
       &:hover {
         color: #333d4b;
