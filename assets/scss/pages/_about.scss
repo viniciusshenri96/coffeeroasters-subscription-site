@@ -37,6 +37,7 @@
 
   &__box {
     display: grid;
+    column-gap: rem(40);
     align-items: center;
     justify-items: start;
     grid-template-columns: 1fr auto;
@@ -69,24 +70,27 @@
   height: rem(562);
   margin-bottom: rem(168);
 
+  @include screen-1070 {
+    height: rem(648);
+  }
+
   &__box {
     height: rem(474);
     padding: rem(88) 0 0 rem(85);
-
+    display: grid;
+    column-gap: rem(40);
+    grid-template-columns: 1fr auto;
     align-self: end;
     border-radius: rem(10);
     position: relative;
+    background: url(../img/about/desktop/bg-quality.png) no-repeat;
 
-    &::after {
-      content: "";
-      display: block;
-      width: rem(1280);
-      height: rem(474);
-      background: url(../img/about/desktop/bg-quality.png) no-repeat;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
+    @include screen-1070 {
+      padding: rem(58);
+      // height: auto;
+      column-gap: rem(15);
+      // grid-template-columns: 1fr;
+      // align-self: start;
     }
 
     .quality__content {
@@ -96,22 +100,86 @@
         @include font-m;
         color: var(--color-lightCream);
         margin-bottom: rem(32);
+
+        @include screen-1070 {
+          font-size: rem(32);
+          line-height: 1.5;
+        }
       }
 
       .quality__desc {
         @include font-body-m;
         max-width: rem(538);
         color: var(--color-lightCream);
+
+        @include screen-1070 {
+          font-size: rem(15);
+          line-height: 1.67;
+        }
       }
     }
   }
 
   &__img-box {
-    justify-self: end;
     padding-right: rem(85);
+    margin-top: rem(-176);
 
     img {
       border-radius: rem(8);
+    }
+
+    @include screen-1070 {
+      padding-right: 0;
+      margin-top: rem(-160);
+      // grid-row: 1;
+
+      img {
+        width: 100%;
+        // height: rem(374);
+        object-fit: cover;
+        object-position: right;
+      }
+    }
+  }
+}
+
+.headquarters {
+  max-width: rem(1190);
+  padding: 0 rem(40);
+  margin: 0 auto rem(168) auto;
+  display: grid;
+
+  &__content {
+    max-width: rem(1045);
+
+    .headquarters__title {
+      @include font-xs;
+      margin-bottom: rem(72);
+      color: var(--color-grey);
+    }
+
+    .headquarters__list {
+      display: flex;
+      gap: rem(95);
+
+      .headquarters__icon {
+        margin-bottom: rem(46);
+      }
+
+      .headquarters__subtitle {
+        @include font-s;
+        margin-bottom: rem(24);
+        color: var(--color-darkGrey);
+      }
+
+      .headquarters__item {
+        @include font-body-m;
+        color: var(--color-darkGrey);
+
+        a {
+          color: inherit;
+        }
+      }
     }
   }
 }
