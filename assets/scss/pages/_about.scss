@@ -71,7 +71,6 @@
 
   &__box {
     height: rem(474);
-    grid-area: 1 / -1;
     padding: rem(88) 0 0 rem(85);
 
     align-self: end;
@@ -108,7 +107,6 @@
   }
 
   &__img-box {
-    grid-area: 1 / -1;
     justify-self: end;
     padding-right: rem(85);
 

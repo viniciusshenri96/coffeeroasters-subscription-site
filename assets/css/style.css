@@ -1005,7 +1005,6 @@ body {
 }
 .quality__box {
   height: 29.625rem;
-  grid-area: 1/-1;
   padding: 5.5rem 0 0 5.3125rem;
   align-self: end;
   border-radius: 0.625rem;
@@ -1039,7 +1038,6 @@ body {
   color: var(--color-lightCream);
 }
 .quality__img-box {
-  grid-area: 1/-1;
   justify-self: end;
   padding-right: 5.3125rem;
 }
