@@ -21,6 +21,7 @@
     & g path:nth-child(1) {
       fill: #fff;
     }
+
     @include screen-1070 {
       padding-top: rem(54);
       padding-bottom: rem(54);

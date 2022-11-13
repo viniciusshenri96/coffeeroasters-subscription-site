@@ -147,6 +147,9 @@ body {
 }
 @media (max-width: 41.25rem) {
   .header__list {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
     position: absolute;
     top: 0;
     left: 0;
@@ -154,9 +157,6 @@ body {
     background: linear-gradient(to top, rgba(254, 252, 247, 0.504981) 0%, #fefcf7 55.94%);
     margin-top: 5.625rem;
     padding: 2.5rem 5.125rem;
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
     z-index: 10;
     display: none;
   }
@@ -186,13 +186,9 @@ body {
 }
 @media (max-width: 41.25rem) {
   .header__list .header__link {
-    font-size: 24px;
-    line-height: 32px;
-    font-family: "Fraunces";
-    font-weight: 900;
+    font: var(--fw-black) 1.5rem/var(--lh-xs) "Fraunces", serif;
     color: var(--color-darkGreyBlue);
-    text-transform: capitalize;
-    white-space: nowrap;
+    color: var(--color-darkGreyBlue);
   }
 }
 .header__list .header__link:hover {
@@ -302,39 +298,33 @@ body {
 
 /* COLLECTION */
 .collection {
-  display: grid;
-  max-width: 72.0625rem;
-  height: 32.8125rem;
+  max-width: 74.375rem;
   padding: 0 2.5rem;
+  display: grid;
   margin: auto auto 12.5rem auto;
-}
-@media (max-width: 71.875rem) {
-  .collection {
-    height: 57.9375rem;
-    margin-bottom: 9rem;
-  }
 }
 @media (max-width: 41.25rem) {
   .collection {
-    height: auto;
     margin-bottom: 7.5rem;
   }
 }
 .collection__title {
-  height: 12.25rem;
   font: var(--fw-black) 9.375rem/var(--lh-xl) "Fraunces", serif;
   color: var(--color-grey);
   text-transform: lowercase;
+  grid-area: 1/-1;
+  justify-self: center;
   background-image: linear-gradient(to top, rgba(254, 252, 247, 0.0001) 0%, #979797 100%);
-  color: #83888f;
+  color: var(--color-grey);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  grid-area: 1/-1;
-  justify-self: center;
+  /*setting height value for linear-gradient to work 100%*/
+  height: 12.25rem;
   padding-top: 5.375rem;
+  z-index: -1;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .collection__title {
     font-size: 6.25rem;
   }
@@ -362,14 +352,12 @@ body {
   }
 }
 .collection__list {
-  max-width: 69.5625rem;
   grid-area: 1/-1;
   padding-top: 7.875rem;
   display: flex;
-  align-items: flex-start;
   gap: 1.875rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .collection__list {
     flex-wrap: wrap;
     justify-content: center;
@@ -403,11 +391,15 @@ body {
 }
 @media (max-width: 55rem) {
   .collection__list .collection__item {
-    align-content: start;
     text-align: left;
-    width: 35.8125rem;
+    width: max-content;
     height: 12.0625rem;
     grid-template-columns: 1fr 1fr;
+  }
+  .collection__list .collection__item .collection__content {
+    max-width: 17.625rem;
+    height: max-content;
+    padding-top: 1.8125rem;
   }
 }
 @media (max-width: 41.25rem) {
@@ -418,15 +410,6 @@ body {
     height: auto;
     justify-items: center;
   }
-}
-@media (max-width: 55rem) {
-  .collection__list .collection__item .collection__content {
-    max-width: 17.625rem;
-    height: 6.625rem;
-    padding-top: 1.8125rem;
-  }
-}
-@media (max-width: 41.25rem) {
   .collection__list .collection__item .collection__content {
     padding-top: 0;
     text-align: center;
@@ -436,13 +419,9 @@ body {
 .collection__list .collection__item .collection__img {
   margin-bottom: 4.5rem;
 }
-@media (max-width: 55rem) {
-  .collection__list .collection__item .collection__img {
-    margin-bottom: 0;
-  }
-}
 @media (max-width: 41.25rem) {
   .collection__list .collection__item .collection__img {
+    margin-bottom: 0;
     height: 9.4375rem;
   }
 }
@@ -470,8 +449,6 @@ body {
   padding: 0 2.5rem;
   margin: 0 auto;
   height: 45.5rem;
-  display: grid;
-  align-items: start;
   margin-bottom: 12.5rem;
 }
 @media (max-width: 41.25rem) {
@@ -479,7 +456,7 @@ body {
     padding: 0 1.5rem;
   }
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits {
     height: 53.9375rem;
     margin-bottom: 9rem;
@@ -499,7 +476,7 @@ body {
   display: grid;
   row-gap: 5.375rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content {
     height: 35.8125rem;
     padding: 0 4.625rem 0 4.625rem;
@@ -517,7 +494,7 @@ body {
   justify-self: center;
   display: grid;
   row-gap: 2rem;
-  max-width: 32.9375rem;
+  max-width: 32.5rem;
   text-align: center;
 }
 @media (max-width: 41.25rem) {
@@ -531,7 +508,7 @@ body {
   color: var(--color-lightCream);
   padding-top: 6.25rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__info .benefits__title {
     padding-top: 3.5rem;
   }
@@ -559,7 +536,7 @@ body {
   gap: 1.875rem;
   text-align: center;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list {
     flex-direction: column;
     gap: 1.5rem;
@@ -571,11 +548,12 @@ body {
   border-radius: 0.5rem;
   padding: 4.5rem 3rem 3rem 2.9375rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list .benefits__item {
     max-width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 3.4375rem;
     text-align: left;
     padding: 2.5625rem 3rem 2.5625rem 4.375rem;
@@ -588,7 +566,7 @@ body {
     padding: 4.5rem 0.75rem 3.1875rem 0.75rem;
   }
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list .benefits__item-content {
     max-width: 21.5rem;
   }
@@ -596,7 +574,7 @@ body {
 .benefits__content .benefits__list .benefits__item img {
   margin: auto auto 3.5rem auto;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list .benefits__item img {
     margin: 0;
     height: 56px;
@@ -613,7 +591,7 @@ body {
   color: var(--color-lightCream);
   margin-bottom: 1.5rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list .benefits__item .benefits__subtitle {
     margin-bottom: 1rem;
   }
@@ -628,7 +606,7 @@ body {
   color: var(--color-lightCream);
   opacity: 0.8;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .benefits__content .benefits__list .benefits__item .benefits__desc {
     font-size: 0.9375rem;
     line-height: 1.67;
@@ -666,7 +644,7 @@ body {
 .works__content {
   padding-left: 5.3125rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__content {
     padding-left: 0;
   }
@@ -677,7 +655,7 @@ body {
   color: var(--color-grey);
   margin-bottom: 5.125rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__content .works__title {
     margin-bottom: 3.6875rem;
   }
@@ -695,7 +673,7 @@ body {
   position: relative;
   margin-bottom: 5.125rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__content .works__details {
     margin-bottom: 3.625rem;
   }
@@ -705,7 +683,7 @@ body {
     display: none;
   }
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__content .works__details {
     width: 29.1875rem;
   }
@@ -749,7 +727,7 @@ body {
   gap: 5.9375rem;
   margin-bottom: 4rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__list {
     padding-left: 0;
     gap: 0.625rem;
@@ -768,11 +746,11 @@ body {
   }
 }
 .works__list .works__item {
-  width: 285px;
+  width: 17.8125rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__list .works__item {
-    width: 223px;
+    width: 13.9375rem;
   }
 }
 @media (max-width: 41.25rem) {
@@ -787,7 +765,7 @@ body {
   color: var(--color-paleOrange);
   margin-bottom: 2.375rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__list .works__item .works__number {
     margin-bottom: 2.625rem;
   }
@@ -805,7 +783,7 @@ body {
   max-width: 15.9375rem;
   margin-bottom: 2.6875rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__list .works__item .works__subtitle {
     font-size: 1.75rem;
     line-height: 1.14;
@@ -823,7 +801,7 @@ body {
   opacity: 0.8;
   color: var(--color-darkGreyBlue);
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works__list .works__item .works__desc {
     font-size: 0.9375rem;
     line-height: 1.67;
@@ -834,7 +812,7 @@ body {
   padding-right: 1.9375rem;
   margin-left: 5.3125rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .works .btn--padding {
     margin-left: 0;
   }
@@ -867,13 +845,13 @@ body {
 .footer__box g path:nth-child(1) {
   fill: #fff;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .footer__box {
     padding-top: 3.375rem;
     padding-bottom: 3.375rem;
   }
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .footer__box {
     flex-direction: column;
     align-items: center;
@@ -895,7 +873,7 @@ body {
   align-items: center;
   gap: 1.5rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .footer__box .footer__redes {
     padding-top: 4.0625rem;
   }
@@ -925,7 +903,7 @@ body {
   display: flex;
   gap: 2.0625rem;
 }
-@media (max-width: 71.875rem) {
+@media (max-width: 73.125rem) {
   .footer__nav .footer__list {
     padding-top: 2rem;
   }
@@ -948,6 +926,38 @@ body {
 }
 .footer__nav .footer__list .footer__link:hover {
   color: #fff;
+}
+
+.about-hero {
+  max-width: 85rem;
+  padding: 0 2.5rem;
+  margin: 0 auto;
+  margin-bottom: 10.5rem;
+}
+@media (max-width: 41.25rem) {
+  .about-hero {
+    padding: 0 1.5rem;
+  }
+}
+.about-hero__box {
+  height: 28.125rem;
+  background: url(../img/about/desktop/image-hero-whitecup.jpg) no-repeat;
+  border-radius: 0.625rem;
+}
+.about-hero__box .about-hero__content {
+  max-width: 27.8125rem;
+  padding: 8.5625rem 0 8.5625rem 5.3125rem;
+}
+.about-hero__box .about-hero__content .about-hero__title {
+  font: var(--fw-black) 2.5rem/var(--lh-l) "Fraunces", serif;
+  color: var(--color-darkGreyBlue);
+  color: var(--color-lightCream);
+  margin-bottom: 1.5rem;
+}
+.about-hero__box .about-hero__content .about-hero__desc {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
 }
 
 /*# sourceMappingURL=style.css.map */

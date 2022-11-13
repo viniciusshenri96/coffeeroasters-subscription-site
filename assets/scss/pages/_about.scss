@@ -1,0 +1,29 @@
+@use "../abstracts/functions" as *;
+@use "../components/header" as *;
+@use "../components/footer" as *;
+@use "../abstracts/mixins" as *;
+@use "../core/typography" as *;
+
+.about-hero {
+  @include container;
+  margin-bottom: rem(168);
+
+  &__box {
+    height: rem(450);
+    background: url(../img/about/desktop/image-hero-whitecup.jpg) no-repeat;
+    border-radius: rem(10);
+
+    .about-hero__content {
+      max-width: rem(445);
+      padding: rem(137) 0 rem(137) rem(85);
+      .about-hero__title {
+        @include font-m;
+        color: var(--color-lightCream);
+        margin-bottom: rem(24);
+      }
+      .about-hero__desc {
+        @include font-body-m;
+      }
+    }
+  }
+}

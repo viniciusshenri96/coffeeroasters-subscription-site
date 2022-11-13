@@ -25,7 +25,7 @@
 // Responsive
 
 @mixin screen-1070 {
-  @media (max-width: rem(1150)) {
+  @media (max-width: rem(1170)) {
     @content;
   }
 }

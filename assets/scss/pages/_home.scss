@@ -23,6 +23,7 @@
   }
 
   &__box {
+    height: rem(600);
     background: url(/assets/img/home/desktop/image-hero-coffeepress.jpg)
       no-repeat;
     padding-top: rem(117);
@@ -47,6 +48,8 @@
     }
 
     .hero__content {
+      max-width: rem(493);
+
       @include screen-880 {
         max-width: rem(398);
       }
@@ -97,43 +100,36 @@
 
 /* COLLECTION */
 .collection {
-  display: grid;
-  max-width: rem(1153);
-  height: rem(525);
+  max-width: rem(1190);
   padding: 0 rem(40);
+  display: grid;
   margin: auto auto rem(200) auto;
 
-  @include screen-1070 {
-    height: rem(927);
-    margin-bottom: rem(144);
-  }
-
   @include screen-660 {
-    height: auto;
     margin-bottom: rem(120);
   }
 
   &__title {
-    // width: rem(1072);
-    height: rem(196);
     @include font-xl;
+    grid-area: 1 / -1;
+    justify-self: center;
     background-image: linear-gradient(
       to top,
       rgba(254, 252, 247, 0.0001) 0%,
       #979797 100%
     );
-    color: #83888f;
+    color: var(--color-grey);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
-    grid-area: 1 / -1;
-    justify-self: center;
+    /*setting height value for linear-gradient to work 100%*/
+    // box-sizing: content-box;
+    height: rem(196);
     padding-top: rem(86);
+    z-index: -1;
 
     @include screen-1070 {
       font-size: rem(100);
-      // line-height: 0.75;
     }
 
     @include screen-880 {
@@ -150,6 +146,7 @@
     @include screen-660 {
       padding-top: 0;
       font-size: rem(40);
+
       line-height: 1.8;
       height: rem(72);
       margin-bottom: rem(13);
@@ -157,11 +154,9 @@
   }
 
   &__list {
-    max-width: rem(1113);
     grid-area: 1 / -1;
     padding-top: rem(126);
     display: flex;
-    align-items: flex-start;
     gap: rem(30);
 
     @include screen-1070 {
@@ -193,11 +188,17 @@
       display: grid;
 
       @include screen-880 {
-        align-content: start;
+        // align-content: start;
         text-align: left;
-        width: rem(573);
+        width: max-content;
         height: rem(193);
         grid-template-columns: 1fr 1fr;
+
+        .collection__content {
+          max-width: rem(282);
+          height: max-content;
+          padding-top: rem(29);
+        }
       }
 
       @include screen-660 {
@@ -206,15 +207,8 @@
         width: 100%;
         height: auto;
         justify-items: center;
-      }
 
-      .collection__content {
-        @include screen-880 {
-          max-width: rem(282);
-          height: rem(106);
-          padding-top: rem(29);
-        }
-        @include screen-660 {
+        .collection__content {
           padding-top: 0;
           text-align: center;
           height: auto;
@@ -224,14 +218,11 @@
       .collection__img {
         margin-bottom: rem(72);
 
-        @include screen-880 {
-          margin-bottom: 0;
-        }
         @include screen-660 {
+          margin-bottom: 0;
           height: rem(151);
         }
       }
-
       .collection__subtitle {
         @include font-xs;
         margin-bottom: rem(24);
@@ -254,8 +245,6 @@
 .benefits {
   @include container;
   height: rem(728);
-  display: grid;
-  align-items: start;
   margin-bottom: rem(200);
 
   @include screen-1070 {
@@ -292,7 +281,7 @@
       justify-self: center;
       display: grid;
       row-gap: rem(32);
-      max-width: rem(527);
+      max-width: rem(520);
       text-align: center;
 
       @include screen-660 {
@@ -345,6 +334,7 @@
           max-width: 100%;
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: rem(55);
           text-align: left;
           padding: rem(41) rem(48) rem(41) rem(70);
@@ -475,8 +465,6 @@
   &__list {
     padding-left: rem(85);
     display: flex;
-
-    // grid-template-columns: repeat(3, 1fr);
     gap: rem(95);
     margin-bottom: rem(64);
 
@@ -496,10 +484,10 @@
     }
 
     .works__item {
-      width: 285px;
+      width: rem(285);
 
       @include screen-1070 {
-        width: 223px;
+        width: rem(223);
       }
 
       @include screen-660 {
