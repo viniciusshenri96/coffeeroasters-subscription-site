@@ -8,23 +8,70 @@
   @include container;
   margin-bottom: rem(168);
 
+  @include screen-880 {
+    margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    margin-bottom: rem(120);
+  }
+
   &__box {
     height: rem(450);
     background: url(../img/about/desktop/image-hero-whitecup.jpg) no-repeat;
     border-radius: rem(10);
 
+    @include screen-880 {
+      height: rem(400);
+      background: url(../img/about/tablet/image-hero-whitecup.jpg) no-repeat;
+      background-size: cover;
+    }
+
+    @include screen-660 {
+      background: url(../img/about/mobile/image-hero-whitecup.jpg) no-repeat;
+      background-size: cover;
+    }
+
     .about-hero__content {
       padding: rem(137) 0 rem(137) rem(85);
+
+      @include screen-880 {
+        padding: rem(118) 0 rem(118) rem(58);
+      }
+
+      @include screen-660 {
+        padding: rem(111) rem(24) rem(87) rem(24);
+        text-align: center;
+      }
 
       .about-hero__title {
         @include font-m;
         color: var(--color-lightCream);
         margin-bottom: rem(24);
+
+        @include screen-880 {
+          font-size: rem(32);
+          line-height: 1.25;
+        }
+
+        @include screen-660 {
+          font-size: rem(28);
+          line-height: 1;
+        }
       }
 
       .about-hero__desc {
         @include font-body-m;
         max-width: rem(445);
+
+        @include screen-880 {
+          max-width: rem(400);
+          font-size: rem(15);
+          line-height: 1.67;
+        }
+        @include screen-660 {
+          max-width: 100%;
+        }
       }
     }
   }
@@ -35,6 +82,14 @@
   padding: 0 rem(40);
   margin: auto auto rem(168) auto;
 
+  @include screen-1050 {
+    margin: auto auto rem(144) auto;
+  }
+
+  @include screen-765 {
+    padding: 0 rem(24);
+  }
+
   &__box {
     display: grid;
     column-gap: rem(40);
@@ -42,139 +97,245 @@
     justify-items: start;
     grid-template-columns: 1fr auto;
 
+    @include screen-1050 {
+      align-items: initial;
+      column-gap: rem(69);
+    }
+
+    @include screen-765 {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      row-gap: rem(48);
+    }
+
     .commitment__img {
       img {
         border-radius: rem(8);
+
+        @include screen-660 {
+          max-width: 100%;
+          height: auto;
+        }
       }
     }
 
     .commitment__content {
       height: rem(340);
+
+      @include screen-1050 {
+        height: auto;
+      }
+
+      @include screen-765 {
+        text-align: center;
+      }
+
       .commitment__title {
         @include font-m;
         margin-bottom: rem(32);
+
+        @include screen-1050 {
+          font-size: rem(32);
+          line-height: 1.5;
+          margin-bottom: rem(30);
+        }
       }
 
       .commitment__desc {
         @include font-body-m;
         max-width: rem(538);
         color: var(--color-darkGrey);
-      }
-    }
-  }
-}
 
-.quality {
-  @include container;
-  display: grid;
-  height: rem(562);
-  margin-bottom: rem(168);
-
-  @include screen-1070 {
-    height: rem(648);
-  }
-
-  &__box {
-    height: rem(474);
-    padding: rem(88) 0 0 rem(85);
-    display: grid;
-    column-gap: rem(40);
-    grid-template-columns: 1fr auto;
-    align-self: end;
-    border-radius: rem(10);
-    position: relative;
-    background: url(../img/about/desktop/bg-quality.png) no-repeat;
-
-    @include screen-1070 {
-      padding: rem(58);
-      // height: auto;
-      column-gap: rem(15);
-      // grid-template-columns: 1fr;
-      // align-self: start;
-    }
-
-    .quality__content {
-      max-width: rem(540);
-
-      .quality__title {
-        @include font-m;
-        color: var(--color-lightCream);
-        margin-bottom: rem(32);
-
-        @include screen-1070 {
-          font-size: rem(32);
-          line-height: 1.5;
-        }
-      }
-
-      .quality__desc {
-        @include font-body-m;
-        max-width: rem(538);
-        color: var(--color-lightCream);
-
-        @include screen-1070 {
+        @include screen-1050 {
+          max-width: rem(339);
           font-size: rem(15);
           line-height: 1.67;
         }
       }
     }
   }
+}
 
-  &__img-box {
-    padding-right: rem(85);
-    margin-top: rem(-176);
+/* QUALITY */
+.quality {
+  @include container;
+  height: rem(562);
+  display: grid;
+  margin-bottom: rem(168);
 
-    img {
-      border-radius: rem(8);
+  @include screen-1050 {
+    height: rem(648);
+    margin-bottom: rem(144);
+  }
+
+  @include screen-765 {
+    height: rem(587);
+    margin-bottom: rem(120);
+  }
+
+  .quality__box {
+    background: url(../img/about/desktop/bg-quality.png) no-repeat;
+    height: rem(474);
+    border-radius: rem(10);
+    display: grid;
+    justify-items: center;
+    align-self: end;
+
+    @include screen-1050 {
+      height: auto;
+      background: url(../img/about/tablet/bg-quality.png) no-repeat;
+      background-size: 100%;
+    }
+    @include screen-765 {
+      height: rem(509);
+      background: url(../img/about/mobile/bg-quality.png) no-repeat;
+      background-size: 100%;
     }
 
-    @include screen-1070 {
-      padding-right: 0;
-      margin-top: rem(-160);
-      // grid-row: 1;
+    .quality__content-box {
+      max-width: rem(1190);
+      padding: rem(88) rem(40);
+      display: grid;
+      gap: rem(42);
+
+      justify-items: center;
+      align-content: start;
+      grid-template-columns: 7fr 5fr;
+
+      @include screen-1050 {
+        grid-template-columns: 1fr;
+        padding: rem(0) rem(40);
+        gap: rem(64);
+        text-align: center;
+        padding-bottom: rem(67);
+      }
+
+      @include screen-765 {
+        padding-bottom: rem(61);
+        padding: rem(0) rem(24);
+      }
+
+      .quality__content {
+        justify-self: start;
+        .quality__title {
+          @include font-m;
+          color: var(--color-lightCream);
+          margin-bottom: rem(32);
+
+          @include screen-1050 {
+            font-size: rem(32);
+            line-height: 1.5;
+            margin-bottom: rem(24);
+          }
+
+          @include screen-1050 {
+            font-size: rem(28);
+            line-height: 1;
+          }
+        }
+
+        .quality__desc {
+          @include font-body-m;
+          max-width: rem(540);
+
+          @include screen-1050 {
+            font-size: rem(15);
+            line-height: 1.67;
+          }
+        }
+      }
+    }
+
+    .quality__img-box {
+      margin-top: rem(-176);
+
+      @include screen-1050 {
+        grid-row: 1;
+        margin-top: rem(-160);
+      }
+
+      @include screen-765 {
+        margin-top: rem(-78);
+      }
 
       img {
         width: 100%;
-        // height: rem(374);
-        object-fit: cover;
-        object-position: right;
+        border-radius: rem(8);
       }
     }
   }
 }
 
+/* HEADQUARTERS */
 .headquarters {
   max-width: rem(1190);
   padding: 0 rem(40);
   margin: 0 auto rem(168) auto;
   display: grid;
 
+  @include screen-660 {
+    margin: 0 auto rem(120) auto;
+  }
+
   &__content {
     max-width: rem(1045);
+
+    @include screen-660 {
+      text-align: center;
+    }
 
     .headquarters__title {
       @include font-xs;
       margin-bottom: rem(72);
       color: var(--color-grey);
+
+      @include screen-660 {
+        font-size: rem(24);
+        line-height: 1.33;
+      }
     }
 
     .headquarters__list {
       display: flex;
       gap: rem(95);
 
+      @include screen-880 {
+        gap: rem(10);
+      }
+
+      @include screen-660 {
+        flex-direction: column;
+        align-items: center;
+        gap: rem(80);
+      }
+
       .headquarters__icon {
         margin-bottom: rem(46);
+
+        @include screen-660 {
+          margin: auto auto rem(46) auto;
+        }
       }
 
       .headquarters__subtitle {
         @include font-s;
         margin-bottom: rem(24);
         color: var(--color-darkGrey);
+
+        @include screen-880 {
+          font-size: rem(24);
+          line-height: 1.5;
+          margin-bottom: rem(22);
+        }
       }
 
       .headquarters__item {
         @include font-body-m;
         color: var(--color-darkGrey);
+
+        @include screen-880 {
+          flex: 1 1 rem(223);
+        }
 
         a {
           color: inherit;

@@ -30,6 +30,12 @@
   }
 }
 
+@mixin screen-1050 {
+  @media (max-width: rem(1050)) {
+    @content;
+  }
+}
+
 @mixin screen-880 {
   @media (max-width: rem(880)) {
     @content;

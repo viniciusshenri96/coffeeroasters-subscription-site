@@ -104,6 +104,15 @@
       <section class="commitment">
         <div class="commitment__box">
           <picture class="commitment__img">
+            <source
+              media="(max-width: 500px)"
+              srcset="/assets/img/about/mobile/image-commitment.jpg"
+            />
+            <source
+              media="(max-width: 900px)"
+              srcset="/assets/img/about/tablet/image-commitment.jpg"
+            />
+
             <img src="/assets/img/about/desktop/image-commitment.jpg" alt="" />
           </picture>
           <div class="commitment__content">
@@ -129,24 +138,30 @@
       <!-- QUALITY -->
       <section class="quality">
         <div class="quality__box">
-          <div class="quality__content">
-            <h2 class="quality__title">Uncompromising quality</h2>
-            <p class="quality__desc">
-              Although we work with growers who pay close attention to all
-              stages of harvest and processing, we employ, on our end, a
-              rigorous quality control program to avoid over-roasting or baking
-              the coffee dry. Every bag of coffee is tagged with a roast date
-              and batch number. Our goal is to roast consistent, user-friendly
-              coffee, so that brewing is easy and enjoyable.
-            </p>
+          <div class="quality__content-box">
+            <div class="quality__content">
+              <h2 class="quality__title">Uncompromising quality</h2>
+              <p class="quality__desc">
+                Although we work with growers who pay close attention to all
+                stages of harvest and processing, we employ, on our end, a
+                rigorous quality control program to avoid over-roasting or
+                baking the coffee dry. Every bag of coffee is tagged with a
+                roast date and batch number. Our goal is to roast consistent,
+                user-friendly coffee, so that brewing is easy and enjoyable.
+              </p>
+            </div>
+            <picture class="quality__img-box">
+              <source
+                media="(max-width: 765px)"
+                srcset="/assets/img/about/mobile/image-quality.jpg"
+              />
+              <source
+                media="(max-width: 1050px)"
+                srcset="/assets/img/about/tablet/image-quality.jpg"
+              />
+              <img src="/assets/img/about/desktop/image-quality.jpg" alt="" />
+            </picture>
           </div>
-          <picture class="quality__img-box">
-            <source
-              media="(max-width: )"
-              srcset="/assets/img/about/tablet/image-quality.jpg"
-            />
-            <img src="/assets/img/about/desktop/image-quality.jpg" alt="" />
-          </picture>
         </div>
       </section>
     </main>
