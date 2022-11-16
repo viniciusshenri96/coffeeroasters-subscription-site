@@ -449,7 +449,11 @@
       }
 
       .circle-1 {
-        @include circle(4);
+        @include circle(0);
+
+        @include screen-1070 {
+          @include circle(3);
+        }
       }
 
       .circle-2 {

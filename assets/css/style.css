@@ -696,8 +696,21 @@ body {
   border: 1px solid var(--color-darkCyan);
   background-color: var(--color-lightCream);
   top: 0;
-  left: 4%;
+  left: 0%;
   transform: translate(-50%, -50%);
+}
+@media (max-width: 73.125rem) {
+  .works__content .works__details .circle-1 {
+    position: absolute;
+    width: 31px;
+    height: 31px;
+    border-radius: 100px;
+    border: 1px solid var(--color-darkCyan);
+    background-color: var(--color-lightCream);
+    top: 0;
+    left: 3%;
+    transform: translate(-50%, -50%);
+  }
 }
 .works__content .works__details .circle-2 {
   position: absolute;
