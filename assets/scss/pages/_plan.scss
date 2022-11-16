@@ -1,0 +1,386 @@
+@use "../abstracts/functions" as *;
+@use "../components/header" as *;
+@use "../components/footer" as *;
+@use "../abstracts/mixins" as *;
+@use "../core/typography" as *;
+@use "../core/variables" as *;
+
+.plan-hero {
+  @include container;
+  margin-bottom: rem(168);
+
+  @include screen-880 {
+    margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    margin-bottom: rem(120);
+  }
+
+  &__box {
+    height: rem(450);
+    background: url(../img/plan/desktop/image-hero-blackcup.jpg) no-repeat;
+    border-radius: rem(10);
+
+    @include screen-880 {
+      height: rem(400);
+      background: url(../img/plan/tablet/image-hero-blackcup.jpg) no-repeat;
+      background-size: cover;
+    }
+
+    @include screen-660 {
+      background: url(../img/plan/mobile/image-hero-blackcup.jpg) no-repeat;
+      background-size: cover;
+    }
+
+    .plan-hero__content {
+      padding: rem(134) 0 rem(134) rem(85);
+
+      @include screen-880 {
+        padding: rem(118) 0 rem(118) rem(58);
+      }
+
+      @include screen-660 {
+        padding: rem(111) rem(24) rem(87) rem(24);
+        text-align: center;
+      }
+
+      .plan-hero__title {
+        @include font-l;
+        color: var(--color-lightCream);
+        margin-bottom: rem(24);
+
+        @include screen-880 {
+          font-size: rem(32);
+          line-height: 1.25;
+        }
+
+        @include screen-660 {
+          font-size: rem(28);
+          line-height: 1;
+        }
+      }
+
+      .plan-hero__desc {
+        @include font-body-m;
+        max-width: rem(445);
+
+        @include screen-880 {
+          max-width: rem(400);
+          font-size: rem(15);
+          line-height: 1.67;
+        }
+        @include screen-660 {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* PLAN */
+.plan-works {
+  @include container;
+  margin-bottom: rem(168);
+  display: grid;
+
+  @include screen-880 {
+    margin-bottom: rem(144);
+  }
+
+  @include screen-660 {
+    text-align: center;
+  }
+
+  .plan-works__box {
+    height: rem(653);
+    display: grid;
+    background: url(../img/plan/desktop/bg-steps.png) no-repeat;
+    padding: rem(100) rem(150) rem(100) rem(85);
+  }
+
+  &__content {
+    // padding-left: rem(85);
+
+    @include screen-1070 {
+      padding-left: 0;
+    }
+    .plan-works__details {
+      display: block;
+      width: rem(760);
+      height: rem(1);
+      margin-left: rem(15);
+      background-color: var(--color-paleOrange);
+      position: relative;
+      margin-bottom: rem(82);
+
+      @include screen-1070 {
+        margin-bottom: rem(58);
+      }
+
+      @include screen-660 {
+        display: none;
+      }
+
+      @include screen-1070 {
+        width: rem(467);
+      }
+
+      .circle-1 {
+        @include circle(0);
+        background-color: transparent;
+        @include screen-1070 {
+          @include circle(3);
+        }
+      }
+
+      .circle-2 {
+        @include circle(50);
+        background-color: transparent;
+      }
+
+      .circle-3 {
+        @include circle(100);
+        background-color: transparent;
+      }
+    }
+  }
+
+  &__list {
+    // padding-left: rem(85);
+    display: flex;
+    gap: rem(95);
+    margin-bottom: rem(64);
+
+    @include screen-1070 {
+      padding-left: 0;
+      gap: rem(10);
+      margin-bottom: rem(44);
+    }
+
+    @include screen-765 {
+      flex-wrap: wrap;
+    }
+
+    @include screen-660 {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan-works__item {
+      width: rem(285);
+
+      @include screen-1070 {
+        width: rem(223);
+      }
+
+      @include screen-660 {
+        width: 100%;
+      }
+
+      .plan-works__number {
+        @include font-l;
+        display: inline-block;
+        color: var(--color-paleOrange);
+        margin-bottom: rem(38);
+
+        @include screen-1070 {
+          margin-bottom: rem(42);
+        }
+
+        @include screen-660 {
+          font-size: rem(72);
+          line-height: 1;
+          margin-bottom: rem(24);
+        }
+      }
+
+      .plan-works__subtitle {
+        @include font-s;
+        max-width: rem(255);
+        margin-bottom: rem(43);
+        color: var(--color-lightCream);
+
+        @include screen-1070 {
+          font-size: rem(28);
+          line-height: 1.14;
+          margin-bottom: rem(38);
+        }
+
+        @include screen-660 {
+          max-width: 100%;
+        }
+      }
+
+      .plan-works__desc {
+        @include font-body-m;
+        color: var(--color-lightCream);
+
+        @include screen-1070 {
+          font-size: rem(15);
+          line-height: 1.67;
+        }
+      }
+    }
+  }
+}
+
+/* PLAN */
+.plan {
+  max-width: rem(1190);
+  padding: 0 rem(40);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: rem(125);
+  margin-bottom: rem(168);
+  justify-items: end;
+
+  &__options {
+    max-width: rem(255);
+
+    .plan__list {
+      display: grid;
+      gap: rem(24);
+
+      .plan__item {
+        @include font-xs;
+
+        &--content {
+          display: flex;
+          gap: rem(29);
+
+          .plan__item--number {
+            color: var(--color-grey);
+            opacity: 0.4;
+
+            &--green {
+              color: var(--color-darkCyan);
+            }
+
+            &.active {
+              opacity: 1;
+            }
+          }
+
+          .plan__item--title {
+            color: var(--color-darkGreyBlue);
+            opacity: 0.4;
+
+            &.active {
+              opacity: 1;
+            }
+          }
+        }
+
+        &::after {
+          content: "";
+          display: block;
+          width: rem(255);
+          height: rem(1);
+          background-color: var(--color-grey);
+          margin-top: rem(24);
+        }
+      }
+    }
+  }
+
+  &__selection {
+    max-width: rem(730);
+    display: grid;
+
+    .plan__preferences {
+      display: grid;
+      gap: rem(56);
+      margin-bottom: rem(88);
+
+      .plan__title {
+        @include font-m;
+        color: var(--color-grey);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &::after {
+          content: "";
+          display: block;
+          width: rem(19);
+          height: rem(13);
+          background: url(../img/plan/desktop/icon-arrow.svg) no-repeat;
+        }
+
+        &.active {
+          color: var(--color-darkGreyBlue);
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      .plan__content {
+        display: flex;
+        gap: rem(23);
+        display: none;
+
+        &.active {
+          display: flex;
+        }
+
+        .plan__reply {
+          max-width: rem(228);
+          padding: rem(32) rem(28) rem(84) rem(28);
+          border-radius: rem(8);
+          background-color: #f4f1eb;
+          cursor: pointer;
+          transition: 0.4s;
+
+          &:hover {
+            background-color: #fdd6ba;
+          }
+
+          &--title {
+            @include font-xs;
+            color: var(--color-darkGreyBlue);
+            margin-bottom: rem(24);
+          }
+          &--desc {
+            @include font-body-m;
+            color: var(--color-darkGreyBlue);
+          }
+        }
+      }
+    }
+
+    .plan__order-summary {
+      background: url(../img/plan/desktop/bg-order-summary.png) no-repeat;
+      padding: rem(47) rem(64);
+      border-radius: rem(10);
+      margin-bottom: rem(40);
+
+      &--title {
+        @include font-body-m;
+        text-transform: uppercase;
+        margin-bottom: rem(8);
+      }
+
+      &--resume {
+        $lh-resume: 1.67;
+        font: var(--fw-black) $fz-xs / #{$lh-resume} $font-2;
+        color: var(--color-lightCream);
+
+        span {
+          color: var(--color-darkCyan);
+        }
+      }
+    }
+  }
+
+  .btn--padding {
+    padding: rem(15) rem(35);
+    justify-self: end;
+
+    &.disable {
+      background-color: #e2dedb;
+    }
+  }
+}
