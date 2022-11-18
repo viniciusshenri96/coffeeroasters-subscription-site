@@ -1414,7 +1414,7 @@ body {
   }
 }
 
-/* PLAN */
+/* WORKS */
 .plan-works {
   max-width: 85rem;
   padding: 0 2.5rem;
@@ -1427,6 +1427,12 @@ body {
     padding: 0 1.5rem;
   }
 }
+@media (max-width: 65.625rem) {
+  .plan-works {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 @media (max-width: 55rem) {
   .plan-works {
     margin-bottom: 9rem;
@@ -1437,18 +1443,29 @@ body {
     text-align: center;
   }
 }
-.plan-works .plan-works__box {
+.plan-works__box {
+  max-width: 100%;
   height: 40.8125rem;
   display: grid;
   background: url(../img/plan/desktop/bg-steps.png) no-repeat;
   padding: 6.25rem 9.375rem 6.25rem 5.3125rem;
+  border-radius: 0.625rem;
 }
-@media (max-width: 73.125rem) {
-  .plan-works__content {
-    padding-left: 0;
+@media (max-width: 55rem) {
+  .plan-works__box {
+    padding: 6.0625rem 2.5rem 4.375rem 2.5rem;
+    background-size: cover;
   }
 }
-.plan-works__content .plan-works__details {
+@media (max-width: 41.25rem) {
+  .plan-works__box {
+    height: auto;
+    background: url(../img/plan/mobile/bg-steps.png) no-repeat;
+    padding: 5rem 1.5rem;
+    background-size: cover;
+  }
+}
+.plan-works .plan-works__details {
   display: block;
   width: 47.5rem;
   height: 0.0625rem;
@@ -1458,21 +1475,18 @@ body {
   margin-bottom: 5.125rem;
 }
 @media (max-width: 73.125rem) {
-  .plan-works__content .plan-works__details {
+  .plan-works .plan-works__details {
     margin-bottom: 3.625rem;
+    width: 29.1875rem;
+    height: 0.0625rem;
   }
 }
 @media (max-width: 41.25rem) {
-  .plan-works__content .plan-works__details {
+  .plan-works .plan-works__details {
     display: none;
   }
 }
-@media (max-width: 73.125rem) {
-  .plan-works__content .plan-works__details {
-    width: 29.1875rem;
-  }
-}
-.plan-works__content .plan-works__details .circle-1 {
+.plan-works .plan-works__details .circle-1 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1485,19 +1499,11 @@ body {
   background-color: transparent;
 }
 @media (max-width: 73.125rem) {
-  .plan-works__content .plan-works__details .circle-1 {
-    position: absolute;
-    width: 31px;
-    height: 31px;
-    border-radius: 100px;
-    border: 1px solid var(--color-darkCyan);
-    background-color: var(--color-lightCream);
-    top: 0;
-    left: 3%;
-    transform: translate(-50%, -50%);
+  .plan-works .plan-works__details .circle-1 {
+    background-color: transparent;
   }
 }
-.plan-works__content .plan-works__details .circle-2 {
+.plan-works .plan-works__details .circle-2 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1509,7 +1515,7 @@ body {
   transform: translate(-50%, -50%);
   background-color: transparent;
 }
-.plan-works__content .plan-works__details .circle-3 {
+.plan-works .plan-works__details .circle-3 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1526,35 +1532,31 @@ body {
   gap: 5.9375rem;
   margin-bottom: 4rem;
 }
-@media (max-width: 73.125rem) {
+@media (max-width: 65.625rem) {
   .plan-works__list {
-    padding-left: 0;
     gap: 0.625rem;
     margin-bottom: 2.75rem;
-  }
-}
-@media (max-width: 47.8125rem) {
-  .plan-works__list {
-    flex-wrap: wrap;
   }
 }
 @media (max-width: 41.25rem) {
   .plan-works__list {
     flex-direction: column;
     align-items: center;
+    gap: 3.5rem;
+    margin-bottom: 0;
   }
 }
 .plan-works__list .plan-works__item {
-  width: 17.8125rem;
+  max-width: 17.8125rem;
 }
-@media (max-width: 73.125rem) {
+@media (max-width: 65.625rem) {
   .plan-works__list .plan-works__item {
-    width: 13.9375rem;
+    max-width: 13.9375rem;
   }
 }
 @media (max-width: 41.25rem) {
   .plan-works__list .plan-works__item {
-    width: 100%;
+    max-width: 100%;
   }
 }
 .plan-works__list .plan-works__item .plan-works__number {
@@ -1571,8 +1573,6 @@ body {
 }
 @media (max-width: 41.25rem) {
   .plan-works__list .plan-works__item .plan-works__number {
-    font-size: 4.5rem;
-    line-height: 1;
     margin-bottom: 1.5rem;
   }
 }
@@ -1593,6 +1593,7 @@ body {
 @media (max-width: 41.25rem) {
   .plan-works__list .plan-works__item .plan-works__subtitle {
     max-width: 100%;
+    margin-bottom: 1.5rem;
   }
 }
 .plan-works__list .plan-works__item .plan-works__desc {
@@ -1619,8 +1620,30 @@ body {
   margin-bottom: 10.5rem;
   justify-items: end;
 }
+@media (max-width: 65.625rem) {
+  .plan {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+    justify-items: center;
+  }
+}
+@media (max-width: 55rem) {
+  .plan {
+    margin-bottom: 9rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan {
+    margin-bottom: 7.5rem;
+  }
+}
 .plan__options {
   max-width: 15.9375rem;
+}
+@media (max-width: 65.625rem) {
+  .plan__options {
+    display: none;
+  }
 }
 .plan__options .plan__list {
   display: grid;
@@ -1629,6 +1652,12 @@ body {
 .plan__options .plan__list .plan__item {
   font: var(--fw-black) 1.5rem/var(--lh-xs) "Fraunces", serif;
   color: var(--color-darkGreyBlue);
+}
+@media (max-width: 65.625rem) {
+  .plan__options .plan__list .plan__item {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
 }
 .plan__options .plan__list .plan__item--content {
   display: flex;
@@ -1658,6 +1687,7 @@ body {
   height: 0.0625rem;
   background-color: var(--color-grey);
   margin-top: 1.5rem;
+  opacity: 0.25;
 }
 .plan__selection {
   max-width: 45.625rem;
@@ -1668,6 +1698,23 @@ body {
   gap: 3.5rem;
   margin-bottom: 5.5rem;
 }
+@media (max-width: 55rem) {
+  .plan__selection .plan__preferences {
+    margin-bottom: 6.25rem;
+  }
+  .plan__selection .plan__preferences:nth-child(5) {
+    margin-bottom: 9rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__selection .plan__preferences {
+    gap: 2rem;
+    margin-bottom: 6.875rem;
+  }
+  .plan__selection .plan__preferences:nth-child(5) {
+    margin-bottom: 7.5rem;
+  }
+}
 .plan__selection .plan__preferences .plan__title {
   font: var(--fw-black) 2.5rem/var(--lh-m) "Fraunces", serif;
   color: var(--color-darkGreyBlue);
@@ -1675,6 +1722,19 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+}
+@media (max-width: 73.125rem) {
+  .plan__selection .plan__preferences .plan__title {
+    font-size: 2rem;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__selection .plan__preferences .plan__title {
+    font-size: 1.5rem;
+    line-height: 1.17;
+  }
 }
 .plan__selection .plan__preferences .plan__title::after {
   content: "";
@@ -1694,6 +1754,17 @@ body {
   gap: 1.4375rem;
   display: none;
 }
+@media (max-width: 55rem) {
+  .plan__selection .plan__preferences .plan__content {
+    gap: 0.625rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__selection .plan__preferences .plan__content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .plan__selection .plan__preferences .plan__content.active {
   display: flex;
 }
@@ -1704,6 +1775,17 @@ body {
   background-color: #f4f1eb;
   cursor: pointer;
   transition: 0.4s;
+}
+@media (max-width: 55rem) {
+  .plan__selection .plan__preferences .plan__content .plan__reply {
+    padding: 2rem 1.625rem 5.25rem 1.625rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__selection .plan__preferences .plan__content .plan__reply {
+    max-width: 100%;
+    padding: 1.5rem;
+  }
 }
 .plan__selection .plan__preferences .plan__content .plan__reply:hover {
   background-color: #fdd6ba;
@@ -1726,6 +1808,19 @@ body {
   border-radius: 0.625rem;
   margin-bottom: 2.5rem;
 }
+@media (max-width: 73.125rem) {
+  .plan__selection .plan__order-summary {
+    padding: 1.6875rem 2.75rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__selection .plan__order-summary {
+    padding: 2rem 1.5rem;
+    background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
+    background-size: cover;
+    margin-bottom: 3.5rem;
+  }
+}
 .plan__selection .plan__order-summary--title {
   font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
   color: var(--color-lightCream);
@@ -1737,12 +1832,23 @@ body {
   font: var(--fw-black) 1.5rem/1.67 "Fraunces", serif;
   color: var(--color-lightCream);
 }
+@media (max-width: 55rem) {
+  .plan__selection .plan__order-summary--resume {
+    font-size: 1.5rem;
+    line-height: 1.67;
+  }
+}
 .plan__selection .plan__order-summary--resume span {
   color: var(--color-darkCyan);
 }
 .plan .btn--padding {
   padding: 0.9375rem 2.1875rem;
   justify-self: end;
+}
+@media (max-width: 55rem) {
+  .plan .btn--padding {
+    justify-self: center;
+  }
 }
 .plan .btn--padding.disable {
   background-color: #e2dedb;

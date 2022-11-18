@@ -78,11 +78,16 @@
   }
 }
 
-/* PLAN */
+/* WORKS */
 .plan-works {
   @include container;
   margin-bottom: rem(168);
   display: grid;
+
+  @include screen-1050 {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   @include screen-880 {
     margin-bottom: rem(144);
@@ -92,57 +97,64 @@
     text-align: center;
   }
 
-  .plan-works__box {
+  &__box {
+    max-width: 100%;
     height: rem(653);
     display: grid;
+
     background: url(../img/plan/desktop/bg-steps.png) no-repeat;
     padding: rem(100) rem(150) rem(100) rem(85);
+    border-radius: rem(10);
+
+    @include screen-880 {
+      padding: rem(97) rem(40) rem(70) rem(40);
+      background-size: cover;
+    }
+
+    @include screen-660 {
+      height: auto;
+      background: url(../img/plan/mobile/bg-steps.png) no-repeat;
+      padding: rem(80) rem(24);
+      background-size: cover;
+    }
   }
 
-  &__content {
-    // padding-left: rem(85);
+  .plan-works__details {
+    display: block;
+    width: rem(760);
+    height: rem(1);
+    margin-left: rem(15);
+    background-color: var(--color-paleOrange);
+    position: relative;
+    margin-bottom: rem(82);
 
     @include screen-1070 {
-      padding-left: 0;
-    }
-    .plan-works__details {
-      display: block;
-      width: rem(760);
+      margin-bottom: rem(58);
+      width: rem(467);
       height: rem(1);
-      margin-left: rem(15);
-      background-color: var(--color-paleOrange);
-      position: relative;
-      margin-bottom: rem(82);
+    }
+
+    @include screen-660 {
+      display: none;
+    }
+
+    .circle-1 {
+      @include circle(0);
+      background-color: transparent;
 
       @include screen-1070 {
-        margin-bottom: rem(58);
-      }
-
-      @include screen-660 {
-        display: none;
-      }
-
-      @include screen-1070 {
-        width: rem(467);
-      }
-
-      .circle-1 {
-        @include circle(0);
-        background-color: transparent;
-        @include screen-1070 {
-          @include circle(3);
-        }
-      }
-
-      .circle-2 {
-        @include circle(50);
         background-color: transparent;
       }
+    }
 
-      .circle-3 {
-        @include circle(100);
-        background-color: transparent;
-      }
+    .circle-2 {
+      @include circle(50);
+      background-color: transparent;
+    }
+
+    .circle-3 {
+      @include circle(100);
+      background-color: transparent;
     }
   }
 
@@ -152,30 +164,27 @@
     gap: rem(95);
     margin-bottom: rem(64);
 
-    @include screen-1070 {
-      padding-left: 0;
+    @include screen-1050 {
       gap: rem(10);
       margin-bottom: rem(44);
-    }
-
-    @include screen-765 {
-      flex-wrap: wrap;
     }
 
     @include screen-660 {
       flex-direction: column;
       align-items: center;
+      gap: rem(56);
+      margin-bottom: 0;
     }
 
     .plan-works__item {
-      width: rem(285);
+      max-width: rem(285);
 
-      @include screen-1070 {
-        width: rem(223);
+      @include screen-1050 {
+        max-width: rem(223);
       }
 
       @include screen-660 {
-        width: 100%;
+        max-width: 100%;
       }
 
       .plan-works__number {
@@ -189,8 +198,6 @@
         }
 
         @include screen-660 {
-          font-size: rem(72);
-          line-height: 1;
           margin-bottom: rem(24);
         }
       }
@@ -209,6 +216,7 @@
 
         @include screen-660 {
           max-width: 100%;
+          margin-bottom: rem(24);
         }
       }
 
@@ -236,8 +244,24 @@
   margin-bottom: rem(168);
   justify-items: end;
 
+  @include screen-1050 {
+    grid-template-columns: 1fr;
+    gap: rem(80);
+    justify-items: center;
+  }
+  @include screen-880 {
+    margin-bottom: rem(144);
+  }
+  @include screen-660 {
+    margin-bottom: rem(120);
+  }
+
   &__options {
     max-width: rem(255);
+
+    @include screen-1050 {
+      display: none;
+    }
 
     .plan__list {
       display: grid;
@@ -245,6 +269,11 @@
 
       .plan__item {
         @include font-xs;
+
+        @include screen-1050 {
+          font-size: rem(20);
+          line-height: 1;
+        }
 
         &--content {
           display: flex;
@@ -280,6 +309,7 @@
           height: rem(1);
           background-color: var(--color-grey);
           margin-top: rem(24);
+          opacity: 0.25;
         }
       }
     }
@@ -294,12 +324,40 @@
       gap: rem(56);
       margin-bottom: rem(88);
 
+      @include screen-880 {
+        margin-bottom: rem(100);
+
+        &:nth-child(5) {
+          margin-bottom: rem(144);
+        }
+      }
+
+      @include screen-660 {
+        gap: rem(32);
+        margin-bottom: rem(110);
+
+        &:nth-child(5) {
+          margin-bottom: rem(120);
+        }
+      }
+
       .plan__title {
         @include font-m;
         color: var(--color-grey);
         display: flex;
         justify-content: space-between;
         align-items: center;
+        cursor: pointer;
+
+        @include screen-1070 {
+          font-size: rem(32);
+          line-height: 1.5;
+        }
+
+        @include screen-660 {
+          font-size: rem(24);
+          line-height: 1.17;
+        }
 
         &::after {
           content: "";
@@ -322,6 +380,15 @@
         gap: rem(23);
         display: none;
 
+        @include screen-880 {
+          gap: rem(10);
+        }
+
+        @include screen-660 {
+          flex-direction: column;
+          gap: rem(16);
+        }
+
         &.active {
           display: flex;
         }
@@ -333,6 +400,15 @@
           background-color: #f4f1eb;
           cursor: pointer;
           transition: 0.4s;
+
+          @include screen-880 {
+            padding: rem(32) rem(26) rem(84) rem(26);
+          }
+
+          @include screen-660 {
+            max-width: 100%;
+            padding: rem(24);
+          }
 
           &:hover {
             background-color: #fdd6ba;
@@ -357,6 +433,17 @@
       border-radius: rem(10);
       margin-bottom: rem(40);
 
+      @include screen-1070 {
+        padding: rem(27) rem(44);
+      }
+
+      @include screen-660 {
+        padding: rem(32) rem(24);
+        background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
+        background-size: cover;
+        margin-bottom: rem(56);
+      }
+
       &--title {
         @include font-body-m;
         text-transform: uppercase;
@@ -368,6 +455,11 @@
         font: var(--fw-black) $fz-xs / #{$lh-resume} $font-2;
         color: var(--color-lightCream);
 
+        @include screen-880 {
+          font-size: rem(24);
+          line-height: 1.67;
+        }
+
         span {
           color: var(--color-darkCyan);
         }
@@ -378,6 +470,10 @@
   .btn--padding {
     padding: rem(15) rem(35);
     justify-self: end;
+
+    @include screen-880 {
+      justify-self: center;
+    }
 
     &.disable {
       background-color: #e2dedb;
