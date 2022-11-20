@@ -414,6 +414,18 @@
             background-color: #fdd6ba;
           }
 
+          &.active {
+            background-color: var(--color-darkCyan);
+
+            .plan__reply--title {
+              color: #fff;
+            }
+
+            .plan__reply--desc {
+              color: var(--color-lightCream);
+            }
+          }
+
           &--title {
             @include font-xs;
             color: var(--color-darkGreyBlue);

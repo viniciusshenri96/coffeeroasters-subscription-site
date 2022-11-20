@@ -1790,6 +1790,15 @@ body {
 .plan__selection .plan__preferences .plan__content .plan__reply:hover {
   background-color: #fdd6ba;
 }
+.plan__selection .plan__preferences .plan__content .plan__reply.active {
+  background-color: var(--color-darkCyan);
+}
+.plan__selection .plan__preferences .plan__content .plan__reply.active .plan__reply--title {
+  color: #fff;
+}
+.plan__selection .plan__preferences .plan__content .plan__reply.active .plan__reply--desc {
+  color: var(--color-lightCream);
+}
 .plan__selection .plan__preferences .plan__content .plan__reply--title {
   font: var(--fw-black) 1.5rem/var(--lh-xs) "Fraunces", serif;
   color: var(--color-darkGreyBlue);
