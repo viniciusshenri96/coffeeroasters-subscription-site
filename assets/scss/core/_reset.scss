@@ -59,6 +59,11 @@ img {
   display: block;
 }
 
+select {
+  border: none;
+  background: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

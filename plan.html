@@ -180,19 +180,21 @@
             <dt class="plan__title active">How do you drink your coffee?</dt>
             <div class="plan__content active">
               <dd class="plan__reply">
-                <h3 class="plan__reply--title">Capsule</h3>
+                <h3 class="plan__reply--title" data-order="Capsule">Capsule</h3>
                 <p class="plan__reply--desc">
                   Compatible with Nespresso systems and similar brewers
                 </p>
               </dd>
               <dd class="plan__reply">
-                <h3 class="plan__reply--title">Filter</h3>
+                <h3 class="plan__reply--title" data-order="Filter">Filter</h3>
                 <p class="plan__reply--desc">
                   For pour over or drip methods like Aeropress, Chemex, and V60
                 </p>
               </dd>
               <dd class="plan__reply">
-                <h3 class="plan__reply--title">Espresso</h3>
+                <h3 class="plan__reply--title" data-order="Espresso">
+                  Espresso
+                </h3>
                 <p class="plan__reply--desc">
                   Dense and finely ground beans for an intense, flavorful
                   experience
@@ -249,7 +251,7 @@
               </dd>
             </div>
           </div>
-          <div class="plan__preferences">
+          <div class="plan__preferences" id="disabled">
             <dt class="plan__title">Want us to grind them?</dt>
             <div class="plan__content">
               <dd class="plan__reply">
@@ -271,6 +273,7 @@
                 </p>
               </dd>
             </div>
+            <div class="disabled"></div>
           </div>
           <div class="plan__preferences">
             <dt class="plan__title">How often should we deliver?</dt>
@@ -298,14 +301,13 @@
           <div class="plan__order-summary">
             <h3 class="plan__order-summary--title">Order Summary</h3>
             <p class="plan__order-summary--resume">
-              “I drink my coffee using <span>Capsule</span>, with a
-              <span>_____</span> type of bean. <span>_____</span> , sent to me
-              <span>_____</span>.”
+              “I drink my coffee using <span data-order="1">_____</span>, with a
+              <span data-order="2">_____</span> type of bean.
+              <span data-order="3">_____</span> , sent to me
+              <span data-order="4">_____</span>.”
             </p>
           </div>
-          <a href="plan.html" class="btn btn--padding disable"
-            >Create your plan</a
-          >
+          <a href="plan.html" class="btn btn--padding">Create your plan</a>
         </section>
       </div>
     </section>
