@@ -394,7 +394,6 @@
         }
 
         &.active {
-          color: var(--color-darkGreyBlue);
           &::after {
             transform: rotate(180deg);
           }
@@ -470,6 +469,7 @@
       padding: rem(47) rem(64);
       border-radius: rem(10);
       margin-bottom: rem(40);
+      height: auto;
 
       @include screen-1070 {
         padding: rem(27) rem(44);

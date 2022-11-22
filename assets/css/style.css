@@ -1764,9 +1764,6 @@ body {
   height: 0.8125rem;
   background: url(../img/plan/desktop/icon-arrow.svg) no-repeat;
 }
-.plan__selection .plan__preferences .plan__title.active {
-  color: var(--color-darkGreyBlue);
-}
 .plan__selection .plan__preferences .plan__title.active::after {
   transform: rotate(180deg);
 }
@@ -1837,6 +1834,7 @@ body {
   padding: 2.9375rem 4rem;
   border-radius: 0.625rem;
   margin-bottom: 2.5rem;
+  height: auto;
 }
 @media (max-width: 73.125rem) {
   .plan__selection .plan__order-summary {
