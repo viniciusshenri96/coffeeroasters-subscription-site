@@ -1704,7 +1704,7 @@ body {
   margin-bottom: 5.5rem;
   position: relative;
 }
-.plan__selection .plan__preferences .disabled {
+.plan__selection .plan__preferences [data-disabled=block] {
   position: absolute;
   top: 0;
   left: 0;
@@ -1716,7 +1716,7 @@ body {
   cursor: no-drop;
   display: none;
 }
-.plan__selection .plan__preferences .disabled.block {
+.plan__selection .plan__preferences [data-disabled=block].block {
   display: block;
 }
 @media (max-width: 55rem) {
