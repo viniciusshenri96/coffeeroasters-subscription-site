@@ -278,6 +278,7 @@
         &--content {
           display: flex;
           gap: rem(29);
+          cursor: pointer;
 
           .plan__item--number {
             color: var(--color-grey);
@@ -295,6 +296,11 @@
           .plan__item--title {
             color: var(--color-darkGreyBlue);
             opacity: 0.4;
+            transition: 0.4s;
+
+            &:hover {
+              opacity: 0.6;
+            }
 
             &.active {
               opacity: 1;
@@ -466,20 +472,29 @@
 
     .plan__order-summary {
       background: url(../img/plan/desktop/bg-order-summary.png) no-repeat;
+      // border-radius: rem(10);
       padding: rem(47) rem(64);
-      border-radius: rem(10);
+      // padding: rem(27) rem(64);
       margin-bottom: rem(40);
-      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 208px;
 
       @include screen-1070 {
         padding: rem(27) rem(44);
       }
 
       @include screen-660 {
-        padding: rem(32) rem(24);
         background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
         background-size: cover;
         margin-bottom: rem(56);
+      }
+
+      &--box {
+        max-width: 602px;
+        height: 154px;
       }
 
       &--title {
@@ -492,6 +507,19 @@
         $lh-resume: 1.67;
         font: var(--fw-black) $fz-xs / #{$lh-resume} $font-2;
         color: var(--color-lightCream);
+        height: max-content;
+
+        &.hidden {
+          display: none;
+        }
+
+        #grind {
+          display: none;
+        }
+        #complet {
+          display: none;
+          color: var(--color-lightCream);
+        }
 
         @include screen-880 {
           font-size: rem(24);
@@ -513,8 +541,9 @@
       justify-self: center;
     }
 
-    &.disable {
+    &#btn-disabled {
       background-color: #e2dedb;
+      pointer-events: none;
     }
   }
 }

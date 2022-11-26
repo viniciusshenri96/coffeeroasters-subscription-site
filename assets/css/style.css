@@ -1667,6 +1667,7 @@ body {
 .plan__options .plan__list .plan__item--content {
   display: flex;
   gap: 1.8125rem;
+  cursor: pointer;
 }
 .plan__options .plan__list .plan__item--content .plan__item--number {
   color: var(--color-grey);
@@ -1681,6 +1682,10 @@ body {
 .plan__options .plan__list .plan__item--content .plan__item--title {
   color: var(--color-darkGreyBlue);
   opacity: 0.4;
+  transition: 0.4s;
+}
+.plan__options .plan__list .plan__item--content .plan__item--title:hover {
+  opacity: 0.6;
 }
 .plan__options .plan__list .plan__item--content .plan__item--title.active {
   opacity: 1;
@@ -1832,9 +1837,11 @@ body {
 .plan__selection .plan__order-summary {
   background: url(../img/plan/desktop/bg-order-summary.png) no-repeat;
   padding: 2.9375rem 4rem;
-  border-radius: 0.625rem;
   margin-bottom: 2.5rem;
-  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 208px;
 }
 @media (max-width: 73.125rem) {
   .plan__selection .plan__order-summary {
@@ -1843,11 +1850,14 @@ body {
 }
 @media (max-width: 41.25rem) {
   .plan__selection .plan__order-summary {
-    padding: 2rem 1.5rem;
     background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
     background-size: cover;
     margin-bottom: 3.5rem;
   }
+}
+.plan__selection .plan__order-summary--box {
+  max-width: 602px;
+  height: 154px;
 }
 .plan__selection .plan__order-summary--title {
   font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
@@ -1858,6 +1868,17 @@ body {
 }
 .plan__selection .plan__order-summary--resume {
   font: var(--fw-black) 1.5rem/1.67 "Fraunces", serif;
+  color: var(--color-lightCream);
+  height: max-content;
+}
+.plan__selection .plan__order-summary--resume.hidden {
+  display: none;
+}
+.plan__selection .plan__order-summary--resume #grind {
+  display: none;
+}
+.plan__selection .plan__order-summary--resume #complet {
+  display: none;
   color: var(--color-lightCream);
 }
 @media (max-width: 55rem) {
@@ -1878,8 +1899,9 @@ body {
     justify-self: center;
   }
 }
-.plan .btn--padding.disable {
+.plan .btn--padding#btn-disabled {
   background-color: #e2dedb;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=style.css.map */

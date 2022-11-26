@@ -148,23 +148,23 @@
 
     <div>
       <section class="plan__selection">
-        <div class="plan__preferences">
+        <div class="plan__preferences ">
           <dt class="plan__title active">How do you drink your coffee?</dt>
-          <div class="plan__content active js-manipulation">
+          <div class="plan__content active js-drink">
             <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-disabled="capsule">Capsule</h3>
+              <h3 class="plan__reply--title" data-option="0">Capsule</h3>
               <p class="plan__reply--desc">
                 Compatible with Nespresso systems and similar brewers
               </p>
             </dd>
             <dd class="plan__reply">
-              <h3 class="plan__reply--title">Filter</h3>
+              <h3 class="plan__reply--title" data-option="1">Filter</h3>
               <p class="plan__reply--desc">
                 For pour over or drip methods like Aeropress, Chemex, and V60
               </p>
             </dd>
             <dd class="plan__reply">
-              <h3 class="plan__reply--title">Espresso</h3>
+              <h3 class="plan__reply--title" data-option="2">Espresso</h3>
               <p class="plan__reply--desc">
                 Dense and finely ground beans for an intense, flavorful
                 experience
@@ -176,20 +176,20 @@
           <dt class="plan__title">What type of coffee?</dt>
           <div class="plan__content js-type">
             <dd class="plan__reply">
-              <h3 class="plan__reply--title">Single Origin</h3>
+              <h3 class="plan__reply--title" data-type="0">Single Origin</h3>
               <p class="plan__reply--desc">
                 Distinct, high quality coffee from a specific family-owned
                 farm
               </p>
             </dd>
             <dd class="plan__reply">
-              <h3 class="plan__reply--title">Decaf</h3>
+              <h3 class="plan__reply--title" data-type="1">Decaf</h3>
               <p class="plan__reply--desc">
                 Just like regular coffee, except the caffeine has been removed
               </p>
             </dd>
             <dd class="plan__reply">
-              <h3 class="plan__reply--title">Blended</h3>
+              <h3 class="plan__reply--title" data-type="2">Blended</h3>
               <p class="plan__reply--desc">
                 Combination of two or three dark roasted beans of organic
                 coffees
@@ -269,15 +269,20 @@
           </div>
         </div>
         <div class="plan__order-summary">
-          <h3 class="plan__order-summary--title">Order Summary</h3>
-          <p class="plan__order-summary--resume">
-            “I drink my coffee using <span></span>, with
-            a <span>_____</span> type of bean.
-            <span>_____</span> , sent to me
-            <span>_____</span>.”
-          </p>
+          <div class="plan__order-summary--box">
+            <h3 class="plan__order-summary--title">Order Summary</h3>
+            <p class="plan__order-summary--resume">
+              “I drink my coffee using <span id="drink">Capsule</span>, with
+              a <span id="type">_____</span> type of bean. <span id="how">_____</span> <span id="complet">ground
+                ala,</span> <span id="grind">_____</span>, sent to me </span>
+              <span id="deliver">_____</span>.”
+            </p>
+          </div>
         </div>
-        <a href="plan.html" class="btn btn--padding">Create your plan</a>
+        <a href="plan.html" class="btn btn--padding " id="btn-disabled">Create your plan
+        </a>
+
+        <div data-disabled="block"></div>
       </section>
     </div>
   </section>
