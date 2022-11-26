@@ -90,7 +90,6 @@ containerSelection.addEventListener("click", function (e) {
           if (check.classList.contains("active")) {
             activeButton++;
             if (activeButton <= 3) {
-              console.log(activeButton);
             }
           }
         });
