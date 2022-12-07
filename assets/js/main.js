@@ -61,6 +61,8 @@ containerSelection.addEventListener("click", function (e) {
           if (checked) {
             valided = arrCheckButton.every((act) => act === 1);
             // prettier-ignore
+            console.log(arrCheckButton);
+            console.log(valided);
             valided &&
               document
                 .getElementById("btn-disabled")
@@ -69,10 +71,10 @@ containerSelection.addEventListener("click", function (e) {
         };
 
         // prettier-ignore
-        const containerChecked = [containerDrink, containerType, containerHow, containerDeliver, containerGrind];
+        const containerChecked = [containerType, containerHow, containerDeliver, containerGrind];
 
         containerChecked.forEach((container, index) => {
-          container && assigningValue(container, index);
+          container && assigningValue(container, index + 1);
         });
       }
     };
@@ -108,10 +110,9 @@ containerSelection.addEventListener("click", function (e) {
       document.getElementById("complet").style.display = value;
     };
 
-    // Check container
-    const checkContainer = function () {};
-
     if (containerDrink) {
+      arrCheckButton[0] = 1;
+
       const planReply = e.target.closest(".plan__reply");
       if (!planReply) return;
       const title = planReply.querySelector(".plan__reply--title").innerText;

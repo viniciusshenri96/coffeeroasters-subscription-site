@@ -80,6 +80,7 @@ body {
   /* improves text rendering */
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  position: relative;
 }
 
 .btn:link,
@@ -1904,6 +1905,11 @@ body {
 .plan .btn--padding.activeButton {
   background-color: #0e8784;
   pointer-events: visible;
+}
+
+.modal {
+  max-width: 33.75rem;
+  border-radius: 0.5rem;
 }
 
 /*# sourceMappingURL=style.css.map */
