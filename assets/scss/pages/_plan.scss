@@ -536,14 +536,16 @@
   .btn--padding {
     padding: rem(15) rem(35);
     justify-self: end;
+    background-color: #e2dedb;
+    pointer-events: none;
 
     @include screen-880 {
       justify-self: center;
     }
 
-    &#btn-disabled {
-      background-color: #e2dedb;
-      pointer-events: none;
+    &.activeButton {
+      background-color: #0e8784;
+      pointer-events: visible;
     }
   }
 }

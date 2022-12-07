@@ -6,36 +6,84 @@ const containerSelection = document.querySelector(".plan__selection");
 const orderSummaryText = document.querySelector(".plan__order-summary--resume");
 const blockGrind = document.querySelector('[data-disabled="block"]');
 const checkedReply = document.querySelectorAll(".plan__reply");
-let activeButton = 0,
-  activeButtonTotal;
-// Menu Mobile
+const btnPlan = document.querySelector(".btn--padding");
+const modalContent = document.querySelector(".modal__text");
 
+let arrCheckButton = [0, 0, 0, 0];
+let checked = true,
+  checkedSelection = true,
+  valided;
+// Menu Mobile
 const openMenu = function () {
   nav.classList.toggle("active");
 };
-
 button.addEventListener("click", openMenu);
 
+// let activeButtonValided = true;
 containerSelection.addEventListener("click", function (e) {
   const planPreferences = e.target.closest(".plan__preferences");
 
+  // Variables Global
+  const classActive = "active";
+
   if (planPreferences) {
-    const containerDrink = e.target.closest(".js-drink"),
+    let containerDrink = e.target.closest(".js-drink"),
       containerType = e.target.closest(".js-type"),
       containerHow = e.target.closest(".js-how"),
       containerGrind = e.target.closest(".js-grind"),
       containerDeliver = e.target.closest(".js-deliver");
-    const classActive = "active";
 
+    // Accordion
+    const accordionFunction = function () {
+      const clickedTitle = e.target.closest(".plan__title");
+
+      if (clickedTitle) {
+        clickedTitle.classList.toggle(classActive);
+        clickedTitle.nextElementSibling.classList.toggle(classActive);
+      }
+
+      const clickedReply = e.target.closest(".plan__reply");
+      if (clickedReply) {
+        const planReply = planPreferences.querySelectorAll(".plan__reply");
+        planReply.forEach((i) => i.classList.remove(classActive));
+        clickedReply.classList.add(classActive);
+
+        const assigningValue = function (containerName, index) {
+          if (containerName) arrCheckButton[index] = 1;
+
+          if (containerGrind) {
+            arrCheckButton[4] = 1;
+            valided = arrCheckButton.every((act) => act === 1);
+            checked = true;
+            checkedSelection = false;
+          }
+
+          if (checked) {
+            valided = arrCheckButton.every((act) => act === 1);
+            // prettier-ignore
+            valided &&
+              document
+                .getElementById("btn-disabled")
+                .classList.add("activeButton");
+          }
+        };
+
+        // prettier-ignore
+        const containerChecked = [containerDrink, containerType, containerHow, containerDeliver, containerGrind];
+
+        containerChecked.forEach((container, index) => {
+          container && assigningValue(container, index);
+        });
+      }
+    };
+    accordionFunction();
     // Grind Disable
     const blockGrindFunction = function (pro, opa) {
       blockGrind.classList[`${pro}`]("block");
-      blockGrind
-        .closest(".plan__preferences")
-        .querySelector(".plan__title").style.opacity = opa;
+      // prettier-ignore
+      blockGrind.closest(".plan__preferences").querySelector(".plan__title").style.opacity = opa;
     };
 
-    // Default grind
     const defaultGrind = function () {
       blockGrind
         .closest(".plan__preferences")
@@ -54,70 +102,60 @@ containerSelection.addEventListener("click", function (e) {
       document.getElementById(`grind`).innerText = "_____";
     };
 
-    const updateText = function (value) {
+    // Update text Order Summary
+    const updateTextOrderSummary = function (value) {
       document.getElementById("grind").style.display = value;
       document.getElementById("complet").style.display = value;
     };
 
-    // Print title for order summary
-    const printTitle = function (containerName, nameData) {
+    // Check container
+    const checkContainer = function () {};
+
+    if (containerDrink) {
+      const planReply = e.target.closest(".plan__reply");
+      if (!planReply) return;
+      const title = planReply.querySelector(".plan__reply--title").innerText;
+
+      document.getElementById("drink").innerText = title;
+
+      if (title.includes("Filter") || title.includes("Espresso")) {
+        orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
+          "using",
+          "as"
+        );
+        updateTextOrderSummary("inline");
+        blockGrindFunction("remove", "1");
+
+        if (checkedSelection) {
+          checked = false;
+          // prettier-ignore
+          document.getElementById("btn-disabled").classList.remove("activeButton");
+        }
+      } else if (title === "Capsule") {
+        // prettier-ignore
+        orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace("as","using");
+        updateTextOrderSummary("none");
+        blockGrindFunction("add", "0.5");
+        defaultGrind();
+        checkedSelection = true;
+      }
+    }
+
+    const printTitleOrderSummary = function (containerName, nameData) {
       if (containerName) {
         const planReply = e.target.closest(".plan__reply");
         if (!planReply) return;
         const title = planReply.querySelector(".plan__reply--title").innerText;
 
         document.getElementById(`${nameData}`).innerText = title;
-
-        if (title.includes("Filter") || title.includes("Espresso")) {
-          orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
-            "using",
-            "as"
-          );
-          updateText("inline");
-          blockGrindFunction("remove", "1");
-        } else if (title === "Capsule") {
-          orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
-            "as",
-            "using"
-          );
-          updateText("none");
-          blockGrindFunction("add", "0.5");
-          defaultGrind();
-        }
-
-        const checkReply = containerName.querySelectorAll(".plan__reply");
-        checkReply.forEach((check) => {
-          if (check.classList.contains("active")) {
-            activeButton++;
-            if (activeButton <= 3) {
-            }
-          }
-        });
       }
     };
+    // prettier-ignore
+    const containerArr = [containerType, containerHow, containerGrind, containerDeliver];
+    const containerNamesArr = ["type", "how", "grind", "deliver"];
 
-    if (containerType) printTitle(containerType, "type");
-    if (containerHow) printTitle(containerHow, "how");
-    if (containerGrind) printTitle(containerGrind, "grind");
-    if (containerDeliver) printTitle(containerDeliver, "deliver");
-    if (containerDrink) printTitle(containerDrink, "drink");
-
-    // Accordion
-    const clickedTitle = e.target.closest(".plan__title");
-
-    if (clickedTitle) {
-      clickedTitle.classList.toggle(classActive);
-      clickedTitle.nextElementSibling.classList.toggle(classActive);
-    }
-
-    const clickedReply = e.target.closest(".plan__reply");
-
-    if (clickedReply) {
-      const planReply = planPreferences.querySelectorAll(".plan__reply");
-      planReply.forEach((i) => i.classList.remove(classActive));
-      clickedReply.classList.add(classActive);
-
-      // const checkReply = planPreferences.querySelectorAll(".plan__reply");
-    }
+    containerArr.forEach((cont, index) => {
+      if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
+    });
   }
 });

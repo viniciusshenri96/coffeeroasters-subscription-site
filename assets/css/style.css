@@ -1893,15 +1893,17 @@ body {
 .plan .btn--padding {
   padding: 0.9375rem 2.1875rem;
   justify-self: end;
+  background-color: #e2dedb;
+  pointer-events: none;
 }
 @media (max-width: 55rem) {
   .plan .btn--padding {
     justify-self: center;
   }
 }
-.plan .btn--padding#btn-disabled {
-  background-color: #e2dedb;
-  pointer-events: none;
+.plan .btn--padding.activeButton {
+  background-color: #0e8784;
+  pointer-events: visible;
 }
 
 /*# sourceMappingURL=style.css.map */

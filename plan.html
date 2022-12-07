@@ -279,10 +279,10 @@
             </p>
           </div>
         </div>
-        <a href="plan.html" class="btn btn--padding " id="btn-disabled">Create your plan
+        <a disabled href="plan.html" class="btn btn--padding" id="btn-disabled">Create your plan
         </a>
 
-        <div data-disabled="block"></div>
+        <!-- <div data-disabled="block"></div> -->
       </section>
     </div>
   </section>
@@ -346,12 +346,15 @@
 
   <!-- JAVASCRIPT -->
   <script src="assets/js/main.js"></script>
-  <!-- Modal 
-    Order Summary “I drink coffee _____, with a _____ type of bean. _____ ground
-    ala _____, sent to me _____.” Is this correct? You can proceed to checkout
-    or go back to plan selection if something is off. Subscription discount
-    codes can also be redeemed at the checkout. $_____/month Checkout
-    <!-- End modal -->
+  <div class="modal">
+    <p class="modal__text">
+      Order Summary “I drink coffee _____, with a _____ type of bean. _____ ground
+      ala _____, sent to me _____.” Is this correct? You can proceed to checkout
+      or go back to plan selection if something is off. Subscription discount
+      codes can also be redeemed at the checkout. $_____/month Checkout
+    </p>
+  </div>
+  <!-- End modal
 </body>
 
 </html>
