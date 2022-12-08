@@ -66,11 +66,6 @@ select {
     scroll-behavior: auto !important;
   }
 }
-html,
-body {
-  height: 100%;
-}
-
 html {
   overflow-x: hidden;
 }
@@ -1835,62 +1830,6 @@ body {
   opacity: 0.8;
   color: var(--color-darkGreyBlue);
 }
-.plan__selection .plan__order-summary {
-  background: url(../img/plan/desktop/bg-order-summary.png) no-repeat;
-  padding: 2.9375rem 4rem;
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 208px;
-}
-@media (max-width: 73.125rem) {
-  .plan__selection .plan__order-summary {
-    padding: 1.6875rem 2.75rem;
-  }
-}
-@media (max-width: 41.25rem) {
-  .plan__selection .plan__order-summary {
-    background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
-    background-size: cover;
-    margin-bottom: 3.5rem;
-  }
-}
-.plan__selection .plan__order-summary--box {
-  max-width: 602px;
-  height: 154px;
-}
-.plan__selection .plan__order-summary--title {
-  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
-  color: var(--color-lightCream);
-  opacity: 0.8;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-.plan__selection .plan__order-summary--resume {
-  font: var(--fw-black) 1.5rem/1.67 "Fraunces", serif;
-  color: var(--color-lightCream);
-  height: max-content;
-}
-.plan__selection .plan__order-summary--resume.hidden {
-  display: none;
-}
-.plan__selection .plan__order-summary--resume #grind {
-  display: none;
-}
-.plan__selection .plan__order-summary--resume #complet {
-  display: none;
-  color: var(--color-lightCream);
-}
-@media (max-width: 55rem) {
-  .plan__selection .plan__order-summary--resume {
-    font-size: 1.5rem;
-    line-height: 1.67;
-  }
-}
-.plan__selection .plan__order-summary--resume span {
-  color: var(--color-darkCyan);
-}
 .plan .btn--padding {
   padding: 0.9375rem 2.1875rem;
   justify-self: end;
@@ -1907,9 +1846,122 @@ body {
   pointer-events: visible;
 }
 
+.plan__order-summary {
+  background: url(../img/plan/desktop/bg-order-summary.png) no-repeat;
+  padding: 2.9375rem 4rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 208px;
+}
+@media (max-width: 73.125rem) {
+  .plan__order-summary {
+    padding: 1.6875rem 2.75rem;
+  }
+}
+@media (max-width: 41.25rem) {
+  .plan__order-summary {
+    background: url(../img/plan/mobile/bg-order-summary.png) no-repeat;
+    background-size: cover;
+    margin-bottom: 3.5rem;
+  }
+}
+.plan__order-summary--box {
+  max-width: 602px;
+  height: 154px;
+}
+.plan__order-summary--title {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.plan__order-summary--resume {
+  font: var(--fw-black) 1.5rem/1.67 "Fraunces", serif;
+  color: var(--color-lightCream);
+  height: max-content;
+}
+.plan__order-summary--resume.hidden {
+  display: none;
+}
+.plan__order-summary--resume #grind {
+  display: none;
+}
+.plan__order-summary--resume #complet {
+  display: none;
+  color: var(--color-lightCream);
+}
+@media (max-width: 55rem) {
+  .plan__order-summary--resume {
+    font-size: 1.5rem;
+    line-height: 1.67;
+  }
+}
+.plan__order-summary--resume span {
+  color: var(--color-darkCyan);
+}
+
 .modal {
   max-width: 33.75rem;
   border-radius: 0.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 1;
+}
+.modal.active {
+  display: block;
+}
+.modal .modal__title-box {
+  background: var(--color-darkGreyBlue);
+  padding: 3rem 0 2.5rem 3.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.modal .modal__title-box .modal__title {
+  font: var(--fw-black) 2.0833333333rem "Fraunces", serif;
+  color: #fff;
+}
+.modal__content {
+  background: var(--color-lightCream);
+  padding: 3.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+.modal__content .modal__text {
+  font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
+  color: var(--color-lightCream);
+  opacity: 0.8;
+  color: var(--color-darkGreyBlue);
+  margin-bottom: 2.9375rem;
+}
+.modal__content .btn-modal {
+  padding: 0.9375rem 4rem 0.9375rem 4rem;
+}
+.modal__content .modal__checkout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4375rem;
+}
+.modal__content .modal__checkout .modal__price {
+  font: var(--fw-black) 2rem/var(--lh-s) "Fraunces", serif;
+  color: var(--color-darkGreyBlue);
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  display: none;
+}
+.overlay.active {
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

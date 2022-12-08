@@ -7,7 +7,10 @@ const orderSummaryText = document.querySelector(".plan__order-summary--resume");
 const blockGrind = document.querySelector('[data-disabled="block"]');
 const checkedReply = document.querySelectorAll(".plan__reply");
 const btnPlan = document.querySelector(".btn--padding");
-const modalContent = document.querySelector(".modal__text");
+const modalContent = document.querySelector(".modal__content");
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+console.log(modal);
 
 let arrCheckButton = [0, 0, 0, 0];
 let checked = true,
@@ -158,5 +161,26 @@ containerSelection.addEventListener("click", function (e) {
     containerArr.forEach((cont, index) => {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
+  }
+});
+
+const openModal = function (e) {
+  e.preventDefault();
+  modal.classList.add("active");
+  overlay.classList.add("active");
+};
+
+const closeModal = function (e) {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+};
+
+btnPlan.addEventListener("click", openModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  console.log(e.key === "Escape");
+  if (e.key === "Escape") {
+    closeModal();
   }
 });
