@@ -1893,6 +1893,9 @@ body {
   display: none;
   color: var(--color-lightCream);
 }
+.plan__order-summary--resume .modal--complet.activeColor {
+  color: #83888f !important;
+}
 @media (max-width: 55rem) {
   .plan__order-summary--resume {
     font-size: 1.5rem;
@@ -1906,7 +1909,7 @@ body {
 .modal {
   max-width: 33.75rem;
   border-radius: 0.5rem;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -1930,7 +1933,11 @@ body {
   padding: 3.5rem;
   border-radius: 0 0 0.5rem 0.5rem;
 }
-.modal__content .modal__text {
+.modal__content .plan__order-summary--modal {
+  color: #83888f;
+  margin-bottom: 0.4375rem;
+}
+.modal__content .modal__desc {
   font: var(--fw-regular) 1rem/var(--lh-body-m) "Barlow", sans-serif;
   color: var(--color-lightCream);
   opacity: 0.8;

@@ -534,9 +534,16 @@
     #grind {
       display: none;
     }
+
     #complet {
       display: none;
       color: var(--color-lightCream);
+    }
+
+    .modal--complet {
+      &.activeColor {
+        color: #83888f !important;
+      }
     }
 
     @include screen-880 {
@@ -553,7 +560,7 @@
 .modal {
   max-width: rem(540);
   border-radius: rem(8);
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -580,7 +587,12 @@
     padding: rem(56);
     border-radius: 0 0 rem(8) rem(8);
 
-    .modal__text {
+    .plan__order-summary--modal {
+      color: #83888f;
+      margin-bottom: rem(7);
+    }
+
+    .modal__desc {
       @include font-body-m;
       color: var(--color-darkGreyBlue);
       margin-bottom: rem(47);

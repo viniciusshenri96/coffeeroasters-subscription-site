@@ -7,10 +7,10 @@ const orderSummaryText = document.querySelector(".plan__order-summary--resume");
 const blockGrind = document.querySelector('[data-disabled="block"]');
 const checkedReply = document.querySelectorAll(".plan__reply");
 const btnPlan = document.querySelector(".btn--padding");
-const modalContent = document.querySelector(".modal__content");
+const orderModal = document.querySelector(".plan__order-summary--modal");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-console.log(modal);
+let teste = "";
 
 let arrCheckButton = [0, 0, 0, 0];
 let checked = true,
@@ -64,8 +64,6 @@ containerSelection.addEventListener("click", function (e) {
           if (checked) {
             valided = arrCheckButton.every((act) => act === 1);
             // prettier-ignore
-            console.log(arrCheckButton);
-            console.log(valided);
             valided &&
               document
                 .getElementById("btn-disabled")
@@ -162,25 +160,27 @@ containerSelection.addEventListener("click", function (e) {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
   }
-});
 
-const openModal = function (e) {
-  e.preventDefault();
-  modal.classList.add("active");
-  overlay.classList.add("active");
-};
+  const openModal = function (e) {
+    e.preventDefault();
+    modal.classList.add("active");
+    overlay.classList.add("active");
+    orderModal.innerHTML = orderSummaryText.innerHTML;
+    document.querySelector(".modal--complet").classList.add("activeColor");
+  };
 
-const closeModal = function (e) {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-};
+  const closeModal = function () {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+    document.querySelector(".modal--complet").classList.remove("activeColor");
+  };
 
-btnPlan.addEventListener("click", openModal);
-overlay.addEventListener("click", closeModal);
+  btnPlan.addEventListener("click", openModal);
+  overlay.addEventListener("click", closeModal);
 
-document.addEventListener("keydown", function (e) {
-  console.log(e.key === "Escape");
-  if (e.key === "Escape") {
-    closeModal();
-  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
 });
