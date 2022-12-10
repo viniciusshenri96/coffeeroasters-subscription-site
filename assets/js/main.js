@@ -164,28 +164,29 @@ containerSelection.addEventListener("click", function (e) {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
   }
-});
 
-const openModal = function (e) {
-  e.preventDefault();
-  modal.classList.add("active");
-  overlay.classList.add("active");
-  orderModal.innerHTML = orderSummaryText.innerHTML;
-};
+  const openModal = function (e) {
+    e.preventDefault();
+    modal.classList.add("active");
+    overlay.classList.add("active");
+    orderModal.innerHTML = orderSummaryText.innerHTML;
+    if(orderModal.includes('ground la'))
+  };
 
-const closeModal = function () {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-  document.querySelector(".modal--complet").classList.remove("activeColor");
-};
+  const closeModal = function () {
+    modal.classList.remove("active");
+    overlay.classList.remove("active");
+    document.querySelector(".modal--complet").classList.remove("activeColor");
+  };
 
-btnPlan.addEventListener("click", openModal);
-overlay.addEventListener("click", closeModal);
+  btnPlan.addEventListener("click", openModal);
+  overlay.addEventListener("click", closeModal);
 
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeModal();
-  }
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
 });
 
 // prettier-ignore
