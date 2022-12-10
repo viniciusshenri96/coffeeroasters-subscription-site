@@ -63,6 +63,7 @@ containerSelection.addEventListener("click", function (e) {
 
           if (checked) {
             valided = arrCheckButton.every((act) => act === 1);
+            console.log(arrCheckButton);
             // prettier-ignore
             valided &&
               document
@@ -140,6 +141,9 @@ containerSelection.addEventListener("click", function (e) {
         blockGrindFunction("add", "0.5");
         defaultGrind();
         checkedSelection = true;
+        if (!checked)
+          // prettier-ignore
+          document.getElementById("btn-disabled").classList.add("activeButton");
       }
     }
 
@@ -160,27 +164,29 @@ containerSelection.addEventListener("click", function (e) {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
   }
-
-  const openModal = function (e) {
-    e.preventDefault();
-    modal.classList.add("active");
-    overlay.classList.add("active");
-    orderModal.innerHTML = orderSummaryText.innerHTML;
-    document.querySelector(".modal--complet").classList.add("activeColor");
-  };
-
-  const closeModal = function () {
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-    document.querySelector(".modal--complet").classList.remove("activeColor");
-  };
-
-  btnPlan.addEventListener("click", openModal);
-  overlay.addEventListener("click", closeModal);
-
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeModal();
-    }
-  });
 });
+
+const openModal = function (e) {
+  e.preventDefault();
+  modal.classList.add("active");
+  overlay.classList.add("active");
+  orderModal.innerHTML = orderSummaryText.innerHTML;
+};
+
+const closeModal = function () {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+  document.querySelector(".modal--complet").classList.remove("activeColor");
+};
+
+btnPlan.addEventListener("click", openModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
+
+// prettier-ignore
+const priceAll = ["$7.20","$9.60","$12.00","$13.00","$17.50","$22.00","$32.00","$42.00"];
