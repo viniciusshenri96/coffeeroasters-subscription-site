@@ -63,7 +63,7 @@ containerSelection.addEventListener("click", function (e) {
 
           if (checked) {
             valided = arrCheckButton.every((act) => act === 1);
-            console.log(arrCheckButton);
+
             // prettier-ignore
             valided &&
               document
@@ -141,9 +141,11 @@ containerSelection.addEventListener("click", function (e) {
         blockGrindFunction("add", "0.5");
         defaultGrind();
         checkedSelection = true;
-        if (!checked)
+
+        if (!checked) {
           // prettier-ignore
           document.getElementById("btn-disabled").classList.add("activeButton");
+        }
       }
     }
 
@@ -163,31 +165,54 @@ containerSelection.addEventListener("click", function (e) {
     containerArr.forEach((cont, index) => {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
-  }
 
-  const openModal = function (e) {
-    e.preventDefault();
-    modal.classList.add("active");
-    overlay.classList.add("active");
-    orderModal.innerHTML = orderSummaryText.innerHTML;
-    if(orderModal.includes('ground la'))
-  };
+    // Update Price
+    if (containerHow) {
+      const planReply = e.target.closest(".plan__reply");
+      const title = planReply.querySelector(".plan__reply--title").innerText;
 
-  const closeModal = function () {
-    modal.classList.remove("active");
-    overlay.classList.remove("active");
-    document.querySelector(".modal--complet").classList.remove("activeColor");
-  };
+      const updatePrice = function (price) {
+        const dataHow = ['[data-how="1"]', '[data-how="2"]', '[data-how="3"]'];
+        dataHow.forEach((data, index) => {
+          document.querySelector(data).innerText = price[index];
+        });
+      };
 
-  btnPlan.addEventListener("click", openModal);
-  overlay.addEventListener("click", closeModal);
+      if (title.includes("250g")) updatePrice(["$7.20", "$9.60", "$12.00"]);
 
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape") {
-      closeModal();
+      if (title.includes("500g")) updatePrice(["$13.00", "$17.50", "$22.00"]);
+
+      if (title.includes("1000g")) updatePrice(["$22.00", "$32.00", "$42.00"]);
     }
-  });
+  }
 });
 
+// Logic Modal
+const openModal = function (e) {
+  e.preventDefault();
+  modal.classList.add("active");
+  overlay.classList.add("active");
+  orderModal.innerHTML = orderSummaryText.innerHTML;
+
+  if (!orderModal.innerText.includes("ground ala")) return;
+
+  orderModal
+    .querySelector("[data-modal='modal--complet']")
+    .classList.add("activeColor");
+};
+
+const closeModal = function () {
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
+};
+
+btnPlan.addEventListener("click", openModal);
+overlay.addEventListener("click", closeModal);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    closeModal();
+  }
+});
 // prettier-ignore
 const priceAll = ["$7.20","$9.60","$12.00","$13.00","$17.50","$22.00","$32.00","$42.00"];

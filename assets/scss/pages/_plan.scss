@@ -540,12 +540,6 @@
       color: var(--color-lightCream);
     }
 
-    .modal--complet {
-      &.activeColor {
-        color: #83888f !important;
-      }
-    }
-
     @include screen-880 {
       font-size: rem(24);
       line-height: 1.67;
@@ -590,6 +584,10 @@
     .plan__order-summary--modal {
       color: #83888f;
       margin-bottom: rem(7);
+
+      [data-modal="modal--complet"].activeColor {
+        color: #83888f !important;
+      }
     }
 
     .modal__desc {
