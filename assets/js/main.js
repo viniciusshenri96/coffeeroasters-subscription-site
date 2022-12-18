@@ -10,7 +10,6 @@ const btnPlan = document.querySelector(".btn--padding");
 const orderModal = document.querySelector(".plan__order-summary--modal");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-let teste = "";
 
 let arrCheckButton = [0, 0, 0, 0];
 let checked = true,
@@ -37,50 +36,7 @@ containerSelection.addEventListener("click", function (e) {
       containerDeliver = e.target.closest(".js-deliver");
 
     // Accordion
-    const accordionFunction = function () {
-      const clickedTitle = e.target.closest(".plan__title");
 
-      if (clickedTitle) {
-        clickedTitle.classList.toggle(classActive);
-        clickedTitle.nextElementSibling.classList.toggle(classActive);
-      }
-
-      const clickedReply = e.target.closest(".plan__reply");
-      if (clickedReply) {
-        const planReply = planPreferences.querySelectorAll(".plan__reply");
-        planReply.forEach((i) => i.classList.remove(classActive));
-        clickedReply.classList.add(classActive);
-
-        const assigningValue = function (containerName, index) {
-          if (containerName) arrCheckButton[index] = 1;
-
-          if (containerGrind) {
-            arrCheckButton[4] = 1;
-            valided = arrCheckButton.every((act) => act === 1);
-            checked = true;
-            checkedSelection = false;
-          }
-
-          if (checked) {
-            valided = arrCheckButton.every((act) => act === 1);
-
-            // prettier-ignore
-            valided &&
-              document
-                .getElementById("btn-disabled")
-                .classList.add("activeButton");
-          }
-        };
-
-        // prettier-ignore
-        const containerChecked = [containerType, containerHow, containerDeliver, containerGrind];
-
-        containerChecked.forEach((container, index) => {
-          container && assigningValue(container, index + 1);
-        });
-      }
-    };
-    accordionFunction();
     // Grind Disable
     const blockGrindFunction = function (pro, opa) {
       blockGrind.classList[`${pro}`]("block");
@@ -114,7 +70,7 @@ containerSelection.addEventListener("click", function (e) {
 
     if (containerDrink) {
       arrCheckButton[0] = 1;
-
+      console.log(arrCheckButton);
       const planReply = e.target.closest(".plan__reply");
       if (!planReply) return;
       const title = planReply.querySelector(".plan__reply--title").innerText;
@@ -130,9 +86,9 @@ containerSelection.addEventListener("click", function (e) {
         blockGrindFunction("remove", "1");
 
         if (checkedSelection) {
-          checked = false;
           // prettier-ignore
           document.getElementById("btn-disabled").classList.remove("activeButton");
+          checked = false;
         }
       } else if (title === "Capsule") {
         // prettier-ignore
@@ -141,12 +97,49 @@ containerSelection.addEventListener("click", function (e) {
         blockGrindFunction("add", "0.5");
         defaultGrind();
         checkedSelection = true;
-
-        if (!checked) {
-          // prettier-ignore
-          document.getElementById("btn-disabled").classList.add("activeButton");
-        }
+        checked = true;
       }
+    }
+
+    const clickedTitle = e.target.closest(".plan__title");
+
+    if (clickedTitle) {
+      clickedTitle.classList.toggle(classActive);
+      clickedTitle.nextElementSibling.classList.toggle(classActive);
+    }
+
+    const clickedReply = e.target.closest(".plan__reply");
+    if (clickedReply) {
+      const planReply = planPreferences.querySelectorAll(".plan__reply");
+      planReply.forEach((i) => i.classList.remove(classActive));
+      clickedReply.classList.add(classActive);
+
+      const assigningValue = function (containerName, index) {
+        if (containerName) arrCheckButton[index] = 1;
+
+        if (containerGrind) {
+          arrCheckButton[4] = 1;
+          valided = arrCheckButton.every((act) => act === 1);
+          checked = true;
+          checkedSelection = false;
+        }
+
+        // console.log(checked);
+
+        if (checked) {
+          valided = arrCheckButton.every((act) => act === 1);
+
+          // prettier-ignore
+          valided &&  document.getElementById("btn-disabled").classList.add("activeButton");
+        }
+      };
+
+      // prettier-ignore
+      const containerChecked = [containerDrink,containerType, containerHow, containerDeliver, containerGrind];
+
+      containerChecked.forEach((container, index) => {
+        container && assigningValue(container, index);
+      });
     }
 
     const printTitleOrderSummary = function (containerName, nameData) {
@@ -166,23 +159,42 @@ containerSelection.addEventListener("click", function (e) {
       if (cont) printTitleOrderSummary(cont, containerNamesArr[index]);
     });
 
-    // Update Price
+    // UPDATE PRICE
     if (containerHow) {
       const planReply = e.target.closest(".plan__reply");
+      if (!planReply) return;
       const title = planReply.querySelector(".plan__reply--title").innerText;
 
-      const updatePrice = function (price) {
-        const dataHow = ['[data-how="1"]', '[data-how="2"]', '[data-how="3"]'];
+      // let valueWeek;
+      const updatePrice = function (price, checked) {
+        // prettier-ignore
+        const dataHow = ['[data-how="1"]','[data-how="2"]','[data-how="3"]'];
         dataHow.forEach((data, index) => {
           document.querySelector(data).innerText = price[index];
         });
+        const priceEveryWeek = price[0].slice(1, -1);
+        const total = +priceEveryWeek * 4;
+        document.querySelector(".modal__price").textContent = `$${total.toFixed(
+          2
+        )}/mo`;
+        // const priceEvery2Week = price[1].slice(1, -1);
+        // const total2 = +priceEveryWeek * 2;
+        // document.querySelector(
+        //   ".modal__price"
+        // ).textContent = `$${total2.toFixed(2)}/mo`;
       };
 
-      if (title.includes("250g")) updatePrice(["$7.20", "$9.60", "$12.00"]);
+      if (title.includes("250g")) {
+        updatePrice(["$7.20", "$9.60", "$12.00"], "250g");
+      }
 
-      if (title.includes("500g")) updatePrice(["$13.00", "$17.50", "$22.00"]);
+      if (title.includes("500g")) {
+        updatePrice(["$13.00", "$17.50", "$22.00"]);
+      }
 
-      if (title.includes("1000g")) updatePrice(["$22.00", "$32.00", "$42.00"]);
+      if (title.includes("1000g")) {
+        updatePrice(["$22.00", "$32.00", "$42.00"]);
+      }
     }
   }
 });
@@ -195,7 +207,6 @@ const openModal = function (e) {
   orderModal.innerHTML = orderSummaryText.innerHTML;
 
   if (!orderModal.innerText.includes("ground ala")) return;
-
   orderModal
     .querySelector("[data-modal='modal--complet']")
     .classList.add("activeColor");
@@ -214,5 +225,3 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
-// prettier-ignore
-const priceAll = ["$7.20","$9.60","$12.00","$13.00","$17.50","$22.00","$32.00","$42.00"];

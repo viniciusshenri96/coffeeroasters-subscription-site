@@ -1922,7 +1922,7 @@ body {
   border-radius: 0.5rem 0.5rem 0 0;
 }
 .modal .modal__title-box .modal__title {
-  font: var(--fw-black) 2.0833333333rem "Fraunces", serif;
+  font: var(--fw-black) 2.5rem/1.2 "Fraunces", serif;
   color: #fff;
 }
 .modal__content {

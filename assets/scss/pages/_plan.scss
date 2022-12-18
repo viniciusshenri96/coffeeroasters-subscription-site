@@ -571,7 +571,7 @@
     border-radius: rem(8) rem(8) 0 0;
 
     .modal__title {
-      font: var(--fw-black) $fz-m / 1.2 $font-2;
+      font: var(--fw-black) $fz-m / #{1.2} $font-2;
       color: #fff;
     }
   }
