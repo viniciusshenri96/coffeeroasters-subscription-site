@@ -432,12 +432,14 @@
       display: block;
       width: rem(760);
       height: rem(1);
+      margin-left: rem(15);
       background-color: var(--color-paleOrange);
       position: relative;
       margin-bottom: rem(82);
 
       @include screen-1070 {
         margin-bottom: rem(58);
+        margin-left: rem(0);
       }
 
       @include screen-660 {

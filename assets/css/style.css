@@ -670,6 +670,7 @@ body {
   display: block;
   width: 47.5rem;
   height: 0.0625rem;
+  margin-left: 0.9375rem;
   background-color: var(--color-paleOrange);
   position: relative;
   margin-bottom: 5.125rem;
@@ -677,6 +678,7 @@ body {
 @media (max-width: 73.125rem) {
   .works__content .works__details {
     margin-bottom: 3.625rem;
+    margin-left: 0rem;
   }
 }
 @media (max-width: 41.25rem) {
@@ -1466,7 +1468,7 @@ body {
     background-size: cover;
   }
 }
-.plan-works .plan-works__details {
+.plan-works__box .plan-works__details {
   display: block;
   width: 47.5rem;
   height: 0.0625rem;
@@ -1476,18 +1478,18 @@ body {
   margin-bottom: 5.125rem;
 }
 @media (max-width: 73.125rem) {
-  .plan-works .plan-works__details {
+  .plan-works__box .plan-works__details {
     margin-bottom: 3.625rem;
     width: 29.1875rem;
     height: 0.0625rem;
   }
 }
 @media (max-width: 41.25rem) {
-  .plan-works .plan-works__details {
+  .plan-works__box .plan-works__details {
     display: none;
   }
 }
-.plan-works .plan-works__details .circle-1 {
+.plan-works__box .plan-works__details .circle-1 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1500,11 +1502,11 @@ body {
   background-color: transparent;
 }
 @media (max-width: 73.125rem) {
-  .plan-works .plan-works__details .circle-1 {
+  .plan-works__box .plan-works__details .circle-1 {
     background-color: transparent;
   }
 }
-.plan-works .plan-works__details .circle-2 {
+.plan-works__box .plan-works__details .circle-2 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1516,7 +1518,7 @@ body {
   transform: translate(-50%, -50%);
   background-color: transparent;
 }
-.plan-works .plan-works__details .circle-3 {
+.plan-works__box .plan-works__details .circle-3 {
   position: absolute;
   width: 31px;
   height: 31px;
@@ -1659,6 +1661,28 @@ body {
     font-size: 1.25rem;
     line-height: 1;
   }
+}
+.plan__options .plan__list .plan__item:nth-child(4).block .plan__item--content {
+  position: relative;
+}
+.plan__options .plan__list .plan__item:nth-child(4).block .plan__item--content .plan__item--number,
+.plan__options .plan__list .plan__item:nth-child(4).block .plan__item--content .plan__item--title {
+  opacity: 0.2;
+}
+.plan__options .plan__list .plan__item:nth-child(4).block .plan__item--content [data-disabled=blockGrind] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.4;
+  filter: alpha(opacity=50);
+  cursor: no-drop;
+  display: none;
+}
+.plan__options .plan__list .plan__item:nth-child(4).block .plan__item--content [data-disabled=blockGrind].block {
+  display: block;
 }
 .plan__options .plan__list .plan__item--content {
   display: flex;
