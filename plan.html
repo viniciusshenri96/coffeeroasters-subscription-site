@@ -18,11 +18,13 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <title>Coffeeroasters subscription site</title>
+
+
 </head>
 
 <body>
   <!-- HEADER -->
-  <header class="header">
+  <header class="header" data-header>
     <a href="/">
       <img class="header__logo" src="./assets/img/shared/desktop/logo.svg"
         alt="logo written coffeeroasters with a green icon" />
@@ -112,27 +114,27 @@
     <aside class="plan__options">
       <ul class="plan__list">
         <li class="plan__item">
-          <div class="plan__item--content">
-            <p class="plan__item--number plan__item--number--green active">
+          <div class="plan__item--content active" data-list-aside="0">
+            <p class="plan__item--number plan__item--number--green">
               01
             </p>
-            <p class="plan__item--title active">Preferences</p>
+            <p class="plan__item--title">Preferences</p>
           </div>
         </li>
         <li class="plan__item">
-          <div class="plan__item--content">
+          <div class="plan__item--content" data-list-aside="1">
             <p class="plan__item--number">02</p>
             <p class="plan__item--title">Bean Type</p>
           </div>
         </li>
         <li class="plan__item">
-          <div class="plan__item--content">
+          <div class="plan__item--content" data-list-aside="2">
             <p class="plan__item--number">03</p>
             <p class="plan__item--title">Quantity</p>
           </div>
         </li>
         <li class="plan__item">
-          <div class="plan__item--content">
+          <div class="plan__item--content" data-list-aside="3">
             <p class="plan__item--number">04</p>
             <p class="plan__item--title">Grind Option</p>
             <div data-disabled="blockGrind"></div>
@@ -140,7 +142,7 @@
 
         </li>
         <li class="plan__item">
-          <div class="plan__item--content">
+          <div class="plan__item--content" data-list-aside="4">
             <p class="plan__item--number">05</p>
             <p class="plan__item--title">Deliveries</p>
           </div>
@@ -150,142 +152,163 @@
 
     <div>
       <section class="plan__selection">
-        <div class="plan__preferences ">
-          <dt class="plan__title active">How do you drink your coffee?</dt>
-          <div class="plan__content active js-drink">
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-option="0">Capsule</h3>
-              <p class="plan__reply--desc">
-                Compatible with Nespresso systems and similar brewers
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-option="1">Filter</h3>
-              <p class="plan__reply--desc">
-                For pour over or drip methods like Aeropress, Chemex, and V60
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-option="2">Espresso</h3>
-              <p class="plan__reply--desc">
-                Dense and finely ground beans for an intense, flavorful
-                experience
-              </p>
-            </dd>
-          </div>
-        </div>
-        <div class="plan__preferences">
-          <dt class="plan__title">What type of coffee?</dt>
-          <div class="plan__content js-type">
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-type="0">Single Origin</h3>
-              <p class="plan__reply--desc">
-                Distinct, high quality coffee from a specific family-owned
-                farm
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-type="1">Decaf</h3>
-              <p class="plan__reply--desc">
-                Just like regular coffee, except the caffeine has been removed
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title" data-type="2">Blended</h3>
-              <p class="plan__reply--desc">
-                Combination of two or three dark roasted beans of organic
-                coffees
-              </p>
-            </dd>
-          </div>
-        </div>
-        <div class="plan__preferences">
-          <dt class="plan__title">How much would you like?</dt>
-          <div class="plan__content js-how">
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">250g</h3>
-              <p class="plan__reply--desc">
-                Perfect for the solo drinker. Yields about 12 delicious cups.
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">500g</h3>
-              <p class="plan__reply--desc">
-                Perfect option for a couple. Yields about 40 delectable cups.
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">1000g</h3>
-              <p class="plan__reply--desc">
-                Perfect for offices and events. Yields about 90 delightful
-                cups.
-              </p>
-            </dd>
-          </div>
-        </div>
-        <div class="plan__preferences" id="disabled">
-          <dt class="plan__title">Want us to grind them?</dt>
-          <div class="plan__content js-grind">
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Wholebean</h3>
-              <p class="plan__reply--desc">
-                Best choice if you cherish the full sensory experience
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Filter</h3>
-              <p class="plan__reply--desc">
-                For drip or pour-over coffee methods such as V60 or Aeropress.
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Cafetiére</h3>
-              <p class="plan__reply--desc">
-                Course ground beans specially suited for french press coffee
-              </p>
-            </dd>
-          </div>
-          <div data-disabled="block"></div>
-        </div>
-        <div class="plan__preferences">
-          <dt class="plan__title">How often should we deliver?</dt>
-          <div class="plan__content js-deliver">
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Every week</h3>
-              <p class="plan__reply--desc">
-                <span data-how="0">$7.20</span> per shipment. Includes free first-class shipping.
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Every 2 weeks</h3>
-              <p class="plan__reply--desc">
-                <span data-how="1">$9.60</span> per shipment. Includes free priority shipping.
-              </p>
-            </dd>
-            <dd class="plan__reply">
-              <h3 class="plan__reply--title">Every month</h3>
-              <p class="plan__reply--desc">
-                <span data-how="2">$12.00</span> per shipment. Includes free priority shipping.
-              </p>
-            </dd>
-          </div>
-        </div>
-        <div class="plan__order-summary">
-          <div class="plan__order-summary--box">
-            <h3 class="plan__order-summary--title">Order Summary</h3>
-            <p class="plan__order-summary--resume">
-              “I drink my coffee using <span id="drink">Capsule</span>, with
-              a <span id="type">_____</span> type of bean. <span id="how">_____</span> <span id="complet"
-                data-modal="modal--complet">ground
-                ala,</span> <span id="grind">_____</span>, sent to me </span>
-              <span id="deliver">_____</span>.”
-            </p>
-          </div>
-        </div>
-        <a disabled href="plan.html" class="btn btn--padding" id="btn-disabled">Create your plan
-        </a>
+        <dl>
+          <div class="plan__preferences" data-preference="0">
+            <dt data-question>
+              <button class="plan__title" aria-controls="question1" aria-expanded="false" data-button="0">How do you
+                drink your
+                coffee?</button>
+            </dt>
+            <div class="plan__content show" id="question1" data-options>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Capsule</h3>
+                <p class="plan__reply--desc">
+                  Compatible with Nespresso systems and similar brewers
+                </p>
 
-        <!-- <div data-disabled="block"></div> -->
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Filter</h3>
+                <p class="plan__reply--desc">
+                  For pour over or drip methods like Aeropress, Chemex, and V60
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Espresso</h3>
+                <p class="plan__reply--desc">
+                  Dense and finely ground beans for an intense, flavorful
+                  experience
+                </p>
+              </dd>
+            </div>
+          </div>
+          <div class="plan__preferences" data-preference="1">
+            <dt data-question>
+              <button class="plan__title" aria-controls="question2" aria-expanded="false" data-button="1">What type of
+                coffee?</button>
+            </dt>
+            <div class="plan__content" id="question2" data-options>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Single Origin</h3>
+                <p class="plan__reply--desc">
+                  Distinct, high quality coffee from a specific family-owned
+                  farm
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Decaf</h3>
+                <p class="plan__reply--desc">
+                  Just like regular coffee, except the caffeine has been removed
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Blended</h3>
+                <p class="plan__reply--desc">
+                  Combination of two or three dark roasted beans of organic
+                  coffees
+                </p>
+              </dd>
+            </div>
+          </div>
+          <div class="plan__preferences" data-preference="2">
+            <dt data-question>
+              <button class="plan__title" aria-controls="question3" aria-expanded="false" data-button="2">How much would
+                you like?</button>
+            </dt>
+            <div class="plan__content" id="question3" data-options>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">250g</h3>
+                <p class="plan__reply--desc">
+                  Perfect for the solo drinker. Yields about 12 delicious cups.
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">500g</h3>
+                <p class="plan__reply--desc">
+                  Perfect option for a couple. Yields about 40 delectable cups.
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">1000g</h3>
+                <p class="plan__reply--desc">
+                  Perfect for offices and events. Yields about 90 delightful
+                  cups.
+                </p>
+              </dd>
+            </div>
+          </div>
+          <div class="plan__preferences" id="disabled" data-preference="3">
+            <dt data-question>
+              <button class="plan__title" aria-controls="question4" aria-expanded="false" data-button="3">Want us to
+                grind them?</button>
+            </dt>
+            <div class="plan__content" id="question4" data-options>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Wholebean</h3>
+                <p class="plan__reply--desc">
+                  Best choice if you cherish the full sensory experience
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Filter</h3>
+                <p class="plan__reply--desc">
+                  For drip or pour-over coffee methods such as V60 or Aeropress.
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Cafetiére</h3>
+                <p class="plan__reply--desc">
+                  Course ground beans specially suited for french press coffee
+                </p>
+              </dd>
+            </div>
+            <div data-disabled="block"></div>
+          </div>
+          <div class="plan__preferences" data-preference="4">
+            <dt data-question>
+              <button class="plan__title" aria-controls="question5" aria-expanded="false" data-button="4">How often
+                should we deliver?</button>
+            </dt>
+            <div class="plan__content" id="question5" data-options>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Every week</h3>
+                <p class="plan__reply--desc">
+                  <span data-how="0">$7.20</span> per shipment. Includes free first-class shipping.
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Every 2 weeks</h3>
+                <p class="plan__reply--desc">
+                  <span data-how="1">$9.60</span> per shipment. Includes free priority shipping.
+                </p>
+              </dd>
+              <dd class="plan__reply" data-selecting>
+                <h3 class="plan__reply--title">Every month</h3>
+                <p class="plan__reply--desc">
+                  <span data-how="2">$12.00</span> per shipment. Includes free priority shipping.
+                </p>
+              </dd>
+            </div>
+          </div>
+          <div class="plan__order-summary">
+            <div class="plan__order-summary--box">
+              <h3 class="plan__order-summary--title">Order Summary</h3>
+              <p class="plan__order-summary--resume">
+                “I drink my coffee using <span id="drink"></span>, with
+                a <span id="type">_____</span> type of bean. <span id="how">_____</span> <span id="complet"
+                  data-modal="modal--complet">ground
+                  ala,</span> <span id="grind">_____</span>, sent to me </span>
+                <span id="deliver">_____</span>.”
+              </p>
+            </div>
+          </div>
+          <div class="btn-box">
+            <a disabled href="plan.html" class="btn btn--padding" id="btn-disabled">Create your plan
+            </a>
+
+            <div data-disabled="blockGrind"></div>
+          </div>
+        </dl>
       </section>
     </div>
   </section>

@@ -1688,10 +1688,17 @@ body {
   display: flex;
   gap: 1.8125rem;
   cursor: pointer;
+  opacity: 0.4;
+  transition: 0.4s ease-in-out;
+}
+.plan__options .plan__list .plan__item--content:hover {
+  opacity: 0.6;
+}
+.plan__options .plan__list .plan__item--content.active {
+  opacity: 1;
 }
 .plan__options .plan__list .plan__item--content .plan__item--number {
   color: var(--color-grey);
-  opacity: 0.4;
 }
 .plan__options .plan__list .plan__item--content .plan__item--number--green {
   color: var(--color-darkCyan);
@@ -1701,11 +1708,7 @@ body {
 }
 .plan__options .plan__list .plan__item--content .plan__item--title {
   color: var(--color-darkGreyBlue);
-  opacity: 0.4;
   transition: 0.4s;
-}
-.plan__options .plan__list .plan__item--content .plan__item--title:hover {
-  opacity: 0.6;
 }
 .plan__options .plan__list .plan__item--content .plan__item--title.active {
   opacity: 1;
@@ -1764,7 +1767,10 @@ body {
 .plan__selection .plan__preferences .plan__title {
   font: var(--fw-black) 2.5rem/var(--lh-m) "Fraunces", serif;
   color: var(--color-darkGreyBlue);
+  border: none;
+  background: none;
   color: var(--color-grey);
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1808,7 +1814,7 @@ body {
     gap: 1rem;
   }
 }
-.plan__selection .plan__preferences .plan__content.active {
+.plan__selection .plan__preferences .plan__content.show {
   display: flex;
 }
 .plan__selection .plan__preferences .plan__content .plan__reply {
@@ -1854,18 +1860,34 @@ body {
   opacity: 0.8;
   color: var(--color-darkGreyBlue);
 }
-.plan .btn--padding {
+.plan .btn-box {
+  display: inline-block;
+  position: relative;
+}
+.plan .btn-box [data-disabled=blockGrind] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0.4;
+  cursor: no-drop;
+  display: block;
+}
+.plan .btn-box [data-disabled=blockGrind].block {
+  display: none;
+}
+.plan .btn-box .btn--padding {
   padding: 0.9375rem 2.1875rem;
-  justify-self: end;
   background-color: #e2dedb;
-  pointer-events: none;
 }
 @media (max-width: 55rem) {
-  .plan .btn--padding {
+  .plan .btn-box .btn--padding {
     justify-self: center;
   }
 }
-.plan .btn--padding.activeButton {
+.plan .btn-box .btn--padding.activeButton {
   background-color: #0e8784;
   pointer-events: visible;
 }
@@ -1993,6 +2015,11 @@ body {
 }
 .overlay.active {
   display: block;
+}
+
+nav.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.95);
 }
 
 /*# sourceMappingURL=style.css.map */

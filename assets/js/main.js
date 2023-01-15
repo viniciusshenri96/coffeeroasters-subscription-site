@@ -1,276 +1,298 @@
 "use strict";
 
-const button = document.querySelector(".header__menu-ham");
-const nav = document.querySelector(".header__list");
-const containerSelection = document.querySelector(".plan__selection");
-const orderSummaryText = document.querySelector(".plan__order-summary--resume");
-const blockGrind = document.querySelector('[data-disabled="block"]');
-const checkedReply = document.querySelectorAll(".plan__reply");
-const btnPlan = document.querySelector(".btn--padding");
-const orderModal = document.querySelector(".plan__order-summary--modal");
-const modal = document.querySelector(".modal");
-const overlay = document.querySelector(".overlay");
-const planItemContent = document.querySelectorAll(".plan__item--content");
+// Accordion
+// const planSelectionContainer = document.querySelector(".plan__selection");
+// const planOptions = document.querySelector(".plan__options");
+// const orderSummaryText = document.querySelector(".plan__order-summary--resume");
+// const blockGrind = document.querySelector('[data-disabled="block"]');
+// const orderModal = document.querySelector(".plan__order-summary--modal");
+// const modal = document.querySelector(".modal");
+// const overlay = document.querySelector(".overlay");
+// const btnPlan = document.querySelector(".btn--padding");
 
-let arrCheckButton = [0, 0, 0, 0];
-let checked = true,
-  checkedSelection = true,
-  valided;
-// Menu Mobile
-const openMenu = function () {
-  nav.classList.toggle("active");
+// class App {
+//   #arrCheckButton = [0, 0, 0, 1, 0];
+//   #checked = true;
+//   #valided = true;
+//   #checkedSelection = true;
+
+//   constructor() {
+//     this._eventClick();
+//   }
+
+//   _eventClick() {
+//     planSelectionContainer.addEventListener(
+//       "click",
+//       this._workingClick.bind(this)
+//     );
+//   }
+
+//   _workingClick(e) {
+//     this._accordion(e);
+
+//     this._selectingOption(e);
+
+//     this._updateOrderSummaryTitleOption(e);
+//   }
+
+//   _accordion(e) {
+//     const clickBtn = e.target.closest("[data-button]");
+//     let element;
+//     let question;
+//     if (!clickBtn) return;
+//     question = clickBtn.closest("[data-question]");
+//     question.nextElementSibling.classList.toggle("show");
+
+//     if (!question.nextElementSibling.classList.contains("show"))
+//       return clickBtn.setAttribute("aria-expanded", "false");
+//     clickBtn.setAttribute("aria-expanded", "true");
+
+//     const asideListArr = [
+//       "[data-button ='0']",
+//       "[data-button ='1']",
+//       "[data-button ='2']",
+//       "[data-button ='3']",
+//       "[data-button ='4']",
+//     ];
+
+//     if (clickBtn) {
+//       asideListArr.forEach((_, index) => {
+//         if (e.target.matches(`[data-button ='${index}']`)) {
+//           element = document.querySelector(`[data-list-aside="${index}"]`);
+//           element.classList.add("active");
+//         }
+//       });
+//       document.querySelectorAll(`[data-list-aside].active`).forEach((list) => {
+//         if (list === element) return;
+//         list.classList.remove("active");
+//       });
+//     }
+//   }
+
+//   _selectingOption(e) {
+//     const clickdPreferences = e.target.closest("[data-preference]");
+//     if (!clickdPreferences) return;
+//     const planReply = clickdPreferences.querySelectorAll("[data-selecting]");
+//     const clickedOption = e.target.closest("[data-selecting]");
+//     if (!clickedOption || !planReply) return;
+
+//     planReply.forEach((rep) => rep.classList.remove("active"));
+//     clickedOption.classList.add("active");
+//   }
+
+//   _updateOrderSummaryTitleOption(e) {
+//     let title;
+//     const clickdPreferences = e.target.closest("[data-preference]");
+
+//     if (!clickdPreferences) return;
+//     const planReply = e.target.closest("[data-selecting]");
+
+//     if (!planReply) return;
+
+//     const titleOrderSummaryArr = ["drink", "type", "how", "grind", "deliver"];
+
+//     titleOrderSummaryArr.forEach((updateTitle, index) => {
+//       if (clickdPreferences.matches(`[data-preference="${index}"]`)) {
+//         title = planReply.querySelector(".plan__reply--title").textContent;
+//         document.getElementById(`${updateTitle}`).textContent = title;
+//       }
+//     });
+
+//     this._workSectionHow(clickdPreferences, title);
+//     this._activation_button(clickdPreferences, planReply);
+
+//     // UPDATE PRICE for "How often should we deliver?"
+//     this._updatePriceSectionDeliver(title);
+
+//     // UPDATE PRICE Modal
+//     this._updatePriceModal(title);
+//   }
+
+//   _workSectionHow(clickdPreferences, title) {
+//     const updateTextOrderSummary = function (valueDisplay) {
+//       document.getElementById("grind").style.display = valueDisplay;
+//       document.getElementById("complet").style.display = valueDisplay;
+//     };
+
+//     if (clickdPreferences.matches(`[data-preference="0"]`)) {
+//       if (title.includes("Capsule")) {
+//         orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
+//           "as",
+//           "using"
+//         );
+//         updateTextOrderSummary("none");
+//         this._blockGrind("add", "0.5");
+//         this.#checkedSelection = true;
+//         this.#checked = true;
+//       } else if (title.includes("Filter") || title.includes("Espresso")) {
+//         orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
+//           "using",
+//           "as"
+//         );
+//         // this._updateTextOrderSummary("inline");
+//         updateTextOrderSummary("inline");
+//         this._blockGrind("remove", "1");
+
+//         if (this.#checkedSelection) {
+//           // prettier-ignore
+//           document.getElementById("btn-disabled").classList.remove("activeButton");
+//           document
+//             .querySelector(".btn-box")
+//             .querySelector('[data-disabled="blockGrind"]')
+//             .classList.remove("block");
+//           this.#checked = false;
+//         }
+//       }
+//     }
+//   }
+
+//   _blockGrind(pro, opa) {
+//     blockGrind.classList[`${pro}`]("block");
+//     // prettier-ignore
+//     blockGrind.closest(".plan__preferences").querySelector(".plan__title").style.opacity = opa;
+
+//     document
+//       .querySelector(".plan__item:nth-child(4)")
+//       .classList[`${pro}`]("block");
+//     document
+//       .querySelector('[data-disabled="blockGrind"]')
+//       .classList[`${pro}`]("block");
+//   }
+
+//   _activation_button(clickdPreferences) {
+//     this.#arrCheckButton.forEach((_, index) => {
+//       if (clickdPreferences.matches(`[data-preference="${index}"]`)) {
+//         this.#arrCheckButton[index] = 1;
+//       }
+
+//       if (
+//         clickdPreferences.matches(`[data-preference="${index === 3 && 3}"]`)
+//       ) {
+//         this.#checked = true;
+//         this.#checkedSelection = false;
+//       }
+
+//       if (this.#checked) {
+//         this.#valided = this.#arrCheckButton.every((act) => act === 1);
+
+//         // prettier-ignore
+//         this.#valided  &&  document.getElementById("btn-disabled").classList.add("activeButton");
+//         document
+//           .querySelector(".btn-box")
+//           .querySelector('[data-disabled="blockGrind"]')
+//           .classList.add("block");
+//       }
+//     });
+//   }
+
+//   _updatePriceSectionDeliver(title) {
+//     function updatePrice(price) {
+//       // prettier-ignore
+//       price.forEach((_, index) => {
+//         document.querySelector(`[data-how="${index}"]`).innerText = price[index];
+//       });
+//     }
+
+//     let updatePriceModal = this._updatePriceModal;
+//     function updatingModalPricePerUnit() {
+//       const sectionDeliver = document.querySelector('[data-preference="4"]');
+//       const planReplyArr = sectionDeliver.querySelectorAll("[data-selecting]");
+//       planReplyArr.forEach((plan) => {
+//         if (plan.classList.contains("active")) {
+//           const title = plan.querySelector(".plan__reply--title").textContent;
+//           updatePriceModal(title);
+//         }
+//       });
+//     }
+
+//     if (title === "250g") {
+//       updatePrice(["$7.20", "$9.60", "$12.00"]);
+//       updatingModalPricePerUnit();
+//     }
+
+//     if (title.includes("500g")) {
+//       updatePrice(["$13.00", "$17.50", "$22.00"]);
+//       updatingModalPricePerUnit();
+//     }
+
+//     if (title.includes("1000g")) {
+//       updatePrice(["$22.00", "$32.00", "$42.00"]);
+//       updatingModalPricePerUnit();
+//     }
+//   }
+
+//   _updatePriceModal(title) {
+//     if (!title) return;
+
+//     function updatePriceModal(price) {
+//       document.querySelector(".modal__price").textContent = `$${price.toFixed(
+//         2
+//       )}/mo`;
+//     }
+
+//     if (title.includes("Every week")) {
+//       const price =
+//         +document.querySelector('[data-how="0"]').textContent.slice(1, -1) * 4;
+//       updatePriceModal(price);
+//     }
+//     if (title.includes("Every 2 weeks")) {
+//       const price =
+//         +document.querySelector('[data-how="1"]').textContent.slice(1, -1) * 2;
+//       updatePriceModal(price);
+//     }
+//     if (title.includes("Every month")) {
+//       const price =
+//         +document.querySelector('[data-how="2"]').textContent.slice(1, -1) * 1;
+//       updatePriceModal(price);
+//     }
+//   }
+// }
+
+// // const app = new App();
+
+// // Logic Modal
+// const openModal = function (e) {
+//   e.preventDefault();
+//   modal.classList.add("active");
+//   overlay.classList.add("active");
+//   orderModal.innerHTML = orderSummaryText.innerHTML;
+
+//   if (!orderModal.innerText.includes("ground ala")) return;
+//   orderModal
+//     .querySelector("[data-modal='modal--complet']")
+//     .classList.add("activeColor");
+// };
+
+// const closeModal = function () {
+//   modal.classList.remove("active");
+//   overlay.classList.remove("active");
+// };
+
+// btnPlan.addEventListener("click", openModal);
+// overlay.addEventListener("click", closeModal);
+
+// document.addEventListener("keydown", function (e) {
+//   if (e.key === "Escape") {
+//     closeModal();
+//   }
+// });
+
+// Implementing a Sticky Navigation: The Scroll Event
+const nav = document.querySelector("nav");
+const header = document.querySelector("[data-header]");
+const navHeight = nav.getBoundingClientRect().height;
+
+const stikyNav = function (entries) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) nav.classList.add("sticky");
+  else nav.classList.remove("sticky");
 };
-button.addEventListener("click", openMenu);
 
-////////////////////////////////////
-// APPLICATION ARCHITECTURE
-class App {
-  #planPreferences;
-  #classActive = "active";
-  #containerDrink;
-  #containerType;
-  #containerHow;
-  #containerGrind;
-  #containerDeliver;
-  #total = 0;
-  #priceValue = [];
-
-  constructor() {
-    containerSelection.addEventListener("click", this._appClicked.bind(this));
-  }
-
-  _appClicked(e) {
-    this.#planPreferences = e.target.closest(".plan__preferences");
-
-    if (this.#planPreferences) {
-      this.#containerDrink = e.target.closest(".js-drink");
-      this.#containerType = e.target.closest(".js-type");
-      this.#containerHow = e.target.closest(".js-how");
-      this.#containerGrind = e.target.closest(".js-grind");
-      this.#containerDeliver = e.target.closest(".js-deliver");
-      const planReply = e.target.closest(".plan__reply");
-      const clickedReply = e.target.closest(".plan__reply");
-
-      if (this.#containerDrink) {
-        arrCheckButton[0] = 1;
-        const planReply = e.target.closest(".plan__reply");
-        if (!planReply) return;
-        const title = planReply.querySelector(".plan__reply--title").innerText;
-
-        if (title.includes("Filter") || title.includes("Espresso")) {
-          // prettier-ignore
-          orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace("using","as");
-          this._updateTextOrderSummary("inline");
-          this._blockGrind("remove", "1");
-
-          if (checkedSelection) {
-            // prettier-ignore
-            document.getElementById("btn-disabled").classList.remove("activeButton");
-            checked = false;
-          }
-        } else if (title === "Capsule") {
-          // prettier-ignore
-          orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace("as","using");
-          this._updateTextOrderSummary("none");
-          this._blockGrind("add", "0.5");
-          this._defaultGrind();
-          checkedSelection = true;
-          checked = true;
-        }
-      }
-
-      // Accordion
-      this._accordion(e);
-
-      // Clicked option
-      this._clickedReply(clickedReply);
-
-      // Order summary title updates
-      this._orderSummaryTitleUpdates(e);
-
-      // UPDATE PRICE for "How often should we deliver?"
-      this._updatePriceDeliver(planReply);
-
-      // this._updatePriceModal(planReply);
-    }
-  }
-
-  _clickedReply(clickedReply) {
-    if (clickedReply) {
-      // Selecting Option
-      this._selectingOption(clickedReply);
-
-      // Activation Button
-      // prettier-ignore
-      const containerChecked = [this.#containerDrink, this.#containerType, this.#containerHow, this.#containerDeliver, this.#containerGrind];
-
-      containerChecked.forEach((container, index) => {
-        container && this._activation_button(container, index);
-      });
-    }
-  }
-
-  _activation_button(containerName, index) {
-    if (containerName) arrCheckButton[index] = 1;
-
-    if (this.#containerGrind) {
-      arrCheckButton[4] = 1;
-      valided = arrCheckButton.every((act) => act === 1);
-      checked = true;
-      checkedSelection = false;
-    }
-
-    if (checked) {
-      valided = arrCheckButton.every((act) => act === 1);
-
-      // prettier-ignore
-      valided &&  document.getElementById("btn-disabled").classList.add("activeButton");
-    }
-  }
-
-  _selectingOption(clickedReply) {
-    const planReply = this.#planPreferences.querySelectorAll(".plan__reply");
-    planReply.forEach((i) => i.classList.remove(this.#classActive));
-    clickedReply.classList.add(this.#classActive);
-  }
-
-  _accordion(e) {
-    const clickedTitle = e.target.closest(".plan__title");
-
-    if (clickedTitle) {
-      clickedTitle.classList.toggle(this.#classActive);
-      clickedTitle.nextElementSibling.classList.toggle(this.#classActive);
-    }
-  }
-
-  _blockGrind(pro, opa) {
-    blockGrind.classList[`${pro}`]("block");
-    // prettier-ignore
-    blockGrind.closest(".plan__preferences").querySelector(".plan__title").style.opacity = opa;
-
-    document
-      .querySelector(".plan__item:nth-child(4)")
-      .classList[`${pro}`]("block");
-    document
-      .querySelector('[data-disabled="blockGrind"]')
-      .classList[`${pro}`]("block");
-  }
-
-  _orderSummaryTitleUpdates(e) {
-    // prettier-ignore
-    const containerArr = [this.#containerDrink,this.#containerType, this.#containerHow, this.#containerGrind, this.#containerDeliver];
-    const containerNamesArr = ["drink", "type", "how", "grind", "deliver"];
-    containerArr.forEach(
-      (cont, index) =>
-        // Curt-circuting
-        cont && this._printTitleOrderSummary(cont, containerNamesArr[index], e)
-    );
-  }
-
-  _printTitleOrderSummary(containerName, nameData, e) {
-    if (containerName) {
-      const planReply = e.target.closest(".plan__reply");
-      if (!planReply) return;
-      const title = planReply.querySelector(".plan__reply--title").innerText;
-
-      document.getElementById(`${nameData}`).innerText = title;
-    }
-  }
-
-  _updateTextOrderSummary(value) {
-    document.getElementById("grind").style.display = value;
-    document.getElementById("complet").style.display = value;
-  }
-
-  _defaultGrind() {
-    blockGrind
-      .closest(".plan__preferences")
-      .querySelector(".plan__content")
-      .classList.remove("active");
-    blockGrind
-      .closest(".plan__preferences")
-      .querySelector(".plan__title")
-      .classList.remove("active");
-
-    const replyDisabled = document
-      .getElementById("disabled")
-      .querySelectorAll(".plan__reply");
-
-    replyDisabled.forEach((dis) => dis.classList.remove("active"));
-    document.getElementById(`grind`).innerText = "_____";
-  }
-
-  _updatePriceDeliver(planReply) {
-    if (!planReply) return;
-    const title = planReply.querySelector(".plan__reply--title").innerText;
-
-    if (title === "250g") {
-      this._updatePrice(["$7.20", "$9.60", "$12.00"], "250g");
-    }
-
-    if (title.includes("500g")) {
-      this._updatePrice(["$13.00", "$17.50", "$22.00"], "500g");
-    }
-
-    if (title.includes("1000g")) {
-      this._updatePrice(["$22.00", "$32.00", "$42.00"], "1000g");
-    }
-  }
-
-  _updatePrice(price, title) {
-    // prettier-ignore
-    const dataHow = ['[data-how="0"]','[data-how="1"]','[data-how="2"]'];
-    dataHow.forEach((data, index) => {
-      document.querySelector(data).innerText = price[index];
-    });
-
-    if (title === "250g") {
-    }
-  }
-
-  // _updatePriceModal(planReply) {
-  //   if (!planReply) return;
-  //   const title = planReply.querySelector(".plan__reply--title").innerText;
-  //   if (title === "Every week") {
-  //     const price1 = document.querySelector('[data-how="0"]').innerText;
-  //     console.log(price1);
-  //   }
-  //   if (title === "Every 2 weeks") {
-  //     const price1 = document.querySelector('[data-how="1"]').innerText;
-  //     console.log(price1);
-  //   }
-  //   if (title === "Every month") {
-  //     const price1 = document.querySelector('[data-how="2"]').innerText;
-  //     console.log(price1);
-  //   }
-  // }
-}
-
-const app = new App();
-
-// Logic Modal
-const openModal = function (e) {
-  e.preventDefault();
-  modal.classList.add("active");
-  overlay.classList.add("active");
-  orderModal.innerHTML = orderSummaryText.innerHTML;
-
-  if (!orderModal.innerText.includes("ground ala")) return;
-  orderModal
-    .querySelector("[data-modal='modal--complet']")
-    .classList.add("activeColor");
-};
-
-const closeModal = function () {
-  modal.classList.remove("active");
-  overlay.classList.remove("active");
-};
-
-btnPlan.addEventListener("click", openModal);
-overlay.addEventListener("click", closeModal);
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    closeModal();
-  }
+const headerObserver = new IntersectionObserver(stikyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `${navHeight}px`,
 });
+
+headerObserver.observe;
