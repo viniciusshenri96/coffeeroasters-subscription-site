@@ -9,6 +9,15 @@
   --color-lightCream: #fefcf7;
   --color-grey: #83888f;
 
+  // Text
+  --color-primary-text: #fefcf7;
+  --color-second-text: #333d4b;
+  --color-third-text: #83888f;
+
+  // Background Color
+  --color-bg-primary: #fefcf7;
+  --color-bg-second: #2c343e;
+
   // LINE-HEIGHT
 
   // title
@@ -31,6 +40,19 @@
   --fw-black: 900;
 }
 
+// Dark Mode
+// html {
+//   // COLORS
+//   --color-darkGreyBlue: #333d4b !important;
+//   --color-bg: #fefcf7 !important;
+// }
+
+// html[data-theme="dark"] {
+//   // COLORS
+//   --color-darkGreyBlue: #2c343e !important;
+//   --color-bg: #333d4b !important;
+// }
+
 *,
 *::after,
 *::before {
@@ -41,7 +63,7 @@
 
 /* better for people who browse with the keyboard and know where they are on the site, so I set a different style, making it more visible, taking it from the default.
  */
-*:focus,
+
 *:focus-visible {
   outline: #646464 dotted 4px;
   outline-offset: 4px;
@@ -81,6 +103,26 @@ select {
   }
 }
 
+/**
+ * Screen Reader Class
+ * 
+ * To hide content visually.
+ *
+ * For more information: https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
+ */
+.sr-only {
+  position: absolute !important;
+  margin: -1px !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
 // html,
 // body {
 //   height: 100%;
@@ -91,9 +133,54 @@ html {
 }
 
 body {
+  transition: 0.4s ease-in-out;
+
+  background: var(--color-bg);
   line-height: 1.5;
   /* improves text rendering */
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   position: relative;
+}
+
+body.dark-theme {
+  transition: 0.4s ease-in-out;
+  // Text
+  --color-second-text: #fefcf7;
+  --color-third-text: #fefcf7;
+  --color-bg: #333d4b;
+  --color-bg-second: #2c343e;
+
+  .header__logo g path:first-child {
+    fill: #fefcf7;
+  }
+
+  .works__details {
+    .circle-1,
+    .circle-2,
+    .circle-3 {
+      background: transparent;
+    }
+  }
+
+  #theme-button {
+    color: var(--color-third-text);
+  }
+
+  .headquarters__title {
+    color: var(--color-primary-text);
+  }
+
+  .btn-box {
+    .btn--padding {
+      color: var(--color-darkGreyBlue);
+      opacity: 0.4;
+
+      &.activeButton {
+        opacity: 1;
+
+        color: var(--color-primary-text);
+      }
+    }
+  }
 }

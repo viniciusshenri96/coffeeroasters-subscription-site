@@ -61,6 +61,7 @@
 
       .hero__title {
         @include font-l;
+        color: var(--color-primary-text);
         margin-bottom: rem(32);
 
         @include screen-880 {
@@ -76,6 +77,7 @@
 
       .hero__desc {
         @include font-body-m;
+        color: var(--color-primary-text);
         margin-bottom: rem(56);
         max-width: 45ch;
 
@@ -225,12 +227,13 @@
       }
       .collection__subtitle {
         @include font-xs;
+        color: var(--color-second-text);
         margin-bottom: rem(24);
       }
 
       .collection__desc {
         @include font-body-m;
-        color: var(--color-darkGreyBlue);
+        color: var(--color-second-text);
 
         @include screen-880 {
           font-size: rem(15);
@@ -290,7 +293,7 @@
 
       .benefits__title {
         @include font-m;
-        color: var(--color-lightCream);
+        color: var(--color-primary-text);
         padding-top: rem(100);
 
         @include screen-1070 {
@@ -306,6 +309,7 @@
 
       .benefits__desc {
         @include font-body-m;
+        color: var(--color-primary-text);
         opacity: 0.8;
 
         @include screen-660 {
@@ -366,7 +370,8 @@
 
         .benefits__subtitle {
           @include font-xs;
-          color: var(--color-lightCream);
+          color: var(--color-primary-text);
+
           margin-bottom: rem(24);
 
           @include screen-1070 {
@@ -379,6 +384,7 @@
 
         .benefits__desc {
           @include font-body-m;
+          color: var(--color-primary-text);
 
           @include screen-1070 {
             font-size: rem(15);
@@ -416,7 +422,7 @@
 
     .works__title {
       @include font-xs;
-      color: var(--color-grey);
+      color: var(--color-third-text);
       margin-bottom: rem(82);
 
       @include screen-1070 {
@@ -521,6 +527,7 @@
         @include font-s;
         max-width: rem(255);
         margin-bottom: rem(43);
+        color: var(--color-second-text);
 
         @include screen-1070 {
           font-size: rem(28);
@@ -535,7 +542,7 @@
 
       .works__desc {
         @include font-body-m;
-        color: var(--color-darkGreyBlue);
+        color: var(--color-second-text);
 
         @include screen-1070 {
           font-size: rem(15);

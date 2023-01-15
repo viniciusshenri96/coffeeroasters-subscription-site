@@ -13,7 +13,7 @@
 
   &__box {
     padding: rem(47) rem(85);
-    background-color: var(--color-darkGreyBlue);
+    background-color: var(--color-bg-second);
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -92,11 +92,16 @@
 
       .footer__link {
         @include font-body-s;
+        color: var(--color-third-text);
         font-weight: var(--fw-bold);
         transition: 0.4s;
 
         &:hover {
           color: #fff;
+        }
+
+        body.dark-theme &:hover {
+          color: var(--color-darkCyan);
         }
       }
     }

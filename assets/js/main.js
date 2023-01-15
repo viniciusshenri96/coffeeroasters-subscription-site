@@ -1,298 +1,125 @@
 "use strict";
 
-// Accordion
-// const planSelectionContainer = document.querySelector(".plan__selection");
-// const planOptions = document.querySelector(".plan__options");
-// const orderSummaryText = document.querySelector(".plan__order-summary--resume");
-// const blockGrind = document.querySelector('[data-disabled="block"]');
-// const orderModal = document.querySelector(".plan__order-summary--modal");
-// const modal = document.querySelector(".modal");
-// const overlay = document.querySelector(".overlay");
-// const btnPlan = document.querySelector(".btn--padding");
+// Implementing a Sticky Navigation: The Scroll Event
+// const nav = document.querySelector(".header__nav");
+// const header = document.querySelector(".header");
+// const hero = document.querySelector(".hero");
+// const heroHeight = hero.getBoundingClientRect().y;
 
-// class App {
-//   #arrCheckButton = [0, 0, 0, 1, 0];
-//   #checked = true;
-//   #valided = true;
-//   #checkedSelection = true;
+// const stikyNav = function (entries) {
+//   const [entry] = entries;
 
-//   constructor() {
-//     this._eventClick();
-//   }
-
-//   _eventClick() {
-//     planSelectionContainer.addEventListener(
-//       "click",
-//       this._workingClick.bind(this)
-//     );
-//   }
-
-//   _workingClick(e) {
-//     this._accordion(e);
-
-//     this._selectingOption(e);
-
-//     this._updateOrderSummaryTitleOption(e);
-//   }
-
-//   _accordion(e) {
-//     const clickBtn = e.target.closest("[data-button]");
-//     let element;
-//     let question;
-//     if (!clickBtn) return;
-//     question = clickBtn.closest("[data-question]");
-//     question.nextElementSibling.classList.toggle("show");
-
-//     if (!question.nextElementSibling.classList.contains("show"))
-//       return clickBtn.setAttribute("aria-expanded", "false");
-//     clickBtn.setAttribute("aria-expanded", "true");
-
-//     const asideListArr = [
-//       "[data-button ='0']",
-//       "[data-button ='1']",
-//       "[data-button ='2']",
-//       "[data-button ='3']",
-//       "[data-button ='4']",
-//     ];
-
-//     if (clickBtn) {
-//       asideListArr.forEach((_, index) => {
-//         if (e.target.matches(`[data-button ='${index}']`)) {
-//           element = document.querySelector(`[data-list-aside="${index}"]`);
-//           element.classList.add("active");
-//         }
-//       });
-//       document.querySelectorAll(`[data-list-aside].active`).forEach((list) => {
-//         if (list === element) return;
-//         list.classList.remove("active");
-//       });
-//     }
-//   }
-
-//   _selectingOption(e) {
-//     const clickdPreferences = e.target.closest("[data-preference]");
-//     if (!clickdPreferences) return;
-//     const planReply = clickdPreferences.querySelectorAll("[data-selecting]");
-//     const clickedOption = e.target.closest("[data-selecting]");
-//     if (!clickedOption || !planReply) return;
-
-//     planReply.forEach((rep) => rep.classList.remove("active"));
-//     clickedOption.classList.add("active");
-//   }
-
-//   _updateOrderSummaryTitleOption(e) {
-//     let title;
-//     const clickdPreferences = e.target.closest("[data-preference]");
-
-//     if (!clickdPreferences) return;
-//     const planReply = e.target.closest("[data-selecting]");
-
-//     if (!planReply) return;
-
-//     const titleOrderSummaryArr = ["drink", "type", "how", "grind", "deliver"];
-
-//     titleOrderSummaryArr.forEach((updateTitle, index) => {
-//       if (clickdPreferences.matches(`[data-preference="${index}"]`)) {
-//         title = planReply.querySelector(".plan__reply--title").textContent;
-//         document.getElementById(`${updateTitle}`).textContent = title;
-//       }
-//     });
-
-//     this._workSectionHow(clickdPreferences, title);
-//     this._activation_button(clickdPreferences, planReply);
-
-//     // UPDATE PRICE for "How often should we deliver?"
-//     this._updatePriceSectionDeliver(title);
-
-//     // UPDATE PRICE Modal
-//     this._updatePriceModal(title);
-//   }
-
-//   _workSectionHow(clickdPreferences, title) {
-//     const updateTextOrderSummary = function (valueDisplay) {
-//       document.getElementById("grind").style.display = valueDisplay;
-//       document.getElementById("complet").style.display = valueDisplay;
-//     };
-
-//     if (clickdPreferences.matches(`[data-preference="0"]`)) {
-//       if (title.includes("Capsule")) {
-//         orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
-//           "as",
-//           "using"
-//         );
-//         updateTextOrderSummary("none");
-//         this._blockGrind("add", "0.5");
-//         this.#checkedSelection = true;
-//         this.#checked = true;
-//       } else if (title.includes("Filter") || title.includes("Espresso")) {
-//         orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
-//           "using",
-//           "as"
-//         );
-//         // this._updateTextOrderSummary("inline");
-//         updateTextOrderSummary("inline");
-//         this._blockGrind("remove", "1");
-
-//         if (this.#checkedSelection) {
-//           // prettier-ignore
-//           document.getElementById("btn-disabled").classList.remove("activeButton");
-//           document
-//             .querySelector(".btn-box")
-//             .querySelector('[data-disabled="blockGrind"]')
-//             .classList.remove("block");
-//           this.#checked = false;
-//         }
-//       }
-//     }
-//   }
-
-//   _blockGrind(pro, opa) {
-//     blockGrind.classList[`${pro}`]("block");
-//     // prettier-ignore
-//     blockGrind.closest(".plan__preferences").querySelector(".plan__title").style.opacity = opa;
-
-//     document
-//       .querySelector(".plan__item:nth-child(4)")
-//       .classList[`${pro}`]("block");
-//     document
-//       .querySelector('[data-disabled="blockGrind"]')
-//       .classList[`${pro}`]("block");
-//   }
-
-//   _activation_button(clickdPreferences) {
-//     this.#arrCheckButton.forEach((_, index) => {
-//       if (clickdPreferences.matches(`[data-preference="${index}"]`)) {
-//         this.#arrCheckButton[index] = 1;
-//       }
-
-//       if (
-//         clickdPreferences.matches(`[data-preference="${index === 3 && 3}"]`)
-//       ) {
-//         this.#checked = true;
-//         this.#checkedSelection = false;
-//       }
-
-//       if (this.#checked) {
-//         this.#valided = this.#arrCheckButton.every((act) => act === 1);
-
-//         // prettier-ignore
-//         this.#valided  &&  document.getElementById("btn-disabled").classList.add("activeButton");
-//         document
-//           .querySelector(".btn-box")
-//           .querySelector('[data-disabled="blockGrind"]')
-//           .classList.add("block");
-//       }
-//     });
-//   }
-
-//   _updatePriceSectionDeliver(title) {
-//     function updatePrice(price) {
-//       // prettier-ignore
-//       price.forEach((_, index) => {
-//         document.querySelector(`[data-how="${index}"]`).innerText = price[index];
-//       });
-//     }
-
-//     let updatePriceModal = this._updatePriceModal;
-//     function updatingModalPricePerUnit() {
-//       const sectionDeliver = document.querySelector('[data-preference="4"]');
-//       const planReplyArr = sectionDeliver.querySelectorAll("[data-selecting]");
-//       planReplyArr.forEach((plan) => {
-//         if (plan.classList.contains("active")) {
-//           const title = plan.querySelector(".plan__reply--title").textContent;
-//           updatePriceModal(title);
-//         }
-//       });
-//     }
-
-//     if (title === "250g") {
-//       updatePrice(["$7.20", "$9.60", "$12.00"]);
-//       updatingModalPricePerUnit();
-//     }
-
-//     if (title.includes("500g")) {
-//       updatePrice(["$13.00", "$17.50", "$22.00"]);
-//       updatingModalPricePerUnit();
-//     }
-
-//     if (title.includes("1000g")) {
-//       updatePrice(["$22.00", "$32.00", "$42.00"]);
-//       updatingModalPricePerUnit();
-//     }
-//   }
-
-//   _updatePriceModal(title) {
-//     if (!title) return;
-
-//     function updatePriceModal(price) {
-//       document.querySelector(".modal__price").textContent = `$${price.toFixed(
-//         2
-//       )}/mo`;
-//     }
-
-//     if (title.includes("Every week")) {
-//       const price =
-//         +document.querySelector('[data-how="0"]').textContent.slice(1, -1) * 4;
-//       updatePriceModal(price);
-//     }
-//     if (title.includes("Every 2 weeks")) {
-//       const price =
-//         +document.querySelector('[data-how="1"]').textContent.slice(1, -1) * 2;
-//       updatePriceModal(price);
-//     }
-//     if (title.includes("Every month")) {
-//       const price =
-//         +document.querySelector('[data-how="2"]').textContent.slice(1, -1) * 1;
-//       updatePriceModal(price);
-//     }
-//   }
-// }
-
-// // const app = new App();
-
-// // Logic Modal
-// const openModal = function (e) {
-//   e.preventDefault();
-//   modal.classList.add("active");
-//   overlay.classList.add("active");
-//   orderModal.innerHTML = orderSummaryText.innerHTML;
-
-//   if (!orderModal.innerText.includes("ground ala")) return;
-//   orderModal
-//     .querySelector("[data-modal='modal--complet']")
-//     .classList.add("activeColor");
+//   if (!entry.isIntersecting) header.classList.add("sticky");
+//   else header.classList.remove("sticky");
 // };
 
-// const closeModal = function () {
-//   modal.classList.remove("active");
-//   overlay.classList.remove("active");
-// };
-
-// btnPlan.addEventListener("click", openModal);
-// overlay.addEventListener("click", closeModal);
-
-// document.addEventListener("keydown", function (e) {
-//   if (e.key === "Escape") {
-//     closeModal();
-//   }
+// const heroObserver = new IntersectionObserver(stikyNav, {
+//   root: null,
+//   threshold: 0,
+//   rootMargin: `-${heroHeight}px`,
 // });
 
-// Implementing a Sticky Navigation: The Scroll Event
-const nav = document.querySelector("nav");
-const header = document.querySelector("[data-header]");
-const navHeight = nav.getBoundingClientRect().height;
+// heroObserver.observe(hero);
+const scroll = document.querySelectorAll(".section");
+console.log(scroll);
 
-const stikyNav = function (entries) {
+const scrollAnima = function (entries, observer) {
   const [entry] = entries;
 
-  if (!entry.isIntersecting) nav.classList.add("sticky");
-  else nav.classList.remove("sticky");
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+
+  observer.onobserve(entry.target);
 };
 
-const headerObserver = new IntersectionObserver(stikyNav, {
+const scrollObserver = new IntersectionObserver(scrollAnima, {
   root: null,
-  threshold: 0,
-  rootMargin: `${navHeight}px`,
+  threshold: 0.15,
 });
 
-headerObserver.observe;
+scroll.forEach((scroll) => {
+  scrollObserver.observe(scroll);
+
+  scroll.classList.add("section--hidden");
+});
+
+// Dark Theme
+// const checkbox = document.querySelector("input[name=theme]");
+
+// const getCurrentTheme = function () {
+//   console.log("oi");
+//   if (document.body.matches("[data-theme='dark']")) {
+//     document.body.setAttribute("data-theme", "dark");
+//   } else {
+//     document.body.setAttribute("data-theme", "light");
+//   }
+// };
+
+// function darkFunction() {
+//   if (this.checked) {
+//     trans();
+//     document.body.setAttribute("data-theme", "dark");
+//   } else {
+//     trans();
+//     document.body.setAttribute("data-theme", "light");
+//   }
+
+//   // We save the theme and the current icon that the user chose
+//   localStorage.setItem("selected-theme", getCurrentTheme());
+// }
+
+// checkbox.addEventListener("change", darkFunction);
+
+// let trans = () => {
+//   document.body.classList.add("transition");
+//   window.setTimeout(() => {
+//     document.body.classList.remove("transition");
+//   }, 1000);
+// };
+
+// // Previously selected topic (if user selected)
+// const selectedTheme = localStorage.getItem("theme", "light");
+// console.log(selectedTheme);
+
+// if (selectedTheme) {
+//   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+//   document.body.setAttribute(
+//     "data-theme",
+//     `${selectedTheme === "light" ? "dark" : "light"}`
+//   );
+// }
+
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "bxs-sun";
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () =>
+  document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+  themeButton.classList.contains(iconTheme) ? "bx bxs-moon" : "bx bxs-sun";
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeButton.classList[selectedIcon === "bx bxs-moon" ? "add" : "remove"](
+    iconTheme
+  );
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener("click", () => {
+  // Add or remove the dark / icon theme
+  document.body.classList.toggle(darkTheme);
+  themeButton.classList.toggle(iconTheme);
+  // We save the theme and the current icon that the user chose
+  localStorage.setItem("selected-theme", getCurrentTheme());
+  localStorage.setItem("selected-icon", getCurrentIcon());
+});

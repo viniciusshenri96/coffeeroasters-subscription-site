@@ -11,6 +11,11 @@
   padding-bottom: rem(44);
   position: relative;
 
+  #theme-button {
+    font-size: 30px;
+    cursor: pointer;
+  }
+
   @include screen-660 {
     padding-top: rem(32);
 
@@ -88,6 +93,7 @@
 
     .header__link {
       @include font-body-s;
+      color: var(--color-third-text);
       font-weight: var(--fw-bold);
       transition: 0.4s;
 
@@ -98,6 +104,10 @@
 
       &:hover {
         color: var(--color-darkGreyBlue);
+
+        body.dark-theme &:hover {
+          color: var(--color-darkCyan);
+        }
       }
     }
   }

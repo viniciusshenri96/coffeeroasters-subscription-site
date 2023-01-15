@@ -47,7 +47,7 @@
 
       .plan-hero__title {
         @include font-l;
-        color: var(--color-lightCream);
+        color: var(--color-primary-text);
         margin-bottom: rem(24);
 
         @include screen-880 {
@@ -63,6 +63,7 @@
 
       .plan-hero__desc {
         @include font-body-m;
+        color: var(--color-primary-text);
         max-width: rem(445);
 
         @include screen-880 {
@@ -205,7 +206,7 @@
         @include font-s;
         max-width: rem(255);
         margin-bottom: rem(43);
-        color: var(--color-lightCream);
+        color: var(--color-primary-text);
 
         @include screen-1070 {
           font-size: rem(28);
@@ -221,7 +222,7 @@
 
       .plan-works__desc {
         @include font-body-m;
-        color: var(--color-lightCream);
+        color: var(--color-primary-text);
 
         @include screen-1070 {
           font-size: rem(15);
@@ -330,9 +331,11 @@
           }
 
           .plan__item--title {
-            color: var(--color-darkGreyBlue);
-
             transition: 0.4s;
+
+            body.dark-theme & {
+              color: var(--color-primary-text);
+            }
 
             // &:hover {
             //   opacity: 0.6;

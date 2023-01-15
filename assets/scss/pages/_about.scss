@@ -46,7 +46,7 @@
 
       .about-hero__title {
         @include font-m;
-        color: var(--color-lightCream);
+        color: var(--color-primary-text);
         margin-bottom: rem(24);
 
         @include screen-880 {
@@ -62,6 +62,7 @@
 
       .about-hero__desc {
         @include font-body-m;
+        color: var(--color-primary-text);
         max-width: rem(445);
 
         @include screen-880 {
@@ -132,6 +133,7 @@
 
       .commitment__title {
         @include font-m;
+        color: var(--color-second-text);
         margin-bottom: rem(32);
 
         @include screen-1050 {
@@ -144,7 +146,7 @@
       .commitment__desc {
         @include font-body-m;
         max-width: rem(538);
-        color: var(--color-darkGrey);
+        color: var(--color-second-text);
 
         @include screen-1050 {
           max-width: rem(339);
@@ -219,7 +221,8 @@
         justify-self: start;
         .quality__title {
           @include font-m;
-          color: var(--color-lightCream);
+          color: var(--color-primary-text);
+
           margin-bottom: rem(32);
 
           @include screen-1050 {
@@ -236,6 +239,8 @@
 
         .quality__desc {
           @include font-body-m;
+          color: var(--color-primary-text);
+
           max-width: rem(540);
 
           @include screen-1050 {
@@ -287,7 +292,7 @@
     .headquarters__title {
       @include font-xs;
       margin-bottom: rem(72);
-      color: var(--color-grey);
+      color: var(--color-third-text);
 
       @include screen-660 {
         font-size: rem(24);
@@ -320,7 +325,7 @@
       .headquarters__subtitle {
         @include font-s;
         margin-bottom: rem(24);
-        color: var(--color-darkGrey);
+        color: var(--color-second-text);
 
         @include screen-880 {
           font-size: rem(24);
@@ -331,7 +336,7 @@
 
       .headquarters__item {
         @include font-body-m;
-        color: var(--color-darkGrey);
+        color: var(--color-second-text);
 
         @include screen-880 {
           flex: 1 1 rem(223);
