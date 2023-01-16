@@ -213,7 +213,7 @@ label:active:after {
   }
 }
 .header #theme-button {
-  font-size: 30px;
+  font-size: 20px;
   cursor: pointer;
 }
 @media (max-width: 41.25rem) {
@@ -224,6 +224,11 @@ label:active:after {
     max-width: 10.1875rem;
     margin-bottom: 2.5rem;
   }
+}
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
 }
 .header__nav .header__menu-ham {
   display: none;
@@ -1924,6 +1929,10 @@ body.dark-theme .plan__options .plan__list .plan__item--content .plan__item--tit
   display: flex;
   gap: 1.4375rem;
   display: none;
+}
+.plan__selection .plan__preferences .plan__content button {
+  border: none;
+  background: none;
 }
 @media (max-width: 55rem) {
   .plan__selection .plan__preferences .plan__content {

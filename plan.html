@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
     content="This challenge will have you building a 3-page subscription site. As part of the project, you'll create an interactive subscription page to test your JS and logic skills!" />
+  <title>Coffeeroasters subscription site</title>
 
   <!-- GOOGLE FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -22,12 +23,13 @@
   <link rel="stylesheet" href="assets/css/style.css" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-  <title>Coffeeroasters subscription site</title>
 
 
+  <!-- JAVASCRIPT -->
+  <script type="module" src="assets/js/main.js"></script>
 </head>
 
-<body class="dark-theme">
+<body>
   <!-- HEADER -->
   <header class="header" data-header>
     <a href="/">
@@ -46,7 +48,7 @@
     </a>
 
 
-    <i class='bx bxs-moon change-theme' id="theme-button"></i></i>
+    <i class='bx bxs-moon change-theme' id="theme-button"></i>
 
     <nav class="header__nav">
       <button class="header__menu-ham" aria-expanded="false" aria-controls="header__list">
@@ -170,21 +172,23 @@
 
     <div>
       <section class="plan__selection">
-        <dl>
+        <div>
           <div class="plan__preferences" data-preference="0">
-            <dt data-question>
-              <button class="plan__title" aria-controls="question1" aria-expanded="false" data-button="0">How do you
+            <div data-question>
+              <button type="button" class="plan__title" aria-controls="question1" aria-expanded="false"
+                data-button="0">How do you
                 drink your
                 coffee?</button>
-            </dt>
+            </div>
             <div class="plan__content show" id="question1" data-options>
-              <dd class="plan__reply" data-selecting>
-                <h3 class="plan__reply--title">Capsule</h3>
-                <p class="plan__reply--desc">
-                  Compatible with Nespresso systems and similar brewers
-                </p>
-
-              </dd>
+              <button type="button">
+                <dd class="plan__reply" data-selecting>
+                  <h3 class="plan__reply--title">Capsule</h3>
+                  <p class="plan__reply--desc">
+                    Compatible with Nespresso systems and similar brewers
+                  </p>
+                </dd>
+              </button>
               <dd class="plan__reply" data-selecting>
                 <h3 class="plan__reply--title">Filter</h3>
                 <p class="plan__reply--desc">
@@ -200,6 +204,12 @@
               </dd>
             </div>
           </div>
+
+
+
+
+
+
           <div class="plan__preferences" data-preference="1">
             <dt data-question>
               <button class="plan__title" aria-controls="question2" aria-expanded="false" data-button="1">What type of
@@ -326,7 +336,7 @@
 
             <div data-disabled="blockGrind"></div>
           </div>
-        </dl>
+          </dl>
       </section>
     </div>
   </section>
@@ -407,9 +417,7 @@
   </div>
   <div class="overlay"></div>
 
-  <!-- JAVASCRIPT -->
-  <script src="assets/js/logic-plan.js"></script>
-  <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

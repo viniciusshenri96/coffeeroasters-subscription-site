@@ -12,7 +12,7 @@
   position: relative;
 
   #theme-button {
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
   }
 
@@ -26,6 +26,9 @@
   }
 
   &__nav {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
     // MENU MOBILE
     .header__menu-ham {
       display: none;

@@ -445,6 +445,11 @@
         gap: rem(23);
         display: none;
 
+        button {
+          border: none;
+          background: none;
+        }
+
         @include screen-880 {
           gap: rem(10);
         }
