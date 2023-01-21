@@ -1,0 +1,48 @@
+@use "variables" as *;
+
+// Title
+@mixin font-xl {
+  font: var(--fw-black) $fz-xl / var(--lh-xl) $font-2;
+  color: var(--color-grey);
+  text-transform: lowercase;
+}
+
+@mixin font-l {
+  font: var(--fw-black) $fz-l / var(--lh-l) $font-2;
+  color: var(--color-lightCream);
+}
+
+@mixin font-m {
+  font: var(--fw-black) $fz-m / var(--lh-m) $font-2;
+  color: var(--color-darkGreyBlue);
+}
+
+@mixin font-s {
+  font: var(--fw-black) $fz-s / var(--lh-s) $font-2;
+  color: var(--color-darkGreyBlue);
+}
+
+@mixin font-xs {
+  font: var(--fw-black) $fz-xs / var(--lh-xs) $font-2;
+  color: var(--color-darkGreyBlue);
+}
+
+// Body
+@mixin font-body-m {
+  font: var(--fw-regular) $fz-body-m / var(--lh-body-m) $font-1;
+  color: var(--color-lightCream);
+  opacity: 0.8;
+}
+
+@mixin font-body-s {
+  font: var(--fw-bold) $fz-body-s / var(--lh-body-s) $font-1;
+  color: var(--color-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.92px;
+}
+
+// Button
+@mixin font-button {
+  font: var(--fw-black) $fz-button / var(--lh-button) $font-2;
+  color: var(--color-lightCream);
+}

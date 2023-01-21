@@ -1,0 +1,18 @@
+@use "../abstracts/functions" as *;
+
+$font-1: "Barlow", sans-serif;
+$font-2: "Fraunces", serif;
+
+$fz-xl: rem(150);
+
+$fz-l: rem(72);
+$fz-m: rem(40);
+$fz-s: rem(32);
+$fz-xs: rem(24);
+
+// body
+$fz-body-m: rem(16);
+$fz-body-s: rem(12);
+
+// button
+$fz-button: rem(18);

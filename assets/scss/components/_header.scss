@@ -1,0 +1,119 @@
+@use "../abstracts/functions" as *;
+@use "../core/typography" as *;
+@use "../abstracts/mixins" as *;
+
+/* INDEX */
+@mixin header {
+  @include container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: rem(44);
+  padding-bottom: rem(44);
+  position: relative;
+
+  #theme-button {
+    font-size: rem(24);
+    cursor: pointer;
+  }
+
+  @include screen-660 {
+    padding-top: rem(32);
+    margin-bottom: rem(40);
+
+    &__logo {
+      width: rem(163);
+      // margin-bottom: rem(40);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: rem(20);
+    // MENU MOBILE
+    .header__menu-ham {
+      display: none;
+      border: none;
+      background: none;
+
+      @include screen-660 {
+        display: block;
+
+        .close {
+          display: none;
+        }
+
+        .close.active {
+          display: block;
+        }
+
+        .menu.active {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: rem(33);
+
+    // MENU MOBILE
+    @include screen-660 {
+      flex-direction: column;
+      gap: rem(32);
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      background: linear-gradient(
+        to top,
+        rgba(254, 252, 247, 0.504981) 0%,
+        #fefcf7 55.94%
+      );
+      margin-top: rem(90);
+      padding: rem(40) rem(82);
+      z-index: 10;
+      display: none;
+
+      &.active {
+        height: rem(577);
+        display: flex;
+        animation: showMenu 1s forwards;
+      }
+
+      @keyframes showMenu {
+        from {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0px);
+        }
+      }
+    }
+
+    .header__link {
+      @include font-body-s;
+      color: var(--color-third-text);
+      font-weight: var(--fw-bold);
+      transition: 0.4s;
+
+      @include screen-660 {
+        @include font-xs;
+        color: var(--color-darkGreyBlue);
+      }
+
+      &:hover {
+        color: var(--color-darkGreyBlue);
+
+        body.dark-theme &:hover {
+          color: var(--color-darkCyan);
+        }
+      }
+    }
+  }
+}

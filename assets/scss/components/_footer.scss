@@ -1,0 +1,109 @@
+@use "../abstracts/functions" as *;
+@use "../core/typography" as *;
+@use "../abstracts/mixins" as *;
+
+/* INDEX */
+@mixin footer {
+  @include container;
+  padding-bottom: rem(88);
+
+  @include screen-880 {
+    padding-bottom: rem(72);
+  }
+
+  &__box {
+    padding: rem(47) rem(85);
+    background-color: var(--color-bg-second);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    & g path:nth-child(1) {
+      fill: #fff;
+    }
+
+    @include screen-1070 {
+      padding-top: rem(54);
+      padding-bottom: rem(54);
+    }
+
+    @include screen-1070 {
+      flex-direction: column;
+      align-items: center;
+
+      .footer__logo {
+        & g path:nth-child(1) {
+          fill: #fff;
+        }
+      }
+    }
+
+    @include screen-660 {
+      padding: rem(54);
+      .footer__logo {
+        & g path:nth-child(1) {
+          fill: #fff;
+        }
+      }
+    }
+
+    .footer__redes {
+      display: flex;
+      align-items: center;
+      gap: rem(24);
+
+      @include screen-1070 {
+        padding-top: rem(65);
+      }
+
+      @include screen-660 {
+        padding-top: rem(49);
+      }
+
+      .footer__icon {
+        &:hover,
+        &:hover path {
+          fill: var(--color-paleOrange);
+          transition: all 0.4s ease-in-out;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+
+    .footer__list {
+      display: flex;
+      gap: rem(33);
+
+      @include screen-1070 {
+        padding-top: rem(32);
+      }
+
+      @include screen-660 {
+        flex-direction: column;
+        text-align: center;
+        gap: rem(24);
+        padding-top: rem(48);
+      }
+
+      .footer__link {
+        @include font-body-s;
+        color: var(--color-third-text);
+        font-weight: var(--fw-bold);
+        transition: 0.4s;
+
+        &:hover {
+          color: #fff;
+        }
+
+        body.dark-theme &:hover {
+          color: var(--color-darkCyan);
+        }
+      }
+    }
+  }
+}

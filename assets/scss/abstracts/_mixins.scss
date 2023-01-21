@@ -1,0 +1,55 @@
+@use "functions" as *;
+
+@mixin container {
+  max-width: rem(1360);
+  padding: 0 rem(40);
+  margin: 0 auto;
+
+  @include screen-660 {
+    padding: 0 rem(24);
+  }
+}
+
+@mixin circle($left) {
+  position: absolute;
+  width: 31px;
+  height: 31px;
+  border-radius: 100px;
+  border: 2px solid var(--color-darkCyan);
+  background-color: var(--color-lightCream);
+  top: 0;
+  left: #{$left + "%"};
+  transform: translate(-50%, -50%);
+}
+
+// Responsive
+
+@mixin screen-1070 {
+  @media (max-width: rem(1170)) {
+    @content;
+  }
+}
+
+@mixin screen-1050 {
+  @media (max-width: rem(1050)) {
+    @content;
+  }
+}
+
+@mixin screen-880 {
+  @media (max-width: rem(880)) {
+    @content;
+  }
+}
+
+@mixin screen-765 {
+  @media (max-width: rem(765)) {
+    @content;
+  }
+}
+
+@mixin screen-660 {
+  @media (max-width: rem(660)) {
+    @content;
+  }
+}
