@@ -1,5 +1,6 @@
 export default function darkMode() {
   const themeButton = document.getElementById("theme-button");
+  const themeButtonContainer = document.querySelector(".dark-mode");
   const darkTheme = "dark-theme";
   const iconTheme = "bxs-sun";
 
@@ -25,10 +26,11 @@ export default function darkMode() {
   }
 
   // Activate / deactivate the theme manually with the button
-  themeButton.addEventListener("click", () => {
+  themeButtonContainer.addEventListener("click", () => {
     // Add or remove the dark / icon theme
     document.body.classList.toggle(darkTheme);
     themeButton.classList.toggle(iconTheme);
+
     // We save the theme and the current icon that the user chose
     localStorage.setItem("selected-theme", getCurrentTheme());
     localStorage.setItem("selected-icon", getCurrentIcon());

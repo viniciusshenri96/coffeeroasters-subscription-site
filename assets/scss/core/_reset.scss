@@ -155,6 +155,21 @@ body.dark-theme {
     filter: brightness(700%);
   }
 
+  .header__menu-ham {
+    svg path {
+      fill: #fff !important;
+    }
+  }
+
+  .header__nav.sticky {
+    background-color: var(--color-darkCyan);
+    opacity: 0.25;
+
+    & > .header__list .header__link:hover {
+      color: var(--color-bg-second);
+    }
+  }
+
   .works__details {
     .circle-1,
     .circle-2,

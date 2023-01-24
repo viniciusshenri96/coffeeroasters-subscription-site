@@ -1,27 +1,27 @@
 export default function animationFunction() {
   // Implementing a Sticky Navigation: The Scroll Event
-  // const nav = document.querySelector(".header__nav");
-  // const header = document.querySelector(".header");
-  // const hero = document.querySelectorAll(".heroObserver");
-  // let heroHeight;
+  const nav = document.querySelector(".header__nav");
+  const header = document.querySelector(".header");
+  const hero = document.querySelectorAll(".heroObserver");
+  const headerHeight = header.getBoundingClientRect().height;
 
-  // const stikyNav = function (entries) {
-  //   const [entry] = entries;
+  const stikyNav = function (entries) {
+    const [entry] = entries;
 
-  //   if (!entry.isIntersecting) header.classList.add("sticky");
-  //   else header.classList.remove("sticky");
-  // };
+    if (!entry.isIntersecting) nav.classList.add("sticky");
+    else nav.classList.remove("sticky");
+  };
 
-  // const heroObserver = new IntersectionObserver(stikyNav, {
-  //   root: null,
-  //   threshold: 0,
-  //   rootMargin: `500px`,
-  // });
+  const heroObserver = new IntersectionObserver(stikyNav, {
+    root: null,
+    threshold: 0,
+    rootMargin: `-${headerHeight}px`,
+  });
 
-  // hero.forEach((heroObs) => {
-  //   heroObserver.observe(heroObs);
-  //   // hero.getBoundingClientRect().y;
-  // });
+  hero.forEach((heroObs) => {
+    heroObserver.observe(heroObs);
+    // hero.getBoundingClien'tRect().y;
+  });
 
   const scroll = document.querySelectorAll(".section");
 

@@ -2,11 +2,13 @@
 
 @mixin container {
   max-width: rem(1360);
-  padding: 0 rem(40);
+  padding-right: rem(40);
+  padding-left: rem(40);
   margin: 0 auto;
 
   @include screen-660 {
-    padding: 0 rem(24);
+    padding-right: rem(24);
+    padding-left: rem(24);
   }
 }
 
