@@ -55,3 +55,9 @@
     @content;
   }
 }
+
+@mixin screen-370 {
+  @media (max-width: rem(370)) {
+    @content;
+  }
+}

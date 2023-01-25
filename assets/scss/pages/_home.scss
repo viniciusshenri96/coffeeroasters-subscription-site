@@ -47,6 +47,10 @@
       background-size: cover;
     }
 
+    @include screen-370 {
+      padding: rem(40) rem(24);
+    }
+
     .hero__content {
       max-width: rem(493);
 
@@ -73,6 +77,10 @@
           line-height: 1;
           margin-bottom: rem(24);
         }
+
+        @include screen-370 {
+          font-size: rem(32);
+        }
       }
 
       .hero__desc {
@@ -90,11 +98,24 @@
           max-width: 100%;
           margin-bottom: rem(39);
         }
+
+        @include screen-370 {
+          margin-bottom: rem(20);
+        }
+
+        @include screen-370 {
+          font-size: rem(12);
+        }
       }
 
       .btn--padding {
         padding-left: rem(31);
         padding-right: rem(31);
+
+        @include screen-370 {
+          font-size: rem(12);
+          padding: rem(12) rem(16);
+        }
       }
     }
   }
@@ -152,6 +173,10 @@
       line-height: 1.8;
       height: rem(72);
       margin-bottom: rem(13);
+    }
+
+    @include screen-370 {
+      font-size: rem(24);
     }
   }
 
@@ -559,6 +584,10 @@
 
     @include screen-1070 {
       margin-left: 0;
+    }
+    @include screen-370 {
+      font-size: rem(12);
+      padding: rem(12) rem(16);
     }
   }
 }

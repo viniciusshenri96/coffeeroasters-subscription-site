@@ -175,7 +175,12 @@
     margin-bottom: rem(120);
   }
 
+  @include screen-370 {
+    height: max-content;
+  }
+
   .quality__box {
+    width: 100%;
     background: url(../img/about/desktop/bg-quality.png) no-repeat;
     height: rem(474);
     border-radius: rem(10);
@@ -192,6 +197,11 @@
       height: rem(509);
       background: url(../img/about/mobile/bg-quality.png) no-repeat;
       background-size: 100%;
+    }
+
+    @include screen-370 {
+      height: 100%;
+      background-size: initial;
     }
 
     .quality__content-box {
@@ -217,6 +227,10 @@
         padding: rem(0) rem(24);
       }
 
+      @include screen-370 {
+        gap: rem(20);
+      }
+
       .quality__content {
         justify-self: start;
         .quality__title {
@@ -235,6 +249,10 @@
             font-size: rem(28);
             line-height: 1;
           }
+
+          @include screen-370 {
+            font-size: rem(16);
+          }
         }
 
         .quality__desc {
@@ -247,6 +265,12 @@
             font-size: rem(15);
             line-height: 1.67;
           }
+          @include screen-370 {
+            font-size: rem(10);
+          }
+        }
+        @include screen-370 {
+          padding-bottom: 40px;
         }
       }
     }

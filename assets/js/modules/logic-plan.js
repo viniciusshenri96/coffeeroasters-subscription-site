@@ -11,7 +11,7 @@ export default function planApp() {
     const modal = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
     const btnPlan = document.querySelector(".btn--padding");
-
+    const activeClass = "active";
     class App {
       #arrCheckButton = [0, 0, 0, 1, 0];
       #checked = true;
@@ -32,6 +32,8 @@ export default function planApp() {
       _workingClick(e) {
         this._accordion(e);
 
+        this._activeAside(e);
+
         this._selectingOption(e);
 
         this._updateOrderSummaryTitleOption(e);
@@ -40,73 +42,59 @@ export default function planApp() {
       _accordion(e) {
         e.preventDefault();
         let preferenceOpen;
-        let element;
+
         if (e.target.matches("[data-button]")) {
           preferenceOpen = e.target.closest("[data-open]");
 
-          if (!preferenceOpen.hasAttribute("open")) {
+          if (!preferenceOpen.hasAttribute("open"))
             preferenceOpen.setAttribute("open", "");
-          } else {
-            preferenceOpen.removeAttribute("open");
-          }
+          else preferenceOpen.removeAttribute("open");
         }
+      }
 
-        const asideListArr = [
-          "[data-button ='0']",
-          "[data-button ='1']",
-          "[data-button ='2']",
-          "[data-button ='3']",
-          "[data-button ='4']",
-        ];
-
-        asideListArr.forEach((_, index) => {
+      _activeAside(e) {
+        const listAside = document.querySelectorAll(`[data-list-aside]`);
+        listAside.forEach((_, index) => {
           if (e.target.matches(`[data-button ='${index}']`)) {
-            element = document.querySelector(`[data-list-aside="${index}"]`);
-            element.classList.add("active");
+            const element = document.querySelector(
+              `[data-list-aside="${index}"]`
+            );
+            listAside.forEach((list) => list.classList.remove(activeClass));
+            element.classList.add(activeClass);
           }
         });
-        document
-          .querySelectorAll(`[data-list-aside].active`)
-          .forEach((list) => {
-            if (list === element) return;
-            list.classList.remove("active");
-          });
       }
 
       _selectingOption(e) {
         const clickedOption = e.target.closest("[data-option]");
         const optionsAll = e.target.closest("[data-options]");
-        if (!clickedOption || !optionsAll) return;
+        if (!clickedOption) return;
         const optionsArr = optionsAll.querySelectorAll("[data-option]");
-        optionsArr.forEach((opt) => opt.classList.remove("active"));
-        clickedOption.classList.add("active");
+        optionsArr.forEach((opt) => opt.classList.remove(activeClass));
+        clickedOption.classList.add(activeClass);
       }
 
       _updateOrderSummaryTitleOption(e) {
-        let title;
+        let titleEl;
         const clickdPreferences = e.target.closest("[data-open]");
 
-        if (!clickdPreferences) return;
+        // if (!clickdPreferences) return;
         const planReply = e.target.closest("[data-option]");
 
         if (!planReply) return;
 
-        const titleOrderSummaryArr = [
-          "drink",
-          "type",
-          "how",
-          "grind",
-          "deliver",
-        ];
-
-        titleOrderSummaryArr.forEach((updateTitle, index) => {
-          if (clickdPreferences.matches(`[data-open="${index}"]`)) {
-            title = planReply.querySelector(".plan__reply--title").textContent;
-            document.getElementById(`${updateTitle}`).textContent = title;
-          }
+        titleEl = planReply.querySelector(".plan__reply--title");
+        const titleOrderEl = document.querySelectorAll(
+          ".plan__order-summary--box [data-title]"
+        );
+        titleOrderEl.forEach((titleOrder) => {
+          if (titleOrder.dataset.title === titleEl.dataset.title)
+            titleOrder.textContent = titleEl.textContent;
         });
 
+        const title = titleEl.textContent;
         this._workSectionHow(clickdPreferences, title);
+
         this._activation_button(clickdPreferences, planReply);
 
         // UPDATE PRICE for "How often should we deliver?"
@@ -118,7 +106,9 @@ export default function planApp() {
 
       _workSectionHow(clickdPreferences, title) {
         const updateTextOrderSummary = function (valueDisplay) {
-          document.getElementById("grind").style.display = valueDisplay;
+          document.querySelector(
+            ".plan__order-summary--box [data-title='3']"
+          ).style.display = valueDisplay;
           document.getElementById("complet").style.display = valueDisplay;
         };
 
@@ -129,7 +119,8 @@ export default function planApp() {
               "using"
             );
             updateTextOrderSummary("none");
-            this._blockGrind("add", "0.5");
+            this.blockGrind("add", "0.5");
+            this.defaultGrind();
             this.#checkedSelection = true;
             this.#checked = true;
           } else if (title.includes("Filter") || title.includes("Espresso")) {
@@ -139,7 +130,7 @@ export default function planApp() {
             );
             // this._updateTextOrderSummary("inline");
             updateTextOrderSummary("inline");
-            this._blockGrind("remove", "1");
+            this.blockGrind("remove", "1");
 
             if (this.#checkedSelection) {
               // prettier-ignore
@@ -154,7 +145,15 @@ export default function planApp() {
         }
       }
 
-      _blockGrind(pro, opa) {
+      defaultGrind() {
+        document.querySelector('[data-open="3"]').removeAttribute("open");
+        document
+          .querySelector('[data-open="3"]')
+          .querySelectorAll("[data-option]")
+          .forEach((opt) => opt.classList.remove(activeClass));
+      }
+
+      blockGrind(pro, opa) {
         blockGrind.classList[`${pro}`]("block");
         // prettier-ignore
         blockGrind.closest("[data-open]").querySelector(".plan__title").style.opacity = opa;
@@ -208,7 +207,7 @@ export default function planApp() {
           const sectionDeliver = document.querySelector('[data-open="4"]');
           const planReplyArr = sectionDeliver.querySelectorAll("[data-option]");
           planReplyArr.forEach((plan) => {
-            if (plan.classList.contains("active")) {
+            if (plan.classList.contains(activeClass)) {
               const title = plan.querySelector(
                 ".plan__reply--title"
               ).textContent;
@@ -271,8 +270,8 @@ export default function planApp() {
     // Logic Modal
     const openModal = function (e) {
       e.preventDefault();
-      modal.classList.add("active");
-      overlay.classList.add("active");
+      modal.classList.add(activeClass);
+      overlay.classList.add(activeClass);
       orderModal.innerHTML = orderSummaryText.innerHTML;
 
       if (!orderModal.innerText.includes("ground ala")) return;
@@ -282,8 +281,8 @@ export default function planApp() {
     };
 
     const closeModal = function () {
-      modal.classList.remove("active");
-      overlay.classList.remove("active");
+      modal.classList.remove(activeClass);
+      overlay.classList.remove(activeClass);
     };
 
     btnPlan.addEventListener("click", openModal);
