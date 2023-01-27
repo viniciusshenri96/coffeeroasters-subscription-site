@@ -592,7 +592,6 @@
     .btn--padding {
       padding: rem(15) rem(35);
       background-color: #e2dedb;
-
       @include screen-880 {
         justify-self: center;
       }
@@ -610,7 +609,6 @@
   border-radius: rem(10);
   padding: rem(47) rem(64);
   background-size: cover;
-  // padding: rem(27) rem(64);
   margin-bottom: rem(40);
   display: flex;
   align-items: center;

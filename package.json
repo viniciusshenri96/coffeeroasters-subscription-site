@@ -1,0 +1,27 @@
+{
+  "name": "coffeeroasters-subscription",
+  "version": "1.0.0",
+  "description": "Coffeeroasters subscription site",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciusshenri96/coffeeroasters-subscription-site.git"
+  },
+  "author": "Vinicius Henrique",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viniciusshenri96/coffeeroasters-subscription-site/issues"
+  },
+  "homepage": "https://github.com/viniciusshenri96/coffeeroasters-subscription-site#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "core-js": "^3.27.2",
+    "regenerator-runtime": "^0.13.11"
+  }
+}
