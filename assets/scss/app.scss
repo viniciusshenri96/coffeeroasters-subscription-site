@@ -1,14 +1,17 @@
 @use "abstracts";
 @use "core";
 @use "components";
-@use "layouts";
 @use "pages";
 
 .section {
-  transition: transform 1s, opacity 1s;
+  transform-origin: top center;
+  opacity: 1;
+  transform: rotateY(0);
+  transition: all 1s ease-out;
 }
 
 .section--hidden {
-  opacity: 0;
-  transform: translateY(8rem);
+  transform-origin: top center;
+  transform: rotateY(-90deg);
+  opacity: 0.25;
 }

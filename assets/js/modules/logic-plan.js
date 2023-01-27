@@ -12,6 +12,7 @@ export default function planApp() {
     const overlay = document.querySelector(".overlay");
     const btnPlan = document.querySelector(".btn--padding");
     const activeClass = "active";
+
     class App {
       #arrCheckButton = [0, 0, 0, 1, 0];
       #checked = true;
@@ -78,7 +79,6 @@ export default function planApp() {
         let titleEl;
         const clickdPreferences = e.target.closest("[data-open]");
 
-        // if (!clickdPreferences) return;
         const planReply = e.target.closest("[data-option]");
 
         if (!planReply) return;
@@ -128,13 +128,13 @@ export default function planApp() {
               "using",
               "as"
             );
-            // this._updateTextOrderSummary("inline");
             updateTextOrderSummary("inline");
             this.blockGrind("remove", "1");
 
             if (this.#checkedSelection) {
-              // prettier-ignore
-              document.getElementById("btn-disabled").classList.remove("activeButton");
+              document
+                .getElementById("btn-disabled")
+                .classList.remove("activeButton");
               document
                 .querySelector(".btn-box")
                 .querySelector('[data-disabled="blockGrind"]')
@@ -155,8 +155,10 @@ export default function planApp() {
 
       blockGrind(pro, opa) {
         blockGrind.classList[`${pro}`]("block");
-        // prettier-ignore
-        blockGrind.closest("[data-open]").querySelector(".plan__title").style.opacity = opa;
+
+        blockGrind
+          .closest("[data-open]")
+          .querySelector(".plan__title").style.opacity = opa;
 
         document
           .querySelector(".plan__item:nth-child(4)")
@@ -180,15 +182,15 @@ export default function planApp() {
           if (this.#checked) {
             this.#valided = this.#arrCheckButton.every((act) => act === 1);
 
-            // prettier-ignore
-            if(this.#valided) {
-        document.getElementById("btn-disabled").classList.add("activeButton");
-        document
-          .querySelector(".btn-box")
-          .querySelector('[data-disabled="blockGrind"]')
-          .classList.add("block");
-
-      }
+            if (this.#valided) {
+              document
+                .getElementById("btn-disabled")
+                .classList.add("activeButton");
+              document
+                .querySelector(".btn-box")
+                .querySelector('[data-disabled="blockGrind"]')
+                .classList.add("block");
+            }
           }
         });
       }

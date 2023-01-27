@@ -20,7 +20,6 @@ export default function animationFunction() {
 
   hero.forEach((heroObs) => {
     heroObserver.observe(heroObs);
-    // hero.getBoundingClien'tRect().y;
   });
 
   const scroll = document.querySelectorAll(".section");
@@ -44,50 +43,4 @@ export default function animationFunction() {
 
     scroll.classList.add("section--hidden");
   });
-
-  // Dark Theme
-  // const checkbox = document.querySelector("input[name=theme]");
-
-  // const getCurrentTheme = function () {
-  //   console.log("oi");
-  //   if (document.body.matches("[data-theme='dark']")) {
-  //     document.body.setAttribute("data-theme", "dark");
-  //   } else {
-  //     document.body.setAttribute("data-theme", "light");
-  //   }
-  // };
-
-  // function darkFunction() {
-  //   if (this.checked) {
-  //     trans();
-  //     document.body.setAttribute("data-theme", "dark");
-  //   } else {
-  //     trans();
-  //     document.body.setAttribute("data-theme", "light");
-  //   }
-
-  //   // We save the theme and the current icon that the user chose
-  //   localStorage.setItem("selected-theme", getCurrentTheme());
-  // }
-
-  // checkbox.addEventListener("change", darkFunction);
-
-  // let trans = () => {
-  //   document.body.classList.add("transition");
-  //   window.setTimeout(() => {
-  //     document.body.classList.remove("transition");
-  //   }, 1000);
-  // };
-
-  // // Previously selected topic (if user selected)
-  // const selectedTheme = localStorage.getItem("theme", "light");
-  // console.log(selectedTheme);
-
-  // if (selectedTheme) {
-  //   // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
-  //   document.body.setAttribute(
-  //     "data-theme",
-  //     `${selectedTheme === "light" ? "dark" : "light"}`
-  //   );
-  // }
 }
