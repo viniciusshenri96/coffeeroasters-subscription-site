@@ -91,6 +91,10 @@
     padding: 0 rem(24);
   }
 
+  @include screen-660 {
+    margin: auto auto rem(120) auto;
+  }
+
   &__box {
     display: grid;
     column-gap: rem(40);
@@ -189,7 +193,7 @@
     align-self: end;
 
     @include screen-1050 {
-      height: auto;
+      height: rem(488);
       background: url(../img/about/tablet/bg-quality.png) no-repeat;
       background-size: 100%;
     }
