@@ -651,6 +651,10 @@
     padding: rem(48) 0 rem(40) rem(56);
     border-radius: rem(8) rem(8) 0 0;
 
+    @include screen-660 {
+      padding: rem(28) rem(68) rem(28) rem(24);
+    }
+
     .modal__title {
       font: var(--fw-black) $fz-m / #{1.2} $font-2;
       color: #fff;
@@ -676,6 +680,10 @@
       }
     }
 
+    @include screen-660 {
+      padding: rem(40) rem(24) rem(24) rem(24);
+    }
+
     .modal__desc {
       @include font-body-m;
       color: var(--color-darkGreyBlue);
@@ -690,17 +698,44 @@
       padding: rem(15) rem(64) rem(15) rem(64);
     }
     .modal__checkout {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
       justify-content: space-between;
       align-items: center;
       gap: rem(23);
 
+      @include screen-660 {
+        align-items: center;
+        justify-content: initial;
+        gap: 0;
+        margin: 0 auto;
+        background-color: var(--color-darkCyan);
+
+        border-radius: rem(6);
+        .modal__price {
+          grid-area: 1 / -1;
+          justify-self: center;
+          padding-left: rem(70);
+          z-index: 3;
+          font-size: rem(18) !important;
+          color: var(--color-primary-text) !important;
+
+          &::before {
+            content: "-";
+            padding: 0 rem(3);
+          }
+        }
+
+        .btn {
+          width: 295px;
+          grid-area: 1 / -1;
+          padding: 0;
+          padding: rem(15) rem(32) rem(16) rem(33);
+        }
+      }
+
       .modal__price {
         @include font-s;
-
-        @include screen-660 {
-          display: none;
-        }
       }
     }
   }
