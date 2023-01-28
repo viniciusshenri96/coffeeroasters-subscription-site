@@ -67,9 +67,11 @@
       display: none;
       border: none;
       background: none;
+      width: rem(20);
 
       @include screen-660 {
-        display: block;
+        display: flex;
+        justify-content: center;
 
         .close {
           display: none;
@@ -89,6 +91,7 @@
   &__list {
     display: flex;
     gap: rem(33);
+    justify-self: end;
 
     // MENU MOBILE
     @include screen-660 {

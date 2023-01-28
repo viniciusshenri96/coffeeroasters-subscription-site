@@ -392,8 +392,7 @@ implement the interactive signature page with classes (OOP) where I could have a
 
 ## Links
 
-- [Preview Site](https://viniciusshenri96.github.io/art-gallery-website/)
-- [Frontend Mentor Solution Page](https://www.frontendmentor.io/solutions/challenge-completed-with-htmlcssleaflet-jsgrid-and-responsive--kw3kKedNp)
+- [Preview Site](https://coffeeroasters-subscription-vinicius.netlify.app)
 
 &nbsp;
 

@@ -16,5 +16,4 @@ export default function menuMobileFunction() {
   };
 
   button.addEventListener("click", openMenu);
-  button.addEventListener("touchstart", openMenu);
 }
