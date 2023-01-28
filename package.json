@@ -18,7 +18,8 @@
   "homepage": "https://github.com/viniciusshenri96/coffeeroasters-subscription-site#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
-    "parcel": "^2.8.3"
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "core-js": "^3.27.2",

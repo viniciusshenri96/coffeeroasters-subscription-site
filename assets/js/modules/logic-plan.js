@@ -14,16 +14,17 @@ export default function planApp() {
     const activeClass = "active";
 
     class App {
+      // private properties
       #arrCheckButton = [0, 0, 0, 1, 0];
       #checked = true;
       #valided = true;
       #checkedSelection = true;
 
       constructor() {
-        this.eventClick();
+        this._eventClick();
       }
 
-      eventClick() {
+      _eventClick() {
         planSelectionContainer.addEventListener(
           "click",
           this._workingClick.bind(this)
@@ -77,7 +78,7 @@ export default function planApp() {
 
       _updateOrderSummaryTitleOption(e) {
         let titleEl;
-        const clickdPreferences = e.target.closest("[data-open]");
+        const clickedPreferences = e.target.closest("[data-open]");
 
         const planReply = e.target.closest("[data-option]");
 
@@ -93,9 +94,10 @@ export default function planApp() {
         });
 
         const title = titleEl.textContent;
-        this._workSectionHow(clickdPreferences, title);
 
-        this._activation_button(clickdPreferences, planReply);
+        this._workSectionHow(clickedPreferences, title);
+
+        this._activation_button(clickedPreferences, planReply);
 
         // UPDATE PRICE for "How often should we deliver?"
         this._updatePriceSectionDeliver(title);
@@ -104,7 +106,7 @@ export default function planApp() {
         this._updatePriceModal(title);
       }
 
-      _workSectionHow(clickdPreferences, title) {
+      _workSectionHow(clickedPreferences, title) {
         const updateTextOrderSummary = function (valueDisplay) {
           document.querySelector(
             ".plan__order-summary--box [data-title='3']"
@@ -112,7 +114,7 @@ export default function planApp() {
           document.getElementById("complet").style.display = valueDisplay;
         };
 
-        if (clickdPreferences.matches(`[data-open="0"]`)) {
+        if (clickedPreferences.matches(`[data-open="0"]`)) {
           if (title.includes("Capsule")) {
             orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
               "as",
