@@ -118,6 +118,7 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  transition: 0.4s ease-in-out;
 
   background: var(--color-bg-primary);
   line-height: 1.5;
@@ -132,7 +133,7 @@ body.dark-theme {
   // Text
   --color-second-text: #fefcf7;
   --color-third-text: #fefcf7;
-  --color-bg: #333d4b;
+  --color-bg-primary: #333d4b;
   --color-bg-second: #2c343e;
 
   .header__logo {
