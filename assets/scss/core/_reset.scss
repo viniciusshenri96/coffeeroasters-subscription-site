@@ -1,5 +1,7 @@
 @use "../abstracts/functions" as *;
 
+//
+
 // VARIABLES CSS
 :root {
   // COLORS
@@ -40,19 +42,6 @@
   --fw-black: 900;
 }
 
-// Dark Mode
-// html {
-//   // COLORS
-//   --color-darkGreyBlue: #333d4b !important;
-//   --color-bg: #fefcf7 !important;
-// }
-
-// html[data-theme="dark"] {
-//   // COLORS
-//   --color-darkGreyBlue: #2c343e !important;
-//   --color-bg: #333d4b !important;
-// }
-
 *,
 *::after,
 *::before {
@@ -65,7 +54,7 @@
  */
 
 *:focus-visible {
-  outline: #646464 dotted 4px;
+  outline: var(--color-darkCyan) solid 4px;
   outline-offset: 4px;
 }
 
@@ -123,16 +112,12 @@ select {
   white-space: nowrap !important;
 }
 
-// html,
-// body {
-//   height: 100%;
-// }
-
 html {
   overflow-x: hidden;
 }
 
 body {
+  font-family: Arial, Helvetica, sans-serif;
   transition: 0.4s ease-in-out;
 
   background: var(--color-bg);

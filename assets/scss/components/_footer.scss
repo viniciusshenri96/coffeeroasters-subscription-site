@@ -15,8 +15,7 @@
     padding: rem(47) rem(85);
     background-color: var(--color-bg-second);
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center;
 
     .footer__logo {
       filter: brightness(600%) contrast(100%);
@@ -37,11 +36,23 @@
     }
 
     .footer__redes {
+      margin-left: auto;
       display: flex;
       align-items: center;
       gap: rem(24);
 
+      li {
+        height: rem(24);
+        display: flex;
+      }
+
+      li:nth-child(2) a {
+        display: flex;
+        align-items: flex-end;
+      }
+
       @include screen-1070 {
+        margin: 0 auto;
         padding-top: rem(65);
       }
 
@@ -63,10 +74,20 @@
     @include container;
     display: flex;
     justify-content: space-between;
+    margin: 0;
+    padding-left: rem(102);
+    padding-right: 0;
+    height: max-content;
+
+    @include screen-1070 {
+      padding: 0;
+    }
 
     .footer__list {
       display: flex;
+      align-items: center;
       gap: rem(33);
+      height: max-content;
 
       @include screen-1070 {
         padding-top: rem(32);
@@ -77,6 +98,12 @@
         text-align: center;
         gap: rem(24);
         padding-top: rem(48);
+      }
+
+      .footer__item {
+        height: rem(15);
+        display: flex;
+        place-items: center;
       }
 
       .footer__link {

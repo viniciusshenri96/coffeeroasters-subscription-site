@@ -286,7 +286,6 @@
             height: 100%;
             z-index: 2;
             opacity: 0.4;
-            filter: alpha(opacity = 50);
             cursor: no-drop;
             display: none;
 
@@ -318,19 +317,11 @@
             opacity: 0.6;
           }
 
-          &.active {
-            opacity: 1;
-          }
-
           .plan__item--number {
             color: var(--color-grey);
 
             &--green {
               color: var(--color-darkCyan);
-            }
-
-            &.active {
-              opacity: 1;
             }
           }
 
@@ -339,14 +330,6 @@
 
             body.dark-theme & {
               color: var(--color-primary-text);
-            }
-
-            // &:hover {
-            //   opacity: 0.6;
-            // }
-
-            &.active {
-              opacity: 1;
             }
           }
         }
@@ -368,28 +351,6 @@
     max-width: rem(730);
     display: grid;
 
-    // details {
-    //   border: 1px solid #aaa;
-    //   border-radius: 4px;
-    //   padding: 0.5em 0.5em 0;
-    //   margin-bottom: 20px;
-    // }
-
-    // summary {
-    //   font-weight: bold;
-    //   margin: -0.5em -0.5em 0;
-    //   padding: 0.5em;
-    // }
-
-    // details[open] {
-    //   padding: 0.5em;
-    // }
-
-    // details[open] summary {
-    //   border-bottom: 1px solid #aaa;
-    //   margin-bottom: 0.5em;
-    // }
-
     .plan__preferences {
       display: grid;
       gap: rem(56);
@@ -406,13 +367,11 @@
         }
       }
 
-      & [data-options] {
-        transform: translateY(-20%) rotateX(-90deg);
+      &[open] .plan__content {
         transform-origin: top center;
-      }
-
-      &[open] [data-options] {
-        transform: rotateY(0);
+        opacity: 1;
+        transform: rotateX(0);
+        transition: all 1s ease-out;
       }
 
       &[open] .plan__title::after {
@@ -482,7 +441,7 @@
         display: flex;
         gap: rem(23);
         border: none;
-        padding-top: 56px;
+        padding-top: rem(56);
 
         @include screen-880 {
           gap: rem(10);
@@ -493,8 +452,8 @@
           gap: rem(16);
         }
 
-        &.show {
-          display: flex;
+        #padding--left {
+          padding: rem(32) rem(25) rem(84) rem(28);
         }
 
         .plan__reply {
@@ -646,10 +605,6 @@
     @include screen-660 {
       font-size: rem(24);
       line-height: 1.67;
-    }
-
-    &.hidden {
-      display: none;
     }
 
     #grind {

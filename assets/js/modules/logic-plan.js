@@ -15,6 +15,7 @@ export default function planApp() {
 
     class App {
       // private properties
+      /** leaving only an index of 1, which is "Do you want us to shred?" so you don't have to verify again */
       #arrCheckButton = [0, 0, 0, 1, 0];
       #checked = true;
       #valided = true;
@@ -84,6 +85,7 @@ export default function planApp() {
 
         if (!planReply) return;
 
+        // adding selection title in white space where appropriate
         titleEl = planReply.querySelector(".plan__reply--title");
         const titleOrderEl = document.querySelectorAll(
           ".plan__order-summary--box [data-title]"
@@ -116,12 +118,15 @@ export default function planApp() {
 
         if (clickedPreferences.matches(`[data-open="0"]`)) {
           if (title.includes("Capsule")) {
+            // Order summary texts updates
             orderSummaryText.innerHTML = orderSummaryText.innerHTML.replace(
               "as",
               "using"
             );
             updateTextOrderSummary("none");
+
             this.blockGrind("add", "0.5");
+
             this.defaultGrind();
             this.#checkedSelection = true;
             this.#checked = true;
@@ -155,6 +160,7 @@ export default function planApp() {
           .forEach((opt) => opt.classList.remove(activeClass));
       }
 
+      // The "Want us to grind them?" section should be disabled and not able to be opened
       blockGrind(pro, opa) {
         blockGrind.classList[`${pro}`]("block");
 
@@ -207,6 +213,7 @@ export default function planApp() {
 
         let updatePriceModal = this._updatePriceModal;
 
+        // Updating the price in the modal when the user changes options in the "How much would you like?"
         function updatingModalPricePerUnit() {
           const sectionDeliver = document.querySelector('[data-open="4"]');
           const planReplyArr = sectionDeliver.querySelectorAll("[data-option]");
@@ -220,6 +227,7 @@ export default function planApp() {
           });
         }
 
+        // Updating per shipment price (shown in "How often should we deliver?" section at the bottom) based on selected weight
         if (title === "250g") {
           updatePrice(["$7.20", "$9.60", "$12.00"]);
           updatingModalPricePerUnit();
@@ -236,35 +244,29 @@ export default function planApp() {
         }
       }
 
+      // Calculating per month cost for the Order Summary modal
       _updatePriceModal(title) {
         if (!title) return;
 
-        function updatePriceModal(price) {
+        function updatePriceModal(value, index) {
+          const price =
+            +document
+              .querySelector(`[data-price="${index}"]`)
+              .textContent.slice(1, -1) * value;
+
           document.querySelector(
             ".modal__price"
           ).textContent = `$${price.toFixed(2)}/mo`;
         }
 
         if (title.includes("Every week")) {
-          const price =
-            +document
-              .querySelector('[data-price="0"]')
-              .textContent.slice(1, -1) * 4;
-          updatePriceModal(price);
+          updatePriceModal(4, "0");
         }
         if (title.includes("Every 2 weeks")) {
-          const price =
-            +document
-              .querySelector('[data-price="1"]')
-              .textContent.slice(1, -1) * 2;
-          updatePriceModal(price);
+          updatePriceModal(2, "1");
         }
         if (title.includes("Every month")) {
-          const price =
-            +document
-              .querySelector('[data-price="2"]')
-              .textContent.slice(1, -1) * 1;
-          updatePriceModal(price);
+          updatePriceModal(1, "2");
         }
       }
     }
@@ -278,6 +280,7 @@ export default function planApp() {
       overlay.classList.add(activeClass);
       orderModal.innerHTML = orderSummaryText.innerHTML;
 
+      // Update order summary modal
       if (!orderModal.innerText.includes("ground ala")) return;
       orderModal
         .querySelector("[data-modal='modal--complet']")

@@ -145,8 +145,6 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /*setting height value for linear-gradient to work 100%*/
-    // box-sizing: content-box;
     height: rem(196);
     padding-top: rem(86);
     z-index: -1;
@@ -466,7 +464,7 @@
     .works__title {
       @include font-xs;
       color: var(--color-third-text);
-      margin-bottom: rem(82);
+      margin-bottom: rem(95);
 
       @include screen-1070 {
         margin-bottom: rem(59);

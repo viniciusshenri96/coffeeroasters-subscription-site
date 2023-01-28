@@ -22,6 +22,7 @@ export default function animationFunction() {
     heroObserver.observe(heroObs);
   });
 
+  // Animation when scrolling
   const scroll = document.querySelectorAll(".section");
 
   const scrollAnima = function (entries, observer) {
