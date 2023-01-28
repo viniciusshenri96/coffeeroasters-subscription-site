@@ -10,6 +10,6 @@ import darkMode from "./modules/dark-mode.js";
 
 import menuMobile from "./modules/menu-mobile.js";
 planApp();
-// animation();
+animation();
 darkMode();
 menuMobile();
