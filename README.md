@@ -70,7 +70,7 @@ The interactive subscription page has a number of specific behaviours, which are
 
 ## Small demo of the interactive page
 
-<a href="./readme/bg.png" download>DEMO</a>
+<a href="./readme/demo.mp4" download>DEMO</a>
 
 ## Starting the project:
 
