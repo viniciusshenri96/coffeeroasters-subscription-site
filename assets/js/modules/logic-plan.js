@@ -137,6 +137,9 @@ export default function planApp() {
             );
             updateTextOrderSummary("inline");
             this.blockGrind("remove", "1");
+            document
+              .querySelector('[data-open="3"]')
+              .setAttribute("tabindex", "");
 
             if (this.#checkedSelection) {
               document
@@ -174,6 +177,11 @@ export default function planApp() {
         document
           .querySelector('[data-disabled="blockGrind"]')
           .classList[`${pro}`]("block");
+
+        // removing focus from element
+        document
+          .querySelector('[data-open="3"]')
+          .setAttribute("tabindex", "-1");
       }
 
       _activation_button(clickdPreferences) {

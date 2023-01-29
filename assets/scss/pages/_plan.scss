@@ -356,7 +356,6 @@
       gap: rem(56);
       position: relative;
       margin-bottom: rem(88);
-
       animation: show-drop 0.5s ease-in-out;
 
       @include screen-880 {
@@ -405,7 +404,8 @@
           top: 0;
           left: 0;
           width: 100%;
-          height: 100%;
+          // height: 100%;
+          padding-bottom: rem(48);
           z-index: 2;
           opacity: 0.4;
           cursor: no-drop;
@@ -413,6 +413,7 @@
 
           &.block {
             display: block;
+            z-index: 6;
           }
         }
 
