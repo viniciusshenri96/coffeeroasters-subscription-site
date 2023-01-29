@@ -256,7 +256,7 @@ export default function planApp() {
 
           document.querySelector(
             ".modal__price"
-          ).textContent = `$${price.toFixed(2)}/mo`;
+          ).textContent = `$${price.toFixed(2)} / mo`;
         }
 
         if (title.includes("Every week")) {

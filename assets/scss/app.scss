@@ -3,6 +3,8 @@
 @use "core";
 @use "components";
 @use "pages";
+@use "./core/typography" as *;
+@use "./abstracts/functions" as *;
 
 .section {
   transform-origin: top center;
@@ -15,4 +17,33 @@
   transform-origin: top center;
   transform: rotateY(-90deg);
   opacity: 0.25;
+}
+
+.skip-content {
+  @include font-body-m;
+  font-size: rem(24);
+  background-color: var(--color-darkGreyBlue);
+  color: var(--color-primary-text);
+  display: inline-block;
+  position: fixed;
+  left: 0;
+  top: rem(48);
+  padding: rem(20) rem(40);
+  text-decoration: rem(1.6) solid;
+  transform: translateX(-200%);
+  z-index: 800;
+  opacity: 1;
+}
+
+.skip-content:focus,
+.skip-content:focus-visible {
+  outline: rem(4) solid var(--color-darkCyan);
+  outline-offset: rem(4);
+  transform: translate(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .skip-content {
+    transition: transform 0.3s ease, color 200ms ease-in-out;
+  }
 }
