@@ -276,6 +276,10 @@
           line-height: 1;
         }
 
+        &.active {
+          opacity: 1;
+        }
+
         &:nth-child(4).block {
           position: relative;
           [data-disabled="blockGrind"] {
@@ -310,11 +314,15 @@
           cursor: pointer;
           opacity: 0.4;
           transition: 0.4s ease-in-out;
-          color: #000;
+          color: var(--color-darkGreyBlue);
 
           &:hover,
           &:focus {
             opacity: 0.6;
+          }
+
+          &.active {
+            opacity: 1;
           }
 
           .plan__item--number {
