@@ -8,10 +8,36 @@
   padding: rem(15) rem(81) rem(16) rem(81);
   background-color: var(--color-darkCyan);
   border-radius: rem(6);
-  transition: 0.3s;
+  transition: all 0.3s;
+  position: relative;
 
   &:hover {
+    transform: translateY(-3px);
     background-color: #66d2cf;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.2);
+  }
+
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-darkCyan);
+    border-radius: rem(6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.5s;
+  }
+
+  &:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
   }
 }
 
